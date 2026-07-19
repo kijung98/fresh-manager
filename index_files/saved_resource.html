@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784462426-35f7/?__frame_t=1BiUQhecHVrq1GP7MdwEp1Oh.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784466051&__frame_v=manifest.2c2ef77816eb7ea0.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784462426-35f7/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.kVGugkJh.js","self":"self.D3u1zjZe.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.DHzvAjkZ.js"}</script><script>(function(){"use strict";const de="modulepreload",fe=function(e){return"/"+e},pe={},J=function(t,r,u){let o=Promise.resolve();function i(d){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=d,window.dispatchEvent(c),!c.defaultPrevented)throw d}return o.then(d=>{for(const c of d||[])c.status==="rejected"&&i(c.reason);return t().catch(i)})},V=["light","dark","system"];function Y(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Q(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function X(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&V.includes(r)}function Z(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}function D(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let r=null;for(let d=0;d<t.length;d++){const c=t[d];if(c&&c.matches&&c.matches("a[href],area[href]")){r=c;break}}if(!r&&e.target&&e.target.closest&&(r=e.target.closest("a[href],area[href]")),!r)return;const u=r.getAttribute("href");if(!u)return;let o,i;try{o=new URL(u,document.baseURI),i=new URL(document.baseURI).origin}catch{return}(o.protocol==="http:"||o.protocol==="https:")&&o.origin!==i&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:o.href},"*"))}const U={};function T(e){if(window===top)return;const t=Date.now();t-(U[e]||0)<500||(U[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ee=2e3,F=["wheel","touchstart","touchmove","keydown","pointerdown"];let H=0;function te(e){e.isTrusted&&(H=Date.now())}function ne(){addEventListener("click",D,!0),addEventListener("auxclick",D,!0)}function re(){for(let e=0;e<F.length;e++)addEventListener(F[e],te,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-H<ee&&T("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&T("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&T("click")},{capture:!0,passive:!0})}function oe(e,t,r){const u=[...t.values()].filter(o=>o.targets.some(i=>i.startsWith(e+".")));return{wrap(o,i){const d=`${e}.${o}`,c=u.filter(s=>s.targets.includes(d));return c.length===0?(...s)=>{try{return i(...s)}catch(p){return Promise.reject(p)}}:(...s)=>{let p=s;for(const a of c){const l=a.module.parameters;if(l)try{p=l(p)}catch{return Promise.reject({code:"transform_error",id:a.id,scope:e,message:"parameters transform failed"})}}let g;try{g=i(...p)}catch(a){g=Promise.reject(a)}return g.then(a=>{for(let l=c.length-1;l>=0;l--){const m=c[l],f=m.module.returns;if(f)try{a=f(a)}catch{return r({id:m.id,scope:e,leg:"returns"}),a}}return a},a=>{for(let l=c.length-1;l>=0;l--){const m=c[l],f=m.module.throws;if(f)try{a=f(a)}catch{return r({id:m.id,scope:e,leg:"throws"}),Promise.reject(a)}}return Promise.reject(a)})}}}}function se(e,t,r,u=()=>{}){const o=new Set(e.changes??[]),i=new Map;for(const d of o){const c=t[d];c&&i.set(d,c)}return{contract:e.contract,changes:o,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:i,shellOrigin:r.shellOrigin,mount:r.mount,pipe:d=>oe(d,i,u)}}(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let u=0;for(let o=0;o<r.length;o++){const i=r[o];try{e(t,i,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[i]}catch{}try{e(t,i,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[i]=="function"&&u++}if(u&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:u},"*")}catch{}})();const ie=1e4,ae=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function ce(e){for(const t of ae)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const j=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),k=window.__FRAME_PREAMBLE?.transforms,C=window.__FRAME_PREAMBLE?.comments,N=window.__FRAME_PREAMBLE?.translate,O=/^[\w.-]+\.js$/,le=/^[a-z][a-z0-9_-]{0,63}$/;let W=null,P=null;function I(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let $=!1;function x(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,$=!0):$&&(delete t.dataset.theme,t.style.colorScheme="",$=!1)}const M={mcp:{watchTool:{handlerArg:3}}},S=new Map;function ue(e,t){const r=S.get(e);if(!r)return;Object.assign(r.impl,t),r.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const u=r.queue;r.queue=[];for(const o of u){const i=t[o.method];if(i)if(M[e]?.[o.method])try{o.resolve(i(...o.args))}catch{A(o,M[e][o.method].handlerArg,{code:"transform_error",message:`${e}.${o.method} rejected its arguments`})}else i(...o.args).then(o.resolve,o.reject);else{const d={code:"capability_removed",message:`${e}.${o.method} is not in this runtime`},c=M[e]?.[o.method];if(c){A(o,c.handlerArg,d);continue}o.reject(d)}}}function q(e,t){const r=S.get(e);if(!r)return;r.impl.__settled=()=>Promise.reject(t);const u=r.queue;r.queue=[];for(const o of u){const i=M[e]?.[o.method];if(i){A(o,i.handlerArg,t);continue}o.reject(t)}}function A(e,t,r){if(e.syncState?.dead)return;const u=e.args[t];typeof u=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{u({type:"error",error:r})}catch(o){Z(o)}})}const z=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(z&&z.writable===!1)){ne(),re();const e=z?.value??{};I(window,"claude",e);const t=s=>{const p={impl:Object.create(null),queue:[]};S.set(s,p);const g=new Proxy(p.impl,{get:(a,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;const m=M[s]?.[l];return m?(...f)=>{if(typeof f[m.handlerArg]!="function")throw new TypeError(`${s}.${l} requires a handler function`);const b=a[l];if(b)return b(...f);if(a.__settled){const w={dead:!1},v={args:[...f],syncState:w};return a.__settled().catch(R=>A(v,m.handlerArg,R)),()=>{w.dead=!0}}let h=null;const _={dead:!1};return p.queue.push({method:l,args:f,resolve:w=>{h=typeof w=="function"?w:null,_.dead&&h?.()},reject:()=>{},syncState:_}),()=>{_.dead=!0,h?.()}}:(...f)=>{const b=a[l]??a.__settled;return b?b(...f):new Promise((h,_)=>{p.queue.push({method:l,args:f,resolve:h,reject:_})})}},set:()=>!1});I(e,s,g)};for(const s of Object.keys(j)){if(e[s]!==void 0){I(e,s,e[s]);continue}t(s)}let r=null,u=null,o=0;const i=s=>{s.source!==parent||!ce(s.origin)||Y(s.data)&&(r=s.data.__frame_init,P=s.origin,removeEventListener("message",i),clearTimeout(o),u?.())};addEventListener("message",i),parent.postMessage({__frame_connect:!0},"*");const d=new Promise(s=>{u=s,o=setTimeout(()=>{removeEventListener("message",i),s()},ie)}),c=document.readyState==="loading"?new Promise(s=>document.addEventListener("DOMContentLoaded",()=>s(),{once:!0})):Promise.resolve();d.then(async()=>{if(!r||!P){for(const n of S.keys())q(n,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}x(r.theme);const s=P;let p=!1,g=!1;addEventListener("message",n=>{if(n.source!==parent||n.origin!==s)return;X(n.data)&&x(n.data.__frame_theme.theme);const y=n.data?.__fc_mode;y&&typeof y=="object"&&!p&&C&&O.test(C)&&(p=!0,a(C).then(B=>B.install?.(s,y.on===!0)).catch(()=>{}));const E=n.data?.__ft_cmd;E&&typeof E=="object"&&!g&&N&&O.test(N)&&(g=!0,a(N).then(B=>B.install?.(s,E)).catch(()=>{}))});const a=n=>J(()=>import("/_runtime/"+n),void 0),l=Object.keys(r.capabilities??{});for(const n of l)Object.hasOwn(j,n)||le.test(n)&&e[n]===void 0&&(t(n),q(n,{code:"capability_disabled",message:"capability not in this runtime generation"}));const m=l.filter(n=>Object.hasOwn(j,n)).map(n=>[n,j[n]]).filter(n=>typeof n[1]=="string"&&O.test(n[1])),[f,...b]=await Promise.allSettled([k&&O.test(k)?a(k):Promise.resolve({}),...m.map(([,n])=>a(n))]),h=P;W=se(r,f.status==="fulfilled"&&f.value?.TRANSFORMS||{},{shellOrigin:h,mount:ue},n=>parent.postMessage({__frame_cap_telemetry:n},h));const _=n=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:n}},h),w=W;b.forEach((n,y)=>{const E=m[y][0];if(n.status!=="fulfilled"){_(E);return}try{n.value?.install?.(w)}catch{_(E)}});for(const[n,y]of S)y.queue.length===0&&Object.keys(y.impl).length>0||q(n,{code:l.includes(n)?"capability_disabled":"not_granted",message:"capability not available in this session"});await c,parent.postMessage({__frame_ready:!0},P);let v=-1,R=0;const K=()=>{R=0;const n=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);n!==v&&(v=n,parent.postMessage({__frame_size:!0,h:n},h))},L=()=>{R||(R=setTimeout(K,200))},G=new ResizeObserver(L);G.observe(document.documentElement),document.body&&G.observe(document.body),document.addEventListener("load",L,!0),document.fonts?.ready.then(L,()=>{}),addEventListener("beforeprint",()=>{v=-1,K()}),L(),addEventListener("message",n=>{n.source!==parent||n.origin!==h||Q(n.data)&&(v=-1,L())})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>과일·야채 재고관리</title>
+<style>
+  :root {
+    --paper: #f6f7f1;
+    --paper-raise: #ffffff;
+    --ink: #1f2b20;
+    --ink-soft: #56634f;
+    --ink-faint: #8b9382;
+    --line: #dde1d3;
+    --line-strong: #c7cdb8;
+    --brand: #2f7a4d;
+    --brand-ink: #1f5c37;
+    --brand-soft: #e3efe2;
+    --danger: #b23b3b;
+    --danger-soft: #f6e5e2;
+    --price: #a8681f;
+    --price-soft: #f3e6d2;
+    --radius: 12px;
+    --shadow: 0 1px 2px rgba(31, 43, 32, 0.06), 0 6px 20px -10px rgba(31, 43, 32, 0.2);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14170f;
+      --paper-raise: #1b1f16;
+      --ink: #eaeee2;
+      --ink-soft: #aab29c;
+      --ink-faint: #75806a;
+      --line: #2b3123;
+      --line-strong: #3a4230;
+      --brand: #6fbf8a;
+      --brand-ink: #8fd1a6;
+      --brand-soft: #1c3020;
+      --danger: #e08585;
+      --danger-soft: #35201f;
+      --price: #e0a355;
+      --price-soft: #362c1c;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px -10px rgba(0, 0, 0, 0.55);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14170f; --paper-raise: #1b1f16; --ink: #eaeee2; --ink-soft: #aab29c; --ink-faint: #75806a;
+    --line: #2b3123; --line-strong: #3a4230; --brand: #6fbf8a; --brand-ink: #8fd1a6; --brand-soft: #1c3020;
+    --danger: #e08585; --danger-soft: #35201f; --price: #e0a355; --price-soft: #362c1c;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px -10px rgba(0, 0, 0, 0.55);
+  }
+  :root[data-theme="light"] {
+    --paper: #f6f7f1; --paper-raise: #ffffff; --ink: #1f2b20; --ink-soft: #56634f; --ink-faint: #8b9382;
+    --line: #dde1d3; --line-strong: #c7cdb8; --brand: #2f7a4d; --brand-ink: #1f5c37; --brand-soft: #e3efe2;
+    --danger: #b23b3b; --danger-soft: #f6e5e2; --price: #a8681f; --price-soft: #f3e6d2;
+    --shadow: 0 1px 2px rgba(31, 43, 32, 0.06), 0 6px 20px -10px rgba(31, 43, 32, 0.2);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "Segoe UI", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  button, input, select, textarea { font-family: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    padding: 0 0 96px;
+    position: relative;
+  }
+
+  .appbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 18px 14px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .appbar-title h1 { font-size: 19px; font-weight: 800; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .date-picker-row { display: flex; align-items: center; gap: 8px; }
+  .date-picker-label { font-size: 11.5px; font-weight: 700; color: var(--ink-faint); }
+  .date-input {
+    font-size: 12.5px; font-weight: 700; color: var(--brand-ink);
+    background: var(--brand-soft); border: 1px solid transparent; border-radius: 999px;
+    padding: 5px 10px; font-variant-numeric: tabular-nums;
+  }
+  .icon-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 38px; height: 38px; border-radius: 999px; flex: none;
+    border: 1px solid var(--line-strong); background: var(--paper-raise); color: var(--ink);
+  }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .icon-btn.sm { width: 30px; height: 30px; border-color: var(--line); }
+  .icon-btn.sm svg { width: 15px; height: 15px; }
+  .icon-btn.danger { color: var(--danger); }
+
+  .sales-summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 16px 18px 0; }
+  .sales-card {
+    border-radius: var(--radius); padding: 14px 14px; box-shadow: var(--shadow);
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .sales-card.revenue { background: var(--price-soft); }
+  .sales-card.profit { background: var(--brand-soft); }
+  .sales-label { font-size: 12px; font-weight: 700; color: var(--ink-soft); }
+  .sales-value { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .sales-card.revenue .sales-value { color: var(--price); }
+  .sales-card.profit .sales-value { color: var(--brand-ink); }
+  .sales-hint { font-size: 11.5px; color: var(--ink-faint); margin: 8px 18px 0; }
+
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 14px 18px 4px;
+  }
+  .stat {
+    background: var(--paper-raise);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px 10px;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  .stat-value { display: block; font-size: 21px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .stat-label { display: block; font-size: 11.5px; color: var(--ink-soft); margin-top: 2px; }
+  .stat-danger .stat-value { color: var(--danger); }
+  .stat-price .stat-value { color: var(--price); }
+
+  .controls { padding: 14px 18px 6px; display: flex; flex-direction: column; gap: 10px; }
+  .search {
+    width: 100%; padding: 10px 14px; border-radius: 10px;
+    border: 1px solid var(--line-strong); background: var(--paper-raise); color: var(--ink); font-size: 14.5px;
+  }
+  .search::placeholder { color: var(--ink-faint); }
+  .segmented {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    background: var(--line); padding: 4px; border-radius: 10px;
+  }
+  .seg-btn {
+    border: none; background: transparent; color: var(--ink-soft);
+    font-size: 13px; font-weight: 600; padding: 8px 4px; border-radius: 7px;
+  }
+  .seg-btn.active { background: var(--paper-raise); color: var(--brand-ink); box-shadow: var(--shadow); }
+
+  .list { padding: 10px 18px 4px; display: flex; flex-direction: column; gap: 10px; }
+  .group-label {
+    display: flex; align-items: baseline; gap: 6px;
+    font-size: 12.5px; font-weight: 700; color: var(--ink-faint);
+    letter-spacing: 0.03em; margin: 10px 2px 0;
+  }
+  .group-count { font-variant-numeric: tabular-nums; }
+  .empty {
+    text-align: center; color: var(--ink-faint); font-size: 14px; padding: 60px 20px;
+  }
+
+  .card {
+    background: var(--paper-raise);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 14px 12px;
+    box-shadow: var(--shadow);
+  }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+  .card-id { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px; min-width: 0; }
+  .card-code { font-size: 11.5px; font-weight: 700; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .card-name { font-size: 15.5px; font-weight: 700; }
+  .card-variety { font-size: 12.5px; color: var(--ink-soft); }
+  .chip { flex: none; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 999px; }
+  .chip.good { background: var(--brand-soft); color: var(--brand-ink); }
+  .chip.danger { background: var(--danger-soft); color: var(--danger); }
+
+  .card-price { font-size: 13px; color: var(--ink-soft); margin-top: 6px; font-variant-numeric: tabular-nums; }
+  .card-price b { color: var(--price); font-weight: 700; }
+  .card-price.muted { color: var(--ink-faint); font-style: italic; }
+
+  .card-bottom {
+    display: flex; align-items: center; gap: 10px; margin-top: 12px; position: relative;
+  }
+  .stepper {
+    display: flex; align-items: center; gap: 10px;
+    border: 1px solid var(--line-strong); border-radius: 999px; padding: 4px 6px;
+  }
+  .stepper-btn {
+    width: 26px; height: 26px; border-radius: 999px; border: none;
+    background: var(--paper); color: var(--ink); font-size: 16px; font-weight: 700; line-height: 1;
+  }
+  .stepper-value { font-size: 14px; font-weight: 700; font-variant-numeric: tabular-nums; min-width: 44px; text-align: center; }
+  .stepper-value small { font-weight: 500; color: var(--ink-soft); margin-left: 2px; }
+  .card-target { font-size: 12.5px; color: var(--ink-faint); flex: 1; }
+  .card-actions { display: flex; align-items: center; gap: 6px; }
+
+  .confirm-row {
+    display: none;
+    position: absolute; inset: 0;
+    align-items: center; justify-content: flex-end; gap: 10px;
+    background: var(--paper-raise);
+    font-size: 13.5px;
+  }
+  .card.confirming .confirm-row { display: flex; }
+  .card.confirming .card-bottom > *:not(.confirm-row) { visibility: hidden; }
+  .btn-text { border: none; background: transparent; font-size: 13.5px; font-weight: 700; padding: 6px 8px; color: var(--ink-soft); }
+  .btn-text.danger { color: var(--danger); }
+
+  .sold-row {
+    display: flex; align-items: center; gap: 8px; margin-top: 10px; padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+  .sold-row label { font-size: 12.5px; font-weight: 700; color: var(--price); flex: 1; }
+  .sold-input {
+    width: 64px; padding: 6px 8px; border-radius: 7px; border: 1px solid var(--line-strong);
+    background: var(--paper); color: var(--ink); font-size: 13.5px; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .sold-input::placeholder { color: var(--ink-faint); }
+  .sold-unit { font-size: 12px; color: var(--ink-faint); width: 32px; }
+
+  .fab {
+    position: fixed; right: 24px; bottom: 28px; z-index: 6;
+    width: 56px; height: 56px; border-radius: 999px; border: none;
+    background: var(--brand); color: #fff; box-shadow: var(--shadow);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .fab svg { width: 24px; height: 24px; }
+
+  .overlay {
+    position: fixed; inset: 0; z-index: 10;
+    background: rgba(15, 20, 12, 0.4);
+    display: flex; align-items: flex-end; justify-content: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.15s ease;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+  .sheet {
+    width: 100%; max-width: 480px; max-height: 88vh;
+    background: var(--paper); border-radius: 18px 18px 0 0;
+    box-shadow: var(--shadow);
+    display: flex; flex-direction: column;
+    transform: translateY(12px);
+    transition: transform 0.15s ease;
+  }
+  .overlay.open .sheet { transform: translateY(0); }
+  .sheet-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-bottom: 1px solid var(--line);
+  }
+  .sheet-head h2 { font-size: 15.5px; font-weight: 800; margin: 0; }
+  .sheet-body { padding: 12px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+  .sheet-actions { display: flex; gap: 10px; padding: 10px 16px 14px; border-top: 1px solid var(--line); }
+  .sheet-actions-3 { flex-wrap: wrap; }
+
+  .field-row { display: flex; flex-direction: column; gap: 3px; }
+  .field-row label { font-size: 11px; font-weight: 700; color: var(--ink-soft); }
+  .field-row input, .field-row select {
+    padding: 7px 9px; border-radius: 8px; border: 1px solid var(--line-strong);
+    background: var(--paper-raise); color: var(--ink); font-size: 13.5px;
+  }
+  .field-row input[readonly] { color: var(--ink-faint); background: var(--line); }
+  .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  .field-divider {
+    margin-top: 2px; font-size: 12.5px; font-weight: 700; color: var(--price);
+    display: flex; align-items: baseline; gap: 6px;
+  }
+  .field-divider-sub { font-size: 11px; font-weight: 500; color: var(--ink-faint); }
+  .price-preview {
+    font-size: 12.5px; color: var(--ink-faint); background: var(--paper-raise);
+    border: 1px dashed var(--line-strong); border-radius: 8px; padding: 7px 10px;
+  }
+  .price-preview.active { color: var(--ink); background: var(--price-soft); border-style: solid; border-color: transparent; }
+  .price-preview b { color: var(--price); }
+
+  .btn {
+    flex: 1; padding: 11px 14px; border-radius: 10px; border: 1px solid transparent;
+    font-size: 14.5px; font-weight: 700;
+  }
+  .btn-primary { background: var(--brand); color: #fff; }
+  .btn-ghost { background: var(--paper-raise); color: var(--ink); border-color: var(--line-strong); }
+
+  .export-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--line); padding: 4px; border-radius: 10px; }
+  .export-toggle .seg-btn { padding: 9px 4px; }
+  .export-preview {
+    width: 100%; min-height: 220px; resize: vertical;
+    padding: 12px; border-radius: 9px; border: 1px solid var(--line-strong);
+    background: var(--paper-raise); color: var(--ink); font-size: 13px; line-height: 1.6;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+
+  .toast {
+    position: fixed; left: 50%; bottom: 28px; transform: translate(-50%, 12px);
+    background: var(--ink); color: var(--paper);
+    padding: 10px 18px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
+    opacity: 0; pointer-events: none; transition: all 0.18s ease; z-index: 20;
+    max-width: 88%; text-align: center;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+</style>
+
+<div class="app">
+  <header class="appbar">
+    <div class="appbar-title">
+      <h1>과일·야채 재고관리</h1>
+      <div class="date-picker-row">
+        <label class="date-picker-label" for="dateInput">매출 기준일</label>
+        <input type="date" id="dateInput" class="date-input">
+      </div>
+    </div>
+    <button class="icon-btn" id="btnExport" aria-label="내보내기">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v7a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-7"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+    </button>
+  </header>
+
+  <section class="sales-summary">
+    <div class="sales-card revenue">
+      <span class="sales-label">오늘의 총매출</span>
+      <span class="sales-value" id="statRevenue">207,447원</span>
+    </div>
+    <div class="sales-card profit">
+      <span class="sales-label">오늘의 예상 순이익</span>
+      <span class="sales-value" id="statProfit">57,447원</span>
+    </div>
+  </section>
+  <p class="sales-hint">가격 정보가 입력된 상품만 매출·순이익 계산에 반영돼요. 각 상품 카드 아래 "오늘 판매" 칸에 판매 수량을 입력하세요.</p>
+
+  <section class="summary">
+    <div class="stat"><span class="stat-value" id="statTotal">38</span><span class="stat-label">전체 상품</span></div>
+    <div class="stat stat-danger"><span class="stat-value" id="statLow">26</span><span class="stat-label">재고 부족</span></div>
+    <div class="stat stat-price"><span class="stat-value" id="statPriced">2</span><span class="stat-label">가격 입력됨</span></div>
+  </section>
+
+  <section class="controls">
+    <input type="search" id="searchInput" class="search" placeholder="상품명·품종 검색">
+    <div class="segmented" id="filterSeg">
+      <button data-filter="all" class="seg-btn">전체</button>
+      <button data-filter="과일" class="seg-btn active">과일</button>
+      <button data-filter="야채" class="seg-btn">야채</button>
+      <button data-filter="low" class="seg-btn">부족만</button>
+    </div>
+  </section>
+
+  <main class="list" id="list"><div class="group-label">과일 <span class="group-count">18</span></div><div class="card" data-id="s0"><div class="card-top"><div class="card-id"><span class="card-code">F001</span><span class="card-name">사과</span><span class="card-variety">부사</span></div><span class="chip good">충분</span></div><div class="card-price">원가 50,000원 · <b>판매가 69,149원</b></div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">10<small>박스</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 3박스</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s0">오늘 판매</label><input type="number" id="sold-s0" class="sold-input" data-id="s0" min="0" step="1" inputmode="decimal" placeholder="0" value="3"><span class="sold-unit">박스</span></div></div><div class="card" data-id="s1"><div class="card-top"><div class="card-id"><span class="card-code">F002</span><span class="card-name">사과</span><span class="card-variety">홍로</span></div><span class="chip good">충분</span></div><div class="card-price">원가 2,500원 · <b>판매가 3,421원</b></div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">8<small>kg</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5kg</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s1">오늘 판매</label><input type="number" id="sold-s1" class="sold-input" data-id="s1" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">kg</span></div></div><div class="card" data-id="s2"><div class="card-top"><div class="card-id"><span class="card-code">F003</span><span class="card-name">사과</span><span class="card-variety">아오리</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">3<small>kg</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5kg</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s2">오늘 판매</label><input type="number" id="sold-s2" class="sold-input" data-id="s2" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">kg</span></div></div><div class="card" data-id="s3"><div class="card-top"><div class="card-id"><span class="card-code">F004</span><span class="card-name">바나나</span><span class="card-variety">캐번디시</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">1<small>송이</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5송이</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s3">오늘 판매</label><input type="number" id="sold-s3" class="sold-input" data-id="s3" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">송이</span></div></div><div class="card" data-id="s4"><div class="card-top"><div class="card-id"><span class="card-code">F005</span><span class="card-name">바나나</span><span class="card-variety">몽키바나나</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">4<small>송이</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 3송이</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s4">오늘 판매</label><input type="number" id="sold-s4" class="sold-input" data-id="s4" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">송이</span></div></div><div class="card" data-id="s5"><div class="card-top"><div class="card-id"><span class="card-code">F006</span><span class="card-name">딸기</span><span class="card-variety">설향</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">3<small>팩</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5팩</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s5">오늘 판매</label><input type="number" id="sold-s5" class="sold-input" data-id="s5" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">팩</span></div></div><div class="card" data-id="s6"><div class="card-top"><div class="card-id"><span class="card-code">F007</span><span class="card-name">딸기</span><span class="card-variety">금실</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">2<small>팩</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 4팩</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s6">오늘 판매</label><input type="number" id="sold-s6" class="sold-input" data-id="s6" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">팩</span></div></div><div class="card" data-id="s7"><div class="card-top"><div class="card-id"><span class="card-code">F008</span><span class="card-name">포도</span><span class="card-variety">칠보</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">8<small>송이</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5송이</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s7">오늘 판매</label><input type="number" id="sold-s7" class="sold-input" data-id="s7" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">송이</span></div></div><div class="card" data-id="s8"><div class="card-top"><div class="card-id"><span class="card-code">F009</span><span class="card-name">포도</span><span class="card-variety">샤인머스켓</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">5<small>송이</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 6송이</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s8">오늘 판매</label><input type="number" id="sold-s8" class="sold-input" data-id="s8" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">송이</span></div></div><div class="card" data-id="s9"><div class="card-top"><div class="card-id"><span class="card-code">F010</span><span class="card-name">복숭아</span><span class="card-variety">백도</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">10<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 8개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s9">오늘 판매</label><input type="number" id="sold-s9" class="sold-input" data-id="s9" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div><div class="card" data-id="s10"><div class="card-top"><div class="card-id"><span class="card-code">F011</span><span class="card-name">복숭아</span><span class="card-variety">황도</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">6<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 7개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s10">오늘 판매</label><input type="number" id="sold-s10" class="sold-input" data-id="s10" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div><div class="card" data-id="s11"><div class="card-top"><div class="card-id"><span class="card-code">F012</span><span class="card-name">수박</span><span class="card-variety">일반수박</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">2<small>통</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 4통</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s11">오늘 판매</label><input type="number" id="sold-s11" class="sold-input" data-id="s11" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">통</span></div></div><div class="card" data-id="s12"><div class="card-top"><div class="card-id"><span class="card-code">F013</span><span class="card-name">수박</span><span class="card-variety">애플수박</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">3<small>통</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 3통</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s12">오늘 판매</label><input type="number" id="sold-s12" class="sold-input" data-id="s12" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">통</span></div></div><div class="card" data-id="s13"><div class="card-top"><div class="card-id"><span class="card-code">F014</span><span class="card-name">참외</span><span class="card-variety">성환참외</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">12<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 10개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s13">오늘 판매</label><input type="number" id="sold-s13" class="sold-input" data-id="s13" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div><div class="card" data-id="s14"><div class="card-top"><div class="card-id"><span class="card-code">F015</span><span class="card-name">배</span><span class="card-variety">신고</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">4<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 6개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s14">오늘 판매</label><input type="number" id="sold-s14" class="sold-input" data-id="s14" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div><div class="card" data-id="s15"><div class="card-top"><div class="card-id"><span class="card-code">F016</span><span class="card-name">배</span><span class="card-variety">원황</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">5<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s15">오늘 판매</label><input type="number" id="sold-s15" class="sold-input" data-id="s15" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div><div class="card" data-id="s16"><div class="card-top"><div class="card-id"><span class="card-code">F017</span><span class="card-name">귤</span><span class="card-variety">감귤</span></div><span class="chip good">충분</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">7<small>kg</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5kg</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s16">오늘 판매</label><input type="number" id="sold-s16" class="sold-input" data-id="s16" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">kg</span></div></div><div class="card" data-id="s17"><div class="card-top"><div class="card-id"><span class="card-code">F018</span><span class="card-name">귤</span><span class="card-variety">한라봉</span></div><span class="chip danger">부족</span></div><div class="card-price muted">가격 미입력</div><div class="card-bottom"><div class="stepper"><button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button><span class="stepper-value">3<small>개</small></span><button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button></div><div class="card-target">적정 5개</div><div class="card-actions"><button class="icon-btn sm" data-act="edit" aria-label="수정"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></button><button class="icon-btn sm danger" data-act="delete" aria-label="삭제"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg></button></div><div class="confirm-row"><span>삭제할까요?</span><button class="btn-text" data-act="delete-cancel">취소</button><button class="btn-text danger" data-act="delete-confirm">삭제</button></div></div><div class="sold-row"><label for="sold-s17">오늘 판매</label><input type="number" id="sold-s17" class="sold-input" data-id="s17" min="0" step="1" inputmode="decimal" placeholder="0" value=""><span class="sold-unit">개</span></div></div></main>
+
+  <button class="fab" id="btnAdd" aria-label="상품 추가">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+  </button>
+</div>
+
+<div class="overlay" id="editOverlay">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheet-head">
+      <h2 id="editTitle">상품 수정</h2>
+      <button class="icon-btn" id="editClose" aria-label="닫기">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="field-grid-2">
+        <div class="field-row">
+          <label>분류</label>
+          <select id="fCategory"><option value="과일">과일</option><option value="야채">야채</option></select>
+        </div>
+        <div class="field-row">
+          <label>상품 코드</label>
+          <input id="fCode" readonly="">
+        </div>
+        <div class="field-row">
+          <label>상품명</label>
+          <input id="fName" placeholder="예: 사과">
+        </div>
+        <div class="field-row">
+          <label>품종</label>
+          <input id="fVariety" placeholder="예: 부사">
+        </div>
+        <div class="field-row">
+          <label>단위</label>
+          <input id="fUnit" placeholder="예: kg, 박스, 봉지">
+        </div>
+        <div class="field-row"><label>현재 재고량</label><input id="fCurrent" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="field-row"><label>적정 재고량</label><input id="fTarget" type="number" min="0" step="1" inputmode="decimal"></div>
+        <div class="field-row" aria-hidden="true"></div>
+      </div>
+
+      <div class="field-divider">가격 정보 <span class="field-divider-sub">선택 입력 — 채우면 자동 계산돼요</span></div>
+      <div class="field-grid-2">
+        <div class="field-row"><label>박스당 도매가 (원)</label><input id="fCostBox" type="number" min="0" step="100" inputmode="decimal"></div>
+        <div class="field-row"><label>박스당 수량</label><input id="fBoxQty" type="number" min="0" step="1" inputmode="decimal"></div>
+      </div>
+      <div class="field-grid-2">
+        <div class="field-row"><label>마진율 (%)</label><input id="fMargin" type="number" min="0" max="500" step="1" inputmode="decimal"></div>
+        <div class="field-row"><label>예상 폐기율 (%)</label><input id="fWaste" type="number" min="0" max="90" step="1" inputmode="decimal"></div>
+      </div>
+      <div class="price-preview" id="pricePreview">가격 정보를 입력하면 여기에 원가·판매가가 표시돼요.</div>
+    </div>
+    <div class="sheet-actions">
+      <button class="btn btn-ghost" id="editCancel">취소</button>
+      <button class="btn btn-primary" id="editSave">저장</button>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="exportOverlay">
+  <div class="sheet" role="dialog" aria-modal="true">
+    <div class="sheet-head">
+      <h2>내보내기</h2>
+      <button class="icon-btn" id="exportClose" aria-label="닫기">✕</button>
+    </div>
+    <div class="sheet-body">
+      <div class="export-toggle" id="exportToggle">
+        <button data-scope="low" class="seg-btn active">부족한 상품만</button>
+        <button data-scope="all" class="seg-btn">전체 목록</button>
+      </div>
+      <textarea id="exportPreview" class="export-preview" readonly=""></textarea>
+    </div>
+    <div class="sheet-actions sheet-actions-3">
+      <button class="btn btn-ghost" id="btnCsv">CSV 다운로드</button>
+      <button class="btn btn-ghost" id="btnCopy">복사하기</button>
+      <button class="btn btn-primary" id="btnShare">공유하기</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">저장했어요</div>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'fv_inventory_v1';
+  var ICON_EDIT = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg>';
+  var ICON_TRASH = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path></svg>';
+
+  var SEED = [
+    ['F001','과일','사과','부사','kg',15,10],
+    ['F002','과일','사과','홍로','kg',6,10],
+    ['F003','과일','바나나','필리핀산','송이',18,12],
+    ['F004','과일','바나나','에콰도르산','송이',4,12],
+    ['F005','과일','딸기','설향','팩',20,15],
+    ['F006','과일','딸기','죽향','팩',5,15],
+    ['F007','과일','포도','샤인머스켓','kg',10,8],
+    ['F008','과일','포도','캠벨','kg',3,8],
+    ['F009','과일','복숭아','백도','kg',12,10],
+    ['F010','과일','복숭아','황도','kg',9,10],
+    ['F011','과일','수박','씨없는수박','통',7,6],
+    ['F012','과일','수박','애플수박','통',2,6],
+    ['F013','과일','참외','성주참외','kg',14,10],
+    ['F014','과일','참외','노지참외','kg',8,10],
+    ['F015','과일','배','신고배','kg',16,12],
+    ['F016','과일','배','원황배','kg',5,12],
+    ['F017','과일','귤','감귤','kg',22,15],
+    ['F018','과일','귤','한라봉','kg',6,15],
+    ['V001','야채','대파','대파','단',18,15],
+    ['V002','야채','대파','쪽파','단',6,15],
+    ['V003','야채','상추','적상추','봉지',10,12],
+    ['V004','야채','상추','청상추','봉지',3,12],
+    ['V005','야채','양파','양파','kg',25,20],
+    ['V006','야채','양파','햇양파','kg',7,20],
+    ['V007','야채','당근','당근','kg',14,12],
+    ['V008','야채','당근','미니당근','kg',4,12],
+    ['V009','야채','감자','수미감자','kg',20,18],
+    ['V010','야채','감자','홍감자','kg',5,18],
+    ['V011','야채','고구마','꿀고구마','kg',16,14],
+    ['V012','야채','고구마','밤고구마','kg',6,14],
+    ['V013','야채','오이','오이','kg',12,10],
+    ['V014','야채','오이','백오이','kg',3,10],
+    ['V015','야채','토마토','토마토','kg',15,12],
+    ['V016','야채','토마토','방울토마토','팩',9,12],
+    ['V017','야채','시금치','시금치','봉지',8,10],
+    ['V018','야채','시금치','포항초','봉지',2,10],
+    ['V019','야채','배추','배추','포기',10,8],
+    ['V020','야채','배추','알배추','포기',2,8]
+  ].map(function (r) {
+    return {
+      id: 'p' + r[0], code: r[0], category: r[1], name: r[2], variety: r[3], unit: r[4],
+      current: r[5], target: r[6],
+      costBox: 0, boxQty: 0, marginRate: 30, wasteRate: 0
+    };
+  });
+
+  function todayStr() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  var state = { items: [], salesByDate: {}, filter: 'all', search: '', editingId: null, exportScope: 'low', selectedDate: todayStr() };
+
+  function backfillItem(it) {
+    return Object.assign({ costBox: 0, boxQty: 0, marginRate: 30, wasteRate: 0 }, it);
+  }
+  function load() {
+    var raw = null;
+    try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    state.items = SEED;
+    state.salesByDate = {};
+    if (!raw) return;
+    try {
+      var parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length) {
+        state.items = parsed.map(backfillItem);
+      } else if (parsed && typeof parsed === 'object') {
+        if (Array.isArray(parsed.items) && parsed.items.length) state.items = parsed.items.map(backfillItem);
+        if (parsed.salesByDate && typeof parsed.salesByDate === 'object') state.salesByDate = parsed.salesByDate;
+      }
+    } catch (e) {}
+  }
+  function save() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ items: state.items, salesByDate: state.salesByDate })); } catch (e) {}
+  }
+
+  function isLow(it) { return it.current < it.target; }
+  function hasPricing(it) { return (it.boxQty > 0) && (it.costBox > 0); }
+  function unitCost(it) { return hasPricing(it) ? it.costBox / it.boxQty : 0; }
+  function sellPrice(it) {
+    if (!hasPricing(it)) return 0;
+    var margin = Math.max(it.marginRate || 0, 0) / 100;
+    var waste = Math.min(Math.max(it.wasteRate || 0, 0), 90) / 100;
+    return unitCost(it) * (1 + margin) / (1 - waste);
+  }
+  function formatWon(n) { return Math.round(n).toLocaleString('ko-KR') + '원'; }
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function uid() { return 'p' + Date.now() + Math.floor(Math.random() * 1000); }
+  function nextCode(category) {
+    var prefix = category === '과일' ? 'F' : 'V';
+    var nums = state.items
+      .filter(function (i) { return i.category === category; })
+      .map(function (i) { return parseInt((i.code || '').slice(1), 10); })
+      .filter(function (n) { return !isNaN(n); });
+    var n = (nums.length ? Math.max.apply(null, nums) : 0) + 1;
+    return prefix + String(n).padStart(3, '0');
+  }
+
+  var els = {};
+  ['dateInput','btnExport','statRevenue','statProfit','statTotal','statLow','statPriced','searchInput','filterSeg','list','btnAdd',
+   'editOverlay','editTitle','editClose','fCategory','fCode','fName','fVariety','fUnit','fCurrent','fTarget',
+   'fCostBox','fBoxQty','fMargin','fWaste','pricePreview','editCancel','editSave',
+   'exportOverlay','exportClose','exportToggle','exportPreview','btnCsv','btnCopy','btnShare','toast'
+  ].forEach(function (id) { els[id] = document.getElementById(id); });
+
+  function getFiltered() {
+    var q = state.search.trim().toLowerCase();
+    return state.items.filter(function (it) {
+      if (state.filter === '과일' && it.category !== '과일') return false;
+      if (state.filter === '야채' && it.category !== '야채') return false;
+      if (state.filter === 'low' && !isLow(it)) return false;
+      if (q) {
+        var hay = (it.name + ' ' + (it.variety || '')).toLowerCase();
+        if (hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function soldQtyOf(id) {
+    var day = state.salesByDate[state.selectedDate];
+    return (day && day[id]) ? day[id] : '';
+  }
+
+  function renderCard(it) {
+    var priceLine = hasPricing(it)
+      ? '<div class="card-price">원가 ' + formatWon(unitCost(it)) + ' · <b>판매가 ' + formatWon(sellPrice(it)) + '</b></div>'
+      : '<div class="card-price muted">가격 미입력</div>';
+    return (
+      '<div class="card" data-id="' + it.id + '">' +
+        '<div class="card-top">' +
+          '<div class="card-id">' +
+            '<span class="card-code">' + escapeHtml(it.code) + '</span>' +
+            '<span class="card-name">' + escapeHtml(it.name) + '</span>' +
+            (it.variety ? '<span class="card-variety">' + escapeHtml(it.variety) + '</span>' : '') +
+          '</div>' +
+          '<span class="chip ' + (isLow(it) ? 'danger' : 'good') + '">' + (isLow(it) ? '부족' : '충분') + '</span>' +
+        '</div>' +
+        priceLine +
+        '<div class="card-bottom">' +
+          '<div class="stepper">' +
+            '<button class="stepper-btn" data-act="dec" aria-label="재고 감소">−</button>' +
+            '<span class="stepper-value">' + it.current + '<small>' + escapeHtml(it.unit) + '</small></span>' +
+            '<button class="stepper-btn" data-act="inc" aria-label="재고 증가">+</button>' +
+          '</div>' +
+          '<div class="card-target">적정 ' + it.target + escapeHtml(it.unit) + '</div>' +
+          '<div class="card-actions">' +
+            '<button class="icon-btn sm" data-act="edit" aria-label="수정">' + ICON_EDIT + '</button>' +
+            '<button class="icon-btn sm danger" data-act="delete" aria-label="삭제">' + ICON_TRASH + '</button>' +
+          '</div>' +
+          '<div class="confirm-row">' +
+            '<span>삭제할까요?</span>' +
+            '<button class="btn-text" data-act="delete-cancel">취소</button>' +
+            '<button class="btn-text danger" data-act="delete-confirm">삭제</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="sold-row">' +
+          '<label for="sold-' + it.id + '">오늘 판매</label>' +
+          '<input type="number" id="sold-' + it.id + '" class="sold-input" data-id="' + it.id + '" min="0" step="1" inputmode="decimal" placeholder="0" value="' + soldQtyOf(it.id) + '" />' +
+          '<span class="sold-unit">' + escapeHtml(it.unit) + '</span>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function recomputeSales() {
+    var day = state.salesByDate[state.selectedDate] || {};
+    var revenue = 0, profit = 0;
+    Object.keys(day).forEach(function (id) {
+      var qty = day[id];
+      if (!qty) return;
+      var it = state.items.find(function (i) { return i.id === id; });
+      if (!it || !hasPricing(it)) return;
+      var price = sellPrice(it);
+      var cost = unitCost(it);
+      revenue += qty * price;
+      profit += qty * (price - cost);
+    });
+    els.statRevenue.textContent = formatWon(revenue);
+    els.statProfit.textContent = formatWon(profit);
+  }
+
+  function render() {
+    els.statTotal.textContent = state.items.length;
+    els.statLow.textContent = state.items.filter(isLow).length;
+    els.statPriced.textContent = state.items.filter(hasPricing).length;
+
+    var filtered = getFiltered();
+    if (!filtered.length) {
+      els.list.innerHTML = '<div class="empty">해당하는 상품이 없어요.</div>';
+    } else {
+      var html = '';
+      ['과일', '야채'].forEach(function (cat) {
+        var catItems = filtered.filter(function (i) { return i.category === cat; })
+          .sort(function (a, b) { return a.code.localeCompare(b.code); });
+        if (!catItems.length) return;
+        html += '<div class="group-label">' + cat + ' <span class="group-count">' + catItems.length + '</span></div>';
+        catItems.forEach(function (it) { html += renderCard(it); });
+      });
+      els.list.innerHTML = html;
+    }
+    recomputeSales();
+  }
+
+  function adjustStock(id, delta) {
+    var it = state.items.find(function (i) { return i.id === id; });
+    if (!it) return;
+    it.current = Math.max(0, (it.current || 0) + delta);
+    save(); render();
+  }
+  function removeItem(id) {
+    state.items = state.items.filter(function (i) { return i.id !== id; });
+    if (state.salesByDate[state.selectedDate]) delete state.salesByDate[state.selectedDate][id];
+    save(); render(); showToast('삭제했어요');
+  }
+
+  els.list.addEventListener('click', function (e) {
+    var card = e.target.closest('.card');
+    if (!card) return;
+    var id = card.dataset.id;
+    if (e.target.closest('[data-act="inc"]')) adjustStock(id, 1);
+    else if (e.target.closest('[data-act="dec"]')) adjustStock(id, -1);
+    else if (e.target.closest('[data-act="edit"]')) openEdit(id);
+    else if (e.target.closest('[data-act="delete"]')) card.classList.add('confirming');
+    else if (e.target.closest('[data-act="delete-cancel"]')) card.classList.remove('confirming');
+    else if (e.target.closest('[data-act="delete-confirm"]')) removeItem(id);
+  });
+
+  els.list.addEventListener('input', function (e) {
+    var input = e.target.closest('.sold-input');
+    if (!input) return;
+    var id = input.dataset.id;
+    var qty = parseFloat(input.value);
+    if (isNaN(qty) || qty < 0) qty = 0;
+    if (!state.salesByDate[state.selectedDate]) state.salesByDate[state.selectedDate] = {};
+    if (qty > 0) state.salesByDate[state.selectedDate][id] = qty;
+    else delete state.salesByDate[state.selectedDate][id];
+    save();
+    recomputeSales();
+  });
+
+  els.dateInput.addEventListener('change', function () {
+    state.selectedDate = els.dateInput.value || todayStr();
+    render();
+  });
+
+  els.searchInput.addEventListener('input', function (e) { state.search = e.target.value; render(); });
+  els.filterSeg.addEventListener('click', function (e) {
+    var btn = e.target.closest('.seg-btn');
+    if (!btn) return;
+    state.filter = btn.dataset.filter;
+    Array.from(els.filterSeg.children).forEach(function (b) { b.classList.toggle('active', b === btn); });
+    render();
+  });
+
+  function readPriceFieldsAsItem() {
+    return {
+      costBox: parseFloat(els.fCostBox.value) || 0,
+      boxQty: parseFloat(els.fBoxQty.value) || 0,
+      marginRate: Math.max(parseFloat(els.fMargin.value) || 0, 0),
+      wasteRate: Math.min(Math.max(parseFloat(els.fWaste.value) || 0, 0), 90)
+    };
+  }
+  function updatePricePreview() {
+    var tmp = readPriceFieldsAsItem();
+    if (!hasPricing(tmp)) {
+      els.pricePreview.textContent = '가격 정보를 입력하면 여기에 원가·판매가가 표시돼요.';
+      els.pricePreview.classList.remove('active');
+      return;
+    }
+    els.pricePreview.innerHTML = '원가 <b>' + formatWon(unitCost(tmp)) + '</b> · 판매가 <b>' + formatWon(sellPrice(tmp)) + '</b>';
+    els.pricePreview.classList.add('active');
+  }
+  ['fCostBox','fBoxQty','fMargin','fWaste'].forEach(function (id) {
+    els[id].addEventListener('input', updatePricePreview);
+  });
+  els.fCategory.addEventListener('change', function () {
+    if (!state.editingId) els.fCode.value = nextCode(els.fCategory.value);
+  });
+
+  function openEdit(id) {
+    state.editingId = id;
+    var it = id ? state.items.find(function (i) { return i.id === id; }) : null;
+    els.editTitle.textContent = it ? '상품 수정' : '상품 추가';
+    els.fCategory.value = it ? it.category : '과일';
+    els.fCode.value = it ? it.code : nextCode(els.fCategory.value);
+    els.fName.value = it ? it.name : '';
+    els.fVariety.value = it ? (it.variety || '') : '';
+    els.fUnit.value = it ? it.unit : '';
+    els.fCurrent.value = it ? it.current : '';
+    els.fTarget.value = it ? it.target : '';
+    els.fCostBox.value = it && it.costBox ? it.costBox : '';
+    els.fBoxQty.value = it && it.boxQty ? it.boxQty : '';
+    els.fMargin.value = it ? (it.marginRate != null ? it.marginRate : 30) : 30;
+    els.fWaste.value = it ? (it.wasteRate != null ? it.wasteRate : 0) : 0;
+    updatePricePreview();
+    els.editOverlay.classList.add('open');
+  }
+  function closeEdit() { els.editOverlay.classList.remove('open'); state.editingId = null; }
+
+  els.btnAdd.addEventListener('click', function () { openEdit(null); });
+  els.editClose.addEventListener('click', closeEdit);
+  els.editCancel.addEventListener('click', closeEdit);
+  els.editSave.addEventListener('click', function () {
+    var name = els.fName.value.trim();
+    var unit = els.fUnit.value.trim();
+    var current = parseFloat(els.fCurrent.value);
+    var target = parseFloat(els.fTarget.value);
+    if (!name) { showToast('상품명을 입력해주세요'); return; }
+    if (!unit) { showToast('단위를 입력해주세요'); return; }
+    if (isNaN(current) || current < 0 || isNaN(target) || target < 0) { showToast('재고량을 올바르게 입력해주세요'); return; }
+    var priced = readPriceFieldsAsItem();
+    var payload = {
+      category: els.fCategory.value, code: els.fCode.value,
+      name: name, variety: els.fVariety.value.trim(), unit: unit,
+      current: current, target: target,
+      costBox: priced.costBox, boxQty: priced.boxQty,
+      marginRate: priced.marginRate, wasteRate: priced.wasteRate
+    };
+    if (state.editingId) {
+      var it = state.items.find(function (i) { return i.id === state.editingId; });
+      Object.assign(it, payload);
+    } else {
+      state.items.push(Object.assign({ id: uid() }, payload));
+    }
+    save(); closeEdit(); render(); showToast('저장했어요');
+  });
+
+  function buildExportText(scope) {
+    var items = state.items.filter(function (it) { return scope === 'all' ? true : isLow(it); });
+    var lines = [];
+    lines.push(scope === 'all' ? '전체 재고 목록' : '재고 부족 상품 목록');
+    lines.push(new Date().toLocaleDateString('ko-KR') + ' 기준');
+    lines.push('');
+    ['과일', '야채'].forEach(function (cat) {
+      var catItems = items.filter(function (i) { return i.category === cat; });
+      if (!catItems.length) return;
+      lines.push('[' + cat + ']');
+      catItems.forEach(function (it) {
+        var priceStr = hasPricing(it) ? ' (원가 ' + formatWon(unitCost(it)) + ' / 판매가 ' + formatWon(sellPrice(it)) + ')' : '';
+        lines.push('- ' + it.name + (it.variety ? '(' + it.variety + ')' : '') + ' ' + it.current + it.unit + ' / 적정 ' + it.target + it.unit + priceStr);
+      });
+      lines.push('');
+    });
+    if (!items.length) lines.push('해당 상품이 없어요.');
+    return lines.join('\n').trim();
+  }
+  function refreshExportPreview() { els.exportPreview.value = buildExportText(state.exportScope); }
+
+  els.btnExport.addEventListener('click', function () {
+    state.exportScope = 'low';
+    Array.from(els.exportToggle.children).forEach(function (b) { b.classList.toggle('active', b.dataset.scope === 'low'); });
+    refreshExportPreview();
+    els.exportOverlay.classList.add('open');
+  });
+  els.exportClose.addEventListener('click', function () { els.exportOverlay.classList.remove('open'); });
+  els.exportToggle.addEventListener('click', function (e) {
+    var btn = e.target.closest('.seg-btn');
+    if (!btn) return;
+    state.exportScope = btn.dataset.scope;
+    Array.from(els.exportToggle.children).forEach(function (b) { b.classList.toggle('active', b === btn); });
+    refreshExportPreview();
+  });
+
+  els.btnCopy.addEventListener('click', function () {
+    var text = els.exportPreview.value;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { showToast('복사했어요'); }).catch(fallbackCopy);
+    } else { fallbackCopy(); }
+    function fallbackCopy() {
+      els.exportPreview.removeAttribute('readonly');
+      els.exportPreview.select();
+      try { document.execCommand('copy'); showToast('복사했어요'); }
+      catch (e) { showToast('복사에 실패했어요'); }
+      els.exportPreview.setAttribute('readonly', 'readonly');
+    }
+  });
+  els.btnShare.addEventListener('click', function () {
+    var text = els.exportPreview.value;
+    if (navigator.share) {
+      navigator.share({ title: '재고 현황', text: text }).catch(function () {});
+    } else {
+      showToast('공유를 지원하지 않는 환경이에요. 복사하기를 이용해주세요.');
+    }
+  });
+  els.btnCsv.addEventListener('click', function () {
+    var header = ['코드','분류','상품명','품종','단위','현재재고량','적정재고량','상태','원가','판매가'];
+    var rows = state.items.map(function (it) {
+      return [
+        it.code, it.category, it.name, it.variety || '', it.unit,
+        it.current, it.target, isLow(it) ? '부족' : '충분',
+        hasPricing(it) ? Math.round(unitCost(it)) : '-',
+        hasPricing(it) ? Math.round(sellPrice(it)) : '-'
+      ];
+    });
+    var csv = [header].concat(rows).map(function (row) {
+      return row.map(function (cell) { return '"' + String(cell).replace(/"/g, '""') + '"'; }).join(',');
+    }).join('\r\n');
+    var blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8;' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    var today = new Date();
+    var stamp = today.getFullYear() + String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0');
+    a.href = url; a.download = '재고_원가판매가_' + stamp + '.csv';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast('CSV를 다운로드했어요');
+  });
+
+  var toastTimer = null;
+  function showToast(msg) {
+    els.toast.textContent = msg;
+    els.toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { els.toast.classList.remove('show'); }, 1800);
+  }
+
+  els.dateInput.value = state.selectedDate;
+
+  load();
+  els.dateInput.value = state.selectedDate;
+  render();
+})();
+</script>
+
+</body></html>
