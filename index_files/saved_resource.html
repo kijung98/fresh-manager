@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784649834-38c4/?__frame_t=SFokSaG8gx0Y24GC2jSq9ePQ.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784653517&__frame_v=manifest.fcf14be80bb4551e.json -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784649834-38c4/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.C9eLA9Mu.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/?__frame_t=oNUjmJc4_oQTYUItmX7aPyv3.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784699348&__frame_v=manifest.7f3e59e763c28d6d.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784695681-b4f8/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.B0Uk6lS7.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>다판다</title>
@@ -9,8 +9,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#1e3d2f">
-<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784649834-38c4/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784649834-38c4/icon.svg">
+<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/icon.svg">
 <style>
   :root {
     --paper: #f5f6f3;
@@ -157,9 +157,12 @@
 
   .item-card { background: var(--paper-raise); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; margin-bottom: 14px; transition: opacity .15s; }
   .item-card.item-off { opacity: 0.5; }
-  .item-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+  .item-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
   .cat-pill { padding: 4px 12px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); font-size: 14px; font-weight: 800; }
-  .item-name { font-size: 20px; font-weight: 800; flex: 1; }
+  .item-actions { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+  .item-name-row { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .item-name { font-size: 21px; font-weight: 800; }
+  .item-variety { font-size: 18px; font-weight: 400; color: var(--ink-soft); }
   .icon-btn {
     border: none; background: transparent; color: var(--ink-faint); font-size: 20px; cursor: pointer;
     min-width: 44px; min-height: 44px; border-radius: 10px; font-weight: 700;
@@ -210,6 +213,11 @@
   #printArea h2 { font-size: 22px; margin: 0 0 12px; }
   #printArea pre { font-size: 16px; line-height: 1.7; white-space: pre-wrap; font-family: inherit; }
 
+  .pdf-box { max-width: 480px; max-height: 80vh; display: flex; flex-direction: column; }
+  .pdf-box-title { font-size: 19px; font-weight: 800; margin-bottom: 12px; text-align: center; }
+  .pdf-content { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 16px; font-size: 15px; line-height: 1.7; white-space: pre-wrap; overflow-y: auto; flex: 1; text-align: left; color: var(--ink); }
+  .pdf-hint { font-size: 14px; color: var(--ink-faint); margin: 10px 0 4px; text-align: center; }
+
   @media print {
     body * { visibility: hidden; }
     #printArea, #printArea * { visibility: visible; }
@@ -247,11 +255,6 @@
 <div class="container">
   <div class="app-bar"><h1>다판다</h1></div>
 
-  <div class="export-row" style="padding:0;margin-bottom:16px;">
-    <button class="btn primary" id="shareBtn">카카오톡 공유</button>
-    <button class="btn" id="pdfBtn">PDF 내보내기</button>
-  </div>
-
   <section class="tab-page active" id="page-calc">
     <div class="card">
       <div class="section-title">소분·마진 정산 계산기</div>
@@ -264,9 +267,11 @@
           <label>구입원가(원)</label>
           <input type="number" min="0" inputmode="numeric" id="calcCost">
           <div class="quick-btns">
+            <button type="button" class="quick-btn" data-target="calcCost" data-add="100">+1백</button>
+            <button type="button" class="quick-btn" data-target="calcCost" data-add="1000">+1천</button>
+            <button type="button" class="quick-btn" data-target="calcCost" data-add="5000">+5천</button>
             <button type="button" class="quick-btn" data-target="calcCost" data-add="10000">+1만</button>
             <button type="button" class="quick-btn" data-target="calcCost" data-add="50000">+5만</button>
-            <button type="button" class="quick-btn" data-target="calcCost" data-add="100000">+10만</button>
             <button type="button" class="quick-btn ghost" data-target="calcCost" data-reset="1">리셋</button>
           </div>
         </div>
@@ -274,9 +279,11 @@
           <label>총 판매금액(원)</label>
           <input type="number" min="0" inputmode="numeric" id="calcSale">
           <div class="quick-btns">
+            <button type="button" class="quick-btn" data-target="calcSale" data-add="100">+1백</button>
+            <button type="button" class="quick-btn" data-target="calcSale" data-add="1000">+1천</button>
+            <button type="button" class="quick-btn" data-target="calcSale" data-add="5000">+5천</button>
             <button type="button" class="quick-btn" data-target="calcSale" data-add="10000">+1만</button>
             <button type="button" class="quick-btn" data-target="calcSale" data-add="50000">+5만</button>
-            <button type="button" class="quick-btn" data-target="calcSale" data-add="100000">+10만</button>
             <button type="button" class="quick-btn ghost" data-target="calcSale" data-reset="1">리셋</button>
           </div>
         </div>
@@ -319,6 +326,10 @@
       <div class="export-row" style="padding:0;margin:16px 0 0;">
         <button class="btn ghost" id="calcResetBtn">전체 리셋</button>
       </div>
+      <div class="export-row" style="padding:0;margin:12px 0 0;">
+        <button class="btn primary" id="shareBtn">카카오톡 공유</button>
+        <button class="btn" id="pdfBtn">PDF 내보내기</button>
+      </div>
     </div>
   </section>
 
@@ -339,8 +350,32 @@
           <div class="field-row"><label>품명</label><select id="pfName"><option value="사과">사과</option><option value="배">배</option><option value="감">감</option><option value="귤/감귤">귤/감귤</option><option value="딸기">딸기</option><option value="포도">포도</option><option value="복숭아">복숭아</option><option value="자두">자두</option><option value="참외">참외</option><option value="수박">수박</option><option value="토마토">토마토</option><option value="키위/참다래">키위/참다래</option><option value="체리">체리</option><option value="매실">매실</option><option value="살구">살구</option><option value="망고">망고</option><option value="바나나">바나나</option><option value="파인애플">파인애플</option><option value="아보카도">아보카도</option><option value="자몽">자몽</option><option value="레몬">레몬</option><option value="블루베리">블루베리</option><option value="석류">석류</option><option value="무화과">무화과</option><option value="귤">귤</option><option value="대파">대파</option><option value="상추">상추</option><option value="양파">양파</option><option value="당근">당근</option><option value="감자">감자</option><option value="고구마">고구마</option><option value="오이">오이</option><option value="시금치">시금치</option><option value="배추">배추</option></select></div>
           <div class="field-row"><label>품종</label><select id="pfVariety"><option value="부사">부사</option><option value="홍로">홍로</option><option value="아오리">아오리</option><option value="시나노골드">시나노골드</option><option value="감홍">감홍</option><option value="시나노스위트">시나노스위트</option></select></div>
           <div class="field-row"><label>총구입수량</label><input id="pfTotalQty" placeholder="예: 10박스"></div>
-          <div class="field-row"><label>구입원가(원)</label><input type="number" min="0" inputmode="numeric" id="pfCost"></div>
-          <div class="field-row"><label>판매금액(원)</label><input type="number" min="0" inputmode="numeric" id="pfSale"></div>
+          <div class="field-row">
+            <label>구입원가(원)</label>
+            <input type="number" min="0" inputmode="numeric" id="pfCost">
+            <div class="quick-btns">
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="100">+1백</button>
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="1000">+1천</button>
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="5000">+5천</button>
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="10000">+1만</button>
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="50000">+5만</button>
+              <button type="button" class="quick-btn" data-target="pfCost" data-add="100000">+10만</button>
+              <button type="button" class="quick-btn ghost" data-target="pfCost" data-reset="1">리셋</button>
+            </div>
+          </div>
+          <div class="field-row">
+            <label>판매금액(원)</label>
+            <input type="number" min="0" inputmode="numeric" id="pfSale">
+            <div class="quick-btns">
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="100">+1백</button>
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="1000">+1천</button>
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="5000">+5천</button>
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="10000">+1만</button>
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="50000">+5만</button>
+              <button type="button" class="quick-btn" data-target="pfSale" data-add="100000">+10만</button>
+              <button type="button" class="quick-btn ghost" data-target="pfSale" data-reset="1">리셋</button>
+            </div>
+          </div>
           <div class="field-row"><label>박스무게(kg)/수량(EA)</label>
             <div class="unit-combo">
               <input type="number" min="0" step="0.1" inputmode="decimal" id="pfWeight">
@@ -377,9 +412,9 @@
         <div class="field-row" aria-hidden="true"></div>
       </div>
       <div class="closing-outputs">
-        <div class="out-line"><span>자동계산 매입총액</span><b id="closingPurchase">39,000원</b></div>
+        <div class="out-line"><span>자동계산 매입총액</span><b id="closingPurchase">12원</b></div>
         <div class="out-line brand big"><span>오늘 총수입</span><b id="closingIncome">0원</b></div>
-        <div class="out-line price big"><span>오늘 순이익</span><b id="closingProfit">-39,000원</b></div>
+        <div class="out-line price big"><span>오늘 순이익</span><b id="closingProfit">-12원</b></div>
       </div>
     </div>
 
@@ -404,9 +439,9 @@
         <input type="number" id="periodYearOnly" style="display:none" placeholder="연도">
       </div>
       <div class="period-outputs">
-        <div class="out-line"><span>총매입금액</span><b id="periodPurchase">59,000원</b></div>
+        <div class="out-line"><span>총매입금액</span><b id="periodPurchase">20,012원</b></div>
         <div class="out-line brand big"><span>총수입금액</span><b id="periodIncome">0원</b></div>
-        <div class="out-line price big"><span>순수익</span><b id="periodProfit">-59,000원</b></div>
+        <div class="out-line price big"><span>순수익</span><b id="periodProfit">-20,012원</b></div>
       </div>
     </div>
   </section>
@@ -433,6 +468,18 @@
     <div class="confirm-actions">
       <button class="btn ghost" id="confirmCancelBtn">취소</button>
       <button class="btn danger" id="confirmOkBtn">삭제</button>
+    </div>
+  </div>
+</div>
+
+<div class="confirm-overlay" id="pdfOverlay">
+  <div class="confirm-box pdf-box">
+    <div class="pdf-box-title">다판다 판매 목록</div>
+    <div class="pdf-content" id="pdfContent"></div>
+    <div class="pdf-hint">브라우저 공유 메뉴나 화면 캡처로 PDF/이미지로 저장할 수 있어요.</div>
+    <div class="confirm-actions" style="margin-top:10px;">
+      <button class="btn ghost" id="pdfCloseBtn">닫기</button>
+      <button class="btn primary" id="pdfCopyBtn">복사하기</button>
     </div>
   </div>
 </div>
@@ -699,7 +746,7 @@
         state.purchaseArchive = (parsed.purchaseArchive && typeof parsed.purchaseArchive === 'object') ? parsed.purchaseArchive : {};
         state.lastPurchaseDate = parsed.lastPurchaseDate || todayStr();
         state.dailyClosing = (parsed.dailyClosing && typeof parsed.dailyClosing === 'object') ? parsed.dailyClosing : {};
-        state.calc = parsed.calc || { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 };
+        state.calc = parsed.calc || { cost: 0, sale: 0, weight: 0, split: 0 };
         loaded = true;
       }
     } catch (e) { loaded = false; }
@@ -710,12 +757,12 @@
       if (migrated) {
         state.purchases = migrated.purchases;
         state.dailyClosing = migrated.dailyClosing;
-        state.calc = migrated.calc || { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 };
+        state.calc = migrated.calc || { cost: 0, sale: 0, weight: 0, split: 0 };
         state.purchases.forEach(function (p) { ensureMasterHasName(p.category, p.name); });
       } else {
         state.purchases = [];
         state.dailyClosing = {};
-        state.calc = { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 };
+        state.calc = { cost: 0, sale: 0, weight: 0, split: 0 };
       }
       state.purchaseArchive = {};
       state.lastPurchaseDate = todayStr();
@@ -760,6 +807,7 @@
     ['calcCost', 'calcSale', 'calcWeight', 'calcSplit', 'calcLoss', 'calcTargetMargin', 'calcMargin', 'calcPerSplit', 'calcPerPrice', 'calcPerCost', 'calcProfit', 'calcResetBtn',
       'calcModeTabs', 'calcSaleRow', 'calcTargetMarginRow', 'calcWeightUnitToggle', 'calcSaleTotalOut', 'calcSaleTotalDisplay',
       'shareBtn', 'pdfBtn', 'printArea', 'toast', 'tabbar',
+      'pdfOverlay', 'pdfContent', 'pdfCloseBtn', 'pdfCopyBtn',
       'purchaseDateInput', 'purchaseViewRow', 'purchaseFormWrap', 'purchaseListWrap', 'purchaseList', 'purchaseFormTitle',
       'purchaseResetRow', 'purchaseResetBtn', 'purchaseArchiveNotice',
       'pfCategory', 'pfName', 'pfVariety', 'pfTotalQty', 'pfCost', 'pfSale', 'pfWeight', 'pfWeightUnit', 'pfSplit', 'pfPreview', 'pfCancel', 'pfSave',
@@ -1023,6 +1071,19 @@
       els[id].addEventListener('input', updateFormPreview);
       els[id].addEventListener('change', updateFormPreview);
     });
+    Array.prototype.forEach.call(document.querySelectorAll('#page-purchase .quick-btn'), function (btn) {
+      btn.addEventListener('click', function () {
+        var targetId = btn.getAttribute('data-target');
+        var input = els[targetId];
+        if (btn.getAttribute('data-reset')) {
+          input.value = 0;
+        } else {
+          var add = parseFloat(btn.getAttribute('data-add')) || 0;
+          input.value = (parseFloat(input.value) || 0) + add;
+        }
+        updateFormPreview();
+      });
+    });
     els.pfCancel.addEventListener('click', function () {
       resetForm();
     });
@@ -1058,23 +1119,27 @@
   }
   function purchaseCardHtml(p, isFirst, isLast, readOnly) {
     var c = computeCard(p);
-    var nameStr = p.variety ? p.name + '(' + p.variety + ')' : p.name;
     var switchHtml = readOnly ? '' :
       '<label class="switch"><input type="checkbox" class="p-enabled" data-id="' + p.id + '" ' + (p.enabled ? 'checked' : '') + '><span class="switch-slider"></span></label>';
     var actionsHtml = readOnly ? '' :
+      '<span class="item-actions">' +
       '<span class="move-btns">' +
       '<button class="icon-btn p-up" data-id="' + p.id + '" aria-label="위로" ' + (isFirst ? 'disabled' : '') + '>▲</button>' +
       '<button class="icon-btn p-down" data-id="' + p.id + '" aria-label="아래로" ' + (isLast ? 'disabled' : '') + '>▼</button>' +
       '</span>' +
       '<button class="icon-btn p-edit" data-id="' + p.id + '" aria-label="수정">✎</button>' +
-      '<button class="icon-btn danger p-delete" data-id="' + p.id + '" aria-label="삭제">✕</button>';
+      '<button class="icon-btn danger p-delete" data-id="' + p.id + '" aria-label="삭제">✕</button>' +
+      '</span>';
     return '' +
       '<div class="item-card' + ((!readOnly && !p.enabled) ? ' item-off' : '') + '" data-id="' + p.id + '">' +
       '<div class="item-card-head">' +
       switchHtml +
       '<span class="cat-pill">' + (CAT_LABEL[p.category] || CAT_LABEL.fruit) + '</span>' +
-      '<span class="item-name">' + escapeHtml(nameStr) + '</span>' +
       actionsHtml +
+      '</div>' +
+      '<div class="item-name-row">' +
+      '<span class="item-name">' + escapeHtml(p.name) + '</span>' +
+      (p.variety ? '<span class="item-variety">(' + escapeHtml(p.variety) + ')</span>' : '') +
       '</div>' +
       '<div class="item-detail-line">총구입 ' + escapeHtml(p.totalQtyText || '-') + ' · 구입원가 ' + formatWon(p.costTotal) + ' · 판매금액 ' + formatWon(p.saleTotal) + ' · ' + (p.weightUnit === 'EA' ? '수량 ' + round1(p.weight) + 'EA' : '박스무게 ' + round1(p.weight) + 'kg') + ' · 소분 ' + (p.splitQty || 0) + '개</div>' +
       '<div class="item-preview">' +
@@ -1452,23 +1517,45 @@
     document.body.removeChild(ta);
   }
 
+  function copyExportText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        showToast('클립보드에 복사했어요. 카카오톡에 붙여넣기 하세요.');
+      }).catch(function () { fallbackCopy(text); });
+    } else {
+      fallbackCopy(text);
+    }
+  }
+
+  function openPdfPreview(text) {
+    els.pdfContent.textContent = text;
+    els.pdfOverlay.classList.add('open');
+  }
+  function closePdfPreview() {
+    els.pdfOverlay.classList.remove('open');
+  }
+
   function bindExport() {
     els.shareBtn.addEventListener('click', function () {
       var text = buildExportText();
       if (navigator.share) {
         navigator.share({ title: '다판다 판매 목록', text: text }).catch(function () {});
-      } else if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function () {
-          showToast('클립보드에 복사했어요. 카카오톡에 붙여넣기 하세요.');
-        }).catch(function () { fallbackCopy(text); });
       } else {
-        fallbackCopy(text);
+        copyExportText(text);
       }
     });
     els.pdfBtn.addEventListener('click', function () {
       var text = buildExportText();
       els.printArea.innerHTML = '<h2>다판다 판매 목록</h2><pre>' + escapeHtml(text) + '</pre>';
-      window.print();
+      openPdfPreview(text);
+      try { window.print(); } catch (e) {}
+    });
+    els.pdfCloseBtn.addEventListener('click', closePdfPreview);
+    els.pdfOverlay.addEventListener('click', function (e) {
+      if (e.target === els.pdfOverlay) closePdfPreview();
+    });
+    els.pdfCopyBtn.addEventListener('click', function () {
+      copyExportText(els.pdfContent.textContent);
     });
   }
 
