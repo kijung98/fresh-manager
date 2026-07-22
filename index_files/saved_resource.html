@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/?__frame_t=oNUjmJc4_oQTYUItmX7aPyv3.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784699348&__frame_v=manifest.7f3e59e763c28d6d.json -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784695681-b4f8/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.B0Uk6lS7.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784698011-bc72/?__frame_t=A2iz3O5_EdSREEGzk4G95-xw.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784701672&__frame_v=manifest.7f3e59e763c28d6d.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784698011-bc72/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.B0Uk6lS7.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>다판다</title>
@@ -9,8 +9,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#1e3d2f">
-<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784695681-b4f8/icon.svg">
+<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784698011-bc72/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784698011-bc72/icon.svg">
 <style>
   :root {
     --paper: #f5f6f3;
@@ -122,6 +122,8 @@
   .hero-line b { font-size: 34px; font-weight: 800; color: var(--brand); letter-spacing: 0.3px; }
   .hero-line.profit { background: var(--price-soft); }
   .hero-line.profit b { color: var(--price); }
+  .hero-line.loss { background: var(--danger-soft); }
+  .hero-line.loss b { color: var(--danger); }
 
   .calc-outputs, .item-preview, .closing-outputs, .period-outputs {
     display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line-strong);
@@ -416,6 +418,29 @@
         <div class="out-line brand big"><span>오늘 총수입</span><b id="closingIncome">0원</b></div>
         <div class="out-line price big"><span>오늘 순이익</span><b id="closingProfit">-12원</b></div>
       </div>
+
+      <div class="section-title" style="margin-top:20px;">원가·마진 분석</div>
+      <div class="field-grid-2">
+        <div class="field-row"><label>당일 총 매출액(원)</label><input type="number" min="0" inputmode="numeric" id="closingSaleTotal"></div>
+        <div class="field-row"><label>당일 판매 과일 총 원가(원)</label><input type="number" min="0" inputmode="numeric" id="closingFruitCost"></div>
+        <div class="field-row"><label>폐기/로스 손실액(원)</label><input type="number" min="0" inputmode="numeric" id="closingLoss"></div>
+        <div class="field-row" aria-hidden="true"></div>
+      </div>
+      <div class="hero-outputs">
+        <div class="hero-line profit loss" id="closingFinalProfitCard">
+          <span>최종 순이익</span>
+          <b id="closingFinalProfit">-12원</b>
+        </div>
+        <div class="hero-line loss" id="closingNetMarginCard">
+          <span>순이익률</span>
+          <b id="closingNetMarginRate">0%</b>
+        </div>
+      </div>
+      <div class="closing-outputs">
+        <div class="out-line"><span>원가율</span><b id="closingCostRate">0%</b></div>
+        <div class="out-line"><span>마진율</span><b id="closingMarginRate">0%</b></div>
+        <div class="out-line"><span>차감 고정비(일)</span><b id="closingFixedDaily">0원</b></div>
+      </div>
     </div>
 
     <div class="card">
@@ -447,6 +472,22 @@
   </section>
 
   <section class="tab-page" id="page-settings">
+    <div class="card">
+      <div class="section-title">월 고정비 설정</div>
+      <div class="field-grid-2">
+        <div class="field-row"><label>임대료/관리비(월)</label><input type="number" min="0" inputmode="numeric" id="fcRent"></div>
+        <div class="field-row"><label>차량유류/운행비(월)</label><input type="number" min="0" inputmode="numeric" id="fcFuel"></div>
+        <div class="field-row"><label>저온창고/전기/수도세(월)</label><input type="number" min="0" inputmode="numeric" id="fcUtility"></div>
+        <div class="field-row"><label>인건비(월)</label><input type="number" min="0" inputmode="numeric" id="fcLabor"></div>
+        <div class="field-row"><label>포장재/소모품비(월)</label><input type="number" min="0" inputmode="numeric" id="fcPackaging"></div>
+        <div class="field-row"><label>기타 고정비(월)</label><input type="number" min="0" inputmode="numeric" id="fcEtc"></div>
+      </div>
+      <div class="calc-outputs">
+        <div class="out-line"><span>월 고정비 합계</span><b id="fcMonthlyTotal">0원</b></div>
+        <div class="out-line brand big"><span>일일 환산 고정비</span><b id="fcDailyTotal">0원</b></div>
+      </div>
+    </div>
+
     <div class="cat-row" id="settingsCatRow"><button class="cat-btn active" data-cat="fruit">과일</button><button class="cat-btn" data-cat="veg">야채</button><button class="cat-btn" data-cat="fish">생선</button><button class="cat-btn" data-cat="dried">건어물</button><button class="cat-btn" data-cat="goods">공산품/기타</button></div>
     <div class="card">
       <div class="settings-add-row">
@@ -655,7 +696,7 @@
     { key: 'goods', label: '공산품/기타' }
   ];
 
-  var state = { masterData: {}, purchases: [], purchaseArchive: {}, lastPurchaseDate: '', dailyClosing: {}, calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 } };
+  var state = { masterData: {}, purchases: [], purchaseArchive: {}, lastPurchaseDate: '', dailyClosing: {}, fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 }, calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 } };
   var currentTab = 'calc';
   var currentPurchaseView = 'input';
   var periodMode = 'month';
@@ -746,6 +787,7 @@
         state.purchaseArchive = (parsed.purchaseArchive && typeof parsed.purchaseArchive === 'object') ? parsed.purchaseArchive : {};
         state.lastPurchaseDate = parsed.lastPurchaseDate || todayStr();
         state.dailyClosing = (parsed.dailyClosing && typeof parsed.dailyClosing === 'object') ? parsed.dailyClosing : {};
+        state.fixedCosts = (parsed.fixedCosts && typeof parsed.fixedCosts === 'object') ? parsed.fixedCosts : { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 };
         state.calc = parsed.calc || { cost: 0, sale: 0, weight: 0, split: 0 };
         loaded = true;
       }
@@ -766,6 +808,7 @@
       }
       state.purchaseArchive = {};
       state.lastPurchaseDate = todayStr();
+      state.fixedCosts = { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 };
     }
   }
 
@@ -783,7 +826,7 @@
   function save() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
       masterData: state.masterData, purchases: state.purchases, purchaseArchive: state.purchaseArchive,
-      lastPurchaseDate: state.lastPurchaseDate, dailyClosing: state.dailyClosing, calc: state.calc
+      lastPurchaseDate: state.lastPurchaseDate, dailyClosing: state.dailyClosing, fixedCosts: state.fixedCosts, calc: state.calc
     }));
   }
 
@@ -812,8 +855,12 @@
       'purchaseResetRow', 'purchaseResetBtn', 'purchaseArchiveNotice',
       'pfCategory', 'pfName', 'pfVariety', 'pfTotalQty', 'pfCost', 'pfSale', 'pfWeight', 'pfWeightUnit', 'pfSplit', 'pfPreview', 'pfCancel', 'pfSave',
       'closingDate', 'closingCard', 'closingCash', 'closingDeposit', 'closingPurchase', 'closingIncome', 'closingProfit',
+      'closingSaleTotal', 'closingFruitCost', 'closingLoss',
+      'closingFinalProfit', 'closingFinalProfitCard', 'closingNetMarginRate', 'closingNetMarginCard',
+      'closingCostRate', 'closingMarginRate', 'closingFixedDaily',
       'periodTabs', 'periodDay', 'periodMonth', 'periodQuarter', 'periodYear', 'periodYearOnly', 'periodPurchase', 'periodIncome', 'periodProfit',
       'settingsCatRow', 'settingsList', 'settingsNewName', 'settingsAddNameBtn',
+      'fcRent', 'fcFuel', 'fcUtility', 'fcLabor', 'fcPackaging', 'fcEtc', 'fcMonthlyTotal', 'fcDailyTotal',
       'confirmOverlay', 'confirmMsg', 'confirmCancelBtn', 'confirmOkBtn'
     ].forEach(function (id) { els[id] = document.getElementById(id); });
   }
@@ -1264,10 +1311,15 @@
 
   // ---- closing tab ----
   function getClosing(date) {
-    return state.dailyClosing[date] || { purchaseTotal: 0, card: 0, cash: 0, deposit: 0 };
+    return state.dailyClosing[date] || { purchaseTotal: 0, card: 0, cash: 0, deposit: 0, saleTotal: 0, fruitCost: 0, fruitCostManual: false, lossAmount: 0 };
   }
   function computePurchaseTotalNow() {
     return state.purchases.reduce(function (sum, p) { return p.enabled ? sum + (p.costTotal || 0) : sum; }, 0);
+  }
+  function computeDailyFixedCost() {
+    var fc = state.fixedCosts || {};
+    var total = (fc.rent || 0) + (fc.fuel || 0) + (fc.utility || 0) + (fc.labor || 0) + (fc.packaging || 0) + (fc.etc || 0);
+    return total / 30;
   }
   function renderClosing() {
     var date = els.closingDate.value || todayStr();
@@ -1281,6 +1333,33 @@
     var totalIncome = (rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0);
     els.closingIncome.textContent = formatWon(totalIncome);
     els.closingProfit.textContent = formatWon(totalIncome - purchaseTotal);
+
+    if (isToday && !rec.fruitCostManual) {
+      rec.fruitCost = purchaseTotal;
+    }
+    els.closingSaleTotal.value = rec.saleTotal || 0;
+    els.closingFruitCost.value = rec.fruitCost || 0;
+    els.closingLoss.value = rec.lossAmount || 0;
+
+    var saleTotal = rec.saleTotal || 0;
+    var fruitCost = rec.fruitCost || 0;
+    var lossAmount = rec.lossAmount || 0;
+    var totalCost = fruitCost + lossAmount;
+    var grossProfit = saleTotal - totalCost;
+    var costRate = saleTotal > 0 ? totalCost / saleTotal * 100 : 0;
+    var marginRate = saleTotal > 0 ? grossProfit / saleTotal * 100 : 0;
+    var dailyFixed = computeDailyFixedCost();
+    var finalProfit = grossProfit - dailyFixed;
+    var netMarginRate = saleTotal > 0 ? finalProfit / saleTotal * 100 : 0;
+
+    els.closingCostRate.textContent = round1(costRate) + '%';
+    els.closingMarginRate.textContent = round1(marginRate) + '%';
+    els.closingFixedDaily.textContent = formatWon(dailyFixed);
+    els.closingFinalProfit.textContent = formatWon(finalProfit);
+    els.closingNetMarginRate.textContent = round1(netMarginRate) + '%';
+    els.closingFinalProfitCard.classList.toggle('loss', finalProfit < 0);
+    els.closingNetMarginCard.classList.toggle('loss', finalProfit < 0);
+
     if (isToday) {
       state.dailyClosing[date] = Object.assign({}, rec, { purchaseTotal: purchaseTotal });
       save();
@@ -1300,6 +1379,26 @@
         renderClosing();
         renderPeriodStats();
       });
+    });
+    var analysisMap = [['closingSaleTotal', 'saleTotal'], ['closingLoss', 'lossAmount']];
+    analysisMap.forEach(function (pair) {
+      els[pair[0]].addEventListener('input', function () {
+        var date = els.closingDate.value || todayStr();
+        var rec = getClosing(date);
+        rec[pair[1]] = parseFloat(els[pair[0]].value) || 0;
+        state.dailyClosing[date] = rec;
+        save();
+        renderClosing();
+      });
+    });
+    els.closingFruitCost.addEventListener('input', function () {
+      var date = els.closingDate.value || todayStr();
+      var rec = getClosing(date);
+      rec.fruitCost = parseFloat(els.closingFruitCost.value) || 0;
+      rec.fruitCostManual = true;
+      state.dailyClosing[date] = rec;
+      save();
+      renderClosing();
     });
   }
 
@@ -1369,6 +1468,31 @@
     });
     [els.periodDay, els.periodMonth, els.periodQuarter, els.periodYear, els.periodYearOnly].forEach(function (el) {
       el.addEventListener('input', renderPeriodStats);
+    });
+  }
+
+  // ---- fixed costs ----
+  function renderFixedCosts() {
+    var fc = state.fixedCosts || {};
+    els.fcRent.value = fc.rent || 0;
+    els.fcFuel.value = fc.fuel || 0;
+    els.fcUtility.value = fc.utility || 0;
+    els.fcLabor.value = fc.labor || 0;
+    els.fcPackaging.value = fc.packaging || 0;
+    els.fcEtc.value = fc.etc || 0;
+    var monthlyTotal = (fc.rent || 0) + (fc.fuel || 0) + (fc.utility || 0) + (fc.labor || 0) + (fc.packaging || 0) + (fc.etc || 0);
+    els.fcMonthlyTotal.textContent = formatWon(monthlyTotal);
+    els.fcDailyTotal.textContent = formatWon(monthlyTotal / 30);
+  }
+  function bindFixedCosts() {
+    var map = [['fcRent', 'rent'], ['fcFuel', 'fuel'], ['fcUtility', 'utility'], ['fcLabor', 'labor'], ['fcPackaging', 'packaging'], ['fcEtc', 'etc']];
+    map.forEach(function (pair) {
+      els[pair[0]].addEventListener('input', function () {
+        state.fixedCosts[pair[1]] = parseFloat(els[pair[0]].value) || 0;
+        save();
+        renderFixedCosts();
+        renderClosing();
+      });
     });
   }
 
@@ -1590,11 +1714,13 @@
     bindPeriod();
     renderSettingsCatRow();
     bindSettings();
+    bindFixedCosts();
     bindExport();
 
     renderCalc();
     resetForm();
     setPurchaseView('input');
+    renderFixedCosts();
     renderClosing();
     renderPeriodStats();
     renderSettingsList();
