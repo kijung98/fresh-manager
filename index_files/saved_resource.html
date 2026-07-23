@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784806012-4b2c/?__frame_t=iSYtYpt2CP-KrZOq4LNXyZ8J.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784809626&__frame_v=manifest.24effd4d743fdb8a.json -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784806012-4b2c/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.C5leZL2A.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!-- saved from url=(0253)https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784811351-23d6/?__frame_t=HnLRnxcg-C70NklYNiLxg6zX.4580cf13-89e4-4196-a790-ad3d4a71fe1b.fe1dcc88-1a3f-4779-bd05-c7262e29dab9.1784815032&__frame_v=manifest.24effd4d743fdb8a.json -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><!-- frame-runtime --><!--<base href="/_f/1784811351-23d6/">--><base href="."><script>window.__FRAME_PREAMBLE={"capabilities":{"downloads":"downloads.BABDwU1K.js","mcp":"mcp.hoz5jxDa.js","permissions":"permissions.ByA9Fd8x.js","self":"self.D3u1zjZe.js","user":"user.Cp1-RnjB.js"},"transforms":"_transforms.DYk1Ltlh.js","comments":"_comments.Dp6RDy7J.js","translate":"_translate.C5leZL2A.js"}</script><script>(function(){"use strict";const we="modulepreload",Oe=function(e){return"/"+e},Se={},ee=function(t,n,c){let i=Promise.resolve();function s(f){const a=new Event("vite:preloadError",{cancelable:!0});if(a.payload=f,window.dispatchEvent(a),!a.defaultPrevented)throw f}return i.then(f=>{for(const a of f||[])a.status==="rejected"&&s(a.reason);return t().catch(s)})},te=["light","dark","system"];function ne(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function Y(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function re(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const n=t.theme;return typeof n=="string"&&te.includes(n)}function se(e){try{typeof reportError=="function"?reportError(e):setTimeout(()=>{throw e},0)}catch{}}const oe=Object.freeze(Object.assign(Object.create(null),{user:Object.freeze(Object.assign(Object.create(null),{id:null,isOwner:!1,canEdit:!1,name:null,avatarUrl:null,email:null}))})),ie={};function K(e){if(window===top||e.type==="auxclick"&&e.button!==1)return;const t=e.composedPath?e.composedPath():[e.target];let n=null;for(let f=0;f<t.length;f++){const a=t[f];if(a&&a.matches&&a.matches("a[href],area[href]")){n=a;break}}if(!n&&e.target&&e.target.closest&&(n=e.target.closest("a[href],area[href]")),!n)return;const c=n.getAttribute("href");if(!c)return;let i,s;try{i=new URL(c,document.baseURI),s=new URL(document.baseURI).origin}catch{return}(i.protocol==="http:"||i.protocol==="https:")&&i.origin!==s&&(e.preventDefault(),parent.postMessage({__frame_nav:!0,url:i.href},"*"))}const x={};function I(e){if(window===top)return;const t=Date.now();t-(x[e]||0)<500||(x[e]=t,parent.postMessage({__frame_engaged:!0,kind:e},"*"))}const ae=2e3,J=["wheel","touchstart","touchmove","keydown","pointerdown"];let G=0;function ce(e){e.isTrusted&&(G=Date.now())}function le(){addEventListener("click",K,!0),addEventListener("auxclick",K,!0)}function ue(){for(let e=0;e<J.length;e++)addEventListener(J[e],ce,{capture:!0,passive:!0});addEventListener("scroll",e=>{e.isTrusted&&Date.now()-G<ae&&I("scroll")},{capture:!0,passive:!0}),addEventListener("pointermove",e=>{e.isTrusted&&I("pointer")},{capture:!0,passive:!0}),addEventListener("click",e=>{e.isTrusted&&I("click")},{capture:!0,passive:!0})}const U="__frame_scroll",fe=150,de=310,pe=160,me=3e4;function he(){let e=0,t=!1,n=!1,c=!1,i=0;const s=p=>{try{sessionStorage.setItem(U,JSON.stringify({y:p}))}catch{}},f=()=>{if(t){t=!1;return}n=!0,clearTimeout(e),e=setTimeout(()=>s(scrollY),fe)};try{addEventListener("scroll",f,{passive:!0}),addEventListener("pagehide",()=>{clearTimeout(e),s(scrollY)})}catch{}const a=()=>{let p;try{p=sessionStorage.getItem(U)}catch{return null}if(p===null)return null;let b;try{b=JSON.parse(p)}catch{b=null}const l=b?.y;if(!(typeof l=="number"&&Number.isFinite(l)&&l>=0)){try{sessionStorage.removeItem(U)}catch{}return null}return l};let _=!1;const h=p=>{try{const b=scrollY;scrollTo({top:p,left:0,behavior:"instant"}),i=p,c=!0,s(p);const l=scrollY;l!==b&&(t=!0),l!==p&&!_&&(_=!0,addEventListener("load",()=>{try{if(scrollY===l){const g=a();h(g!==null?g:i)}}catch{}},{once:!0}))}catch{}},o=()=>{try{return!!location.hash}catch{return!0}};let u=!1;const d=()=>{try{if(u||innerWidth>de||innerHeight>pe)return;u=!0;const p=Date.now(),b=()=>{try{removeEventListener("resize",b)}catch{}if(Date.now()-p>me||n||o())return;const l=a();h(l!==null?l:i)};addEventListener("resize",b)}catch{}};let m=!1,y=!1;return{restore(){if(m||(m=!0,o()))return;const p=a();p!==null&&(h(p),d())},promoted(){if(y||(y=!0,o()))return;const p=a();p!==null?(h(p),d()):c&&h(i)}}}function ge(e,t,n){const c=[...t.values()].filter(i=>i.targets.some(s=>s.startsWith(e+".")));return{wrap(i,s){const f=`${e}.${i}`,a=c.filter(_=>_.targets.includes(f));return a.length===0?(..._)=>{try{return s(..._)}catch(h){return Promise.reject(h)}}:(..._)=>{let h=_;for(const u of a){const d=u.module.parameters;if(d)try{h=d(h)}catch{return Promise.reject({code:"transform_error",id:u.id,scope:e,message:"parameters transform failed"})}}let o;try{o=s(...h)}catch(u){o=Promise.reject(u)}return o.then(u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.returns;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"returns"}),u}}return u},u=>{for(let d=a.length-1;d>=0;d--){const m=a[d],y=m.module.throws;if(y)try{u=y(u)}catch{return n({id:m.id,scope:e,leg:"throws"}),Promise.reject(u)}}return Promise.reject(u)})}}}}function _e(e,t,n,c=()=>{}){const i=new Set(e.changes??[]),s=new Map;for(const f of i){const a=t[f];a&&s.set(f,a)}return{contract:e.contract,changes:i,flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:s,shellOrigin:n.shellOrigin,mount:n.mount,pipe:f=>ge(f,s,c)}}(function(){const e=Object.defineProperty,t=globalThis,n=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let c=0;for(let i=0;i<n.length;i++){const s=n[i];try{e(t,s,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[s]}catch{}try{e(t,s,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[s]=="function"&&c++}if(c&&window!==top)try{parent.postMessage({__frame_rtc_lockdown_failed:c},"*")}catch{}})();const ye=1e4,be=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function V(e){for(const t of be)if(t.endsWith(":*"))try{const n=new URL(e);if(`${n.protocol}//${n.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}const T=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),z=window.__FRAME_PREAMBLE?.transforms,q=window.__FRAME_PREAMBLE?.comments,$=window.__FRAME_PREAMBLE?.translate,C=/^[\w.-]+\.js$/,ve=/^[a-z][a-z0-9_-]{0,63}$/;let X=null,P=null;function B(e,t,n){try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:n,writable:!1,configurable:!0,enumerable:!0})}catch{}}}let F=!1;function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,F=!0):F&&(delete t.dataset.theme,t.style.colorScheme="",F=!1)}const M=Object.assign(Object.create(null),{mcp:Object.assign(Object.create(null),{watchTool:{handlerArg:3}})}),R=new Map;function Z(e,t){const n=R.get(e);if(!n)return;const c=Object.assign(Object.create(null),t);Object.assign(n.impl,c),n.impl.__settled=()=>Promise.reject({code:"capability_removed",message:`${e}: method not in this runtime`});const i=n.queue;n.queue=[];for(const s of i){const f=c[s.method];if(f)if(M[e]?.[s.method])try{s.resolve(f(...s.args))}catch{k(s,M[e][s.method].handlerArg,{code:"transform_error",message:`${e}.${s.method} rejected its arguments`})}else f(...s.args).then(s.resolve,s.reject);else{const a={code:"capability_removed",message:`${e}.${s.method} is not in this runtime`},_=M[e]?.[s.method];if(_){k(s,_.handlerArg,a);continue}s.reject(a)}}}function Ee(e,t){const n=R.get(e);if(!n)return;n.impl.__settled=()=>Promise.reject(t);const c=n.queue;n.queue=[];for(const i of c){const s=M[e]?.[i.method];if(s){k(i,s.handlerArg,t);continue}i.reject(t)}}function N(e,t){const n=oe[e];if(!n){Ee(e,t);return}Z(e,Object.fromEntries(Object.entries(n).map(([c,i])=>[c,()=>Promise.resolve(i)])))}function k(e,t,n){if(e.syncState?.dead)return;const c=e.args[t];typeof c=="function"&&queueMicrotask(()=>{if(!e.syncState?.dead)try{c({type:"error",error:n})}catch(i){se(i)}})}const H=Object.getOwnPropertyDescriptor(window,"claude");if(window!==top&&!(H&&H.writable===!1)){le(),ue();let e=null;try{e=he()}catch{}const t=H?.value??{};B(window,"claude",t);const n=o=>{const u={impl:Object.create(null),queue:[]};R.set(o,u);const d=u.impl,m=ie[o],y=m===void 0?d:()=>{},p=new Proxy(y,{apply:(b,l,g)=>{const v=m,O=d[v]??d.__settled;return O?O(...g):new Promise((E,w)=>{u.queue.push({method:v,args:g,resolve:E,reject:w})})},get:(b,l)=>{if(typeof l!="string"||l==="then"||l==="toJSON"||l==="valueOf")return;if(l==="toString")return Object.prototype.toString;if(m!==void 0&&(l==="call"||l==="apply"||l==="bind"))return Function.prototype[l];const g=M[o]?.[l];return g?(...v)=>{if(typeof v[g.handlerArg]!="function")throw new TypeError(`${o}.${l} requires a handler function`);const O=d[l];if(O)return O(...v);if(d.__settled){const S={dead:!1},A={args:[...v],syncState:S};return d.__settled().catch(D=>k(A,g.handlerArg,D)),()=>{S.dead=!0}}let E=null;const w={dead:!1};return u.queue.push({method:l,args:v,resolve:S=>{E=typeof S=="function"?S:null,w.dead&&E?.()},reject:()=>{},syncState:w}),()=>{w.dead=!0,E?.()}}:(...v)=>{const O=d[l]??d.__settled;return O?O(...v):new Promise((E,w)=>{u.queue.push({method:l,args:v,resolve:E,reject:w})})}},set:()=>!1});B(t,o,p)};for(const o of Object.keys(T)){if(t[o]!==void 0){B(t,o,t[o]);continue}n(o)}let c=null,i=null,s=0;const f=o=>{o.source!==parent||!V(o.origin)||ne(o.data)&&(c=o.data.__frame_init,P=o.origin,removeEventListener("message",f),clearTimeout(s),i?.())};addEventListener("message",f),parent.postMessage({__frame_connect:!0},"*");const a=new Promise(o=>{i=o,s=setTimeout(()=>{removeEventListener("message",f),o()},ye)}),_=document.readyState==="loading"?new Promise(o=>document.addEventListener("DOMContentLoaded",()=>o(),{once:!0})):Promise.resolve();_.then(()=>{try{e?.restore()}catch{}});const h=o=>{if(!(o.source!==parent||!V(o.origin))&&Y(o.data)){removeEventListener("message",h);try{e?.promoted()}catch{}}};addEventListener("message",h),a.then(async()=>{if(!c||!P){for(const r of R.keys())N(r,{code:"not_granted",message:"frame initialization did not arrive - capability unavailable"});return}Q(c.theme);const o=P;let u=!1,d=!1;addEventListener("message",r=>{if(r.source!==parent||r.origin!==o)return;re(r.data)&&Q(r.data.__frame_theme.theme);const j=r.data?.__fc_mode;j&&typeof j=="object"&&!u&&q&&C.test(q)&&(u=!0,m(q).then(W=>W.install?.(o,j.on===!0)).catch(()=>{}));const L=r.data?.__ft_cmd;L&&typeof L=="object"&&!d&&$&&C.test($)&&(d=!0,m($).then(W=>W.install?.(o,L)).catch(()=>{}))});const m=r=>ee(()=>import("/_runtime/"+r),void 0),y=Object.keys(c.capabilities??{});for(const r of y)Object.hasOwn(T,r)||ve.test(r)&&t[r]===void 0&&(n(r),N(r,{code:"capability_disabled",message:"capability not in this runtime generation"}));const p=y.filter(r=>Object.hasOwn(T,r)).map(r=>[r,T[r]]).filter(r=>typeof r[1]=="string"&&C.test(r[1])),[b,...l]=await Promise.allSettled([z&&C.test(z)?m(z):Promise.resolve({}),...p.map(([,r])=>m(r))]),g=P;X=_e(c,b.status==="fulfilled"&&b.value?.TRANSFORMS||{},{shellOrigin:g,mount:Z},r=>parent.postMessage({__frame_cap_telemetry:r},g));const v=r=>parent.postMessage({__frame_cap_telemetry:{kind:"cap-load-error",cap:r}},g),O=X;l.forEach((r,j)=>{const L=p[j][0];if(r.status!=="fulfilled"){v(L);return}try{r.value?.install?.(O)}catch{v(L)}});for(const[r,j]of R)if(!(j.queue.length===0&&Object.keys(j.impl).length>0)){if(y.includes(r)){N(r,{code:"capability_disabled",message:"capability not available in this session"});continue}N(r,{code:"not_granted",message:"capability not available in this session"})}await _,parent.postMessage({__frame_ready:!0},P);let E=-1,w=0;const S=()=>{w=0;const r=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);r!==E&&(E=r,parent.postMessage({__frame_size:!0,h:r},g))},A=()=>{w||(w=setTimeout(S,200))},D=new ResizeObserver(A);D.observe(document.documentElement),document.body&&D.observe(document.body),document.addEventListener("load",A,!0),document.fonts?.ready.then(A,()=>{}),addEventListener("beforeprint",()=>{E=-1,S()}),A(),addEventListener("message",r=>{if(!(r.source!==parent||r.origin!==g)&&Y(r.data)){try{e?.promoted()}catch{}E=-1,A()}})})}})();</script><!-- /frame-runtime --><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>다판다</title>
@@ -9,8 +9,8 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#1e3d2f">
-<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784806012-4b2c/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784806012-4b2c/icon.svg">
+<link rel="icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784811351-23d6/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="https://94d63254-15ce-4e23-a657-9250d4c0c685.frame.claudeusercontent.com/_f/1784811351-23d6/icon.svg">
 <style>
   :root {
     --paper: #f5f6f3;
@@ -51,12 +51,13 @@
     --shadow: 0 1px 2px rgba(20,30,20,0.08), 0 4px 16px rgba(20,30,20,0.08);
   }
   * { box-sizing: border-box; }
-  html { font-size: 18px; }
+  html { font-size: 18px; overflow-x: hidden; }
+  html, body { max-width: 100%; touch-action: pan-y; }
   body {
     margin: 0; background: var(--paper); color: var(--ink);
     font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
     font-size: 18px; line-height: 1.6; letter-spacing: 0.5px;
-    padding-bottom: 40px;
+    padding-bottom: 40px; overflow-x: hidden;
   }
   .container { max-width: 720px; margin: 0 auto; padding: 0 14px 40px; }
   .app-bar { display: flex; align-items: center; justify-content: space-between; padding: 16px 2px 12px; }
@@ -81,6 +82,9 @@
     box-shadow: var(--shadow); padding: 16px; margin-bottom: 16px;
   }
   .section-title { font-size: 20px; font-weight: 800; margin: 0 0 12px; letter-spacing: 0.4px; }
+  .section-title-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  .section-title-row .section-title { margin-bottom: 0; }
+  .purchase-active-date { font-size: 16px; font-weight: 800; color: var(--brand); background: var(--brand-soft); padding: 4px 12px; border-radius: 999px; white-space: nowrap; }
 
   .field-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 12px; }
   .field-row { display: flex; flex-direction: column; gap: 6px; }
@@ -132,6 +136,14 @@
   .calc-outputs, .item-preview, .closing-outputs, .period-outputs {
     display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line-strong);
   }
+  .day-stat-row { padding: 10px 2px; border-bottom: 1px dashed var(--line-strong); }
+  .day-stat-date { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+  .day-stat-values { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; color: var(--ink-soft); }
+  .day-stat-values b { color: var(--ink); font-weight: 800; }
+  .day-stat-values .profit-val b { color: var(--price); }
+  .day-stat-values .profit-val b.neg { color: var(--danger); }
+  .day-stat-summary { margin-top: 10px; padding-top: 16px; border-top: 2px solid var(--line-strong); border-bottom: none; }
+  .day-stat-summary .day-stat-date { font-size: 19px; }
   .out-line { display: flex; flex-direction: column; gap: 2px; min-width: 120px; }
   .out-line span { font-size: 15px; color: var(--ink-faint); font-weight: 700; }
   .out-line b { font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: 0.3px; }
@@ -153,7 +165,7 @@
   .btn.primary { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
   .btn.ghost { background: transparent; }
 
-  .cat-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 14px; -webkit-overflow-scrolling: touch; }
+  .cat-row { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 14px; -webkit-overflow-scrolling: touch; touch-action: pan-x; }
   .cat-btn {
     flex: none; padding: 12px 18px; border-radius: 999px; border: 2px solid var(--line-strong);
     background: var(--paper-raise); color: var(--ink-soft); font-size: 17px; font-weight: 700;
@@ -186,8 +198,10 @@
 
   .empty-msg { text-align: center; color: var(--ink-faint); font-size: 18px; padding: 30px 0; }
 
+  input[type="date"] { max-width: 100%; }
+  input[type="date"]::-webkit-calendar-picker-indicator { margin-left: 4px; padding: 0; }
   .closing-date-row input[type="date"] {
-    width: 100%; padding: 13px 14px; border-radius: 12px; border: 2px solid var(--line-strong);
+    width: 100%; max-width: 100%; padding: 13px 14px; border-radius: 12px; border: 2px solid var(--line-strong);
     background: var(--paper); color: var(--ink); font-size: 19px; min-height: 52px; margin-bottom: 14px;
   }
 
@@ -252,8 +266,8 @@
 </style>
 
 <div class="tabbar" id="tabbar">
-  <button class="tab-btn active" data-tab="calc">계산기</button>
-  <button class="tab-btn" data-tab="purchase">농수산물 구매</button>
+  <button class="tab-btn" data-tab="calc">계산기</button>
+  <button class="tab-btn active" data-tab="purchase">농수산물 구매</button>
   <button class="tab-btn" data-tab="closing">마감정산</button>
   <button class="tab-btn" data-tab="settings">설정</button>
 </div>
@@ -261,7 +275,7 @@
 <div class="container">
   <div class="app-bar"><h1>다판다</h1></div>
 
-  <section class="tab-page active" id="page-calc">
+  <section class="tab-page" id="page-calc">
     <div class="card">
       <div class="section-title">소분·마진 정산 계산기</div>
       <div class="period-tabs" id="calcModeTabs">
@@ -271,7 +285,7 @@
       <div class="field-grid-2">
         <div class="field-row">
           <label>구입원가(원)</label>
-          <input type="number" min="0" inputmode="numeric" id="calcCost">
+          <input type="text" inputmode="numeric" id="calcCost">
           <div class="quick-btns grid-3col">
             <button type="button" class="quick-btn" data-target="calcCost" data-add="100">1백</button>
             <button type="button" class="quick-btn" data-target="calcCost" data-add="1000">1천</button>
@@ -283,7 +297,7 @@
         </div>
         <div class="field-row" id="calcSaleRow">
           <label>총 판매금액(원)</label>
-          <input type="number" min="0" inputmode="numeric" id="calcSale">
+          <input type="text" inputmode="numeric" id="calcSale">
           <div class="quick-btns grid-3col">
             <button type="button" class="quick-btn" data-target="calcSale" data-add="100">1백</button>
             <button type="button" class="quick-btn" data-target="calcSale" data-add="1000">1천</button>
@@ -339,26 +353,29 @@
     </div>
   </section>
 
-  <section class="tab-page" id="page-purchase">
+  <section class="tab-page active" id="page-purchase">
     <div class="field-row" style="margin-bottom:14px;">
       <label>구매일자</label>
       <input type="date" id="purchaseDateInput">
     </div>
-    <div class="cat-row" id="purchaseViewRow"><button class="cat-btn active" data-view="input">입력</button><button class="cat-btn" data-view="all">전체</button><button class="cat-btn" data-view="fruit">과일</button><button class="cat-btn" data-view="veg">야채</button><button class="cat-btn" data-view="fish">생선</button><button class="cat-btn" data-view="dried">건어물</button><button class="cat-btn" data-view="goods">공산품/기타</button></div>
+    <div class="cat-row" id="purchaseViewRow"><button class="cat-btn" data-view="input">입력</button><button class="cat-btn active" data-view="all">전체</button><button class="cat-btn" data-view="fruit">과일</button><button class="cat-btn" data-view="veg">야채</button><button class="cat-btn" data-view="fish">생선</button><button class="cat-btn" data-view="dried">건어물</button><button class="cat-btn" data-view="goods">공산품/기타</button></div>
 
-    <div id="purchaseFormWrap">
+    <div id="purchaseFormWrap" style="display: none;">
       <div class="card">
-        <div class="section-title" id="purchaseFormTitle">구매 입력</div>
+        <div class="section-title-row">
+          <div class="section-title" id="purchaseFormTitle">구매 입력</div>
+          <div class="purchase-active-date" id="purchaseActiveDate">2026.7.22(수)</div>
+        </div>
         <div class="field-grid-2">
           <div class="field-row"><label>카테고리</label>
             <select id="pfCategory"><option value="fruit">과일</option><option value="veg">야채</option><option value="fish">생선</option><option value="dried">건어물</option><option value="goods">공산품/기타</option></select>
           </div>
           <div class="field-row"><label>품명</label><select id="pfName"><option value="사과">사과</option><option value="배">배</option><option value="감">감</option><option value="귤/감귤">귤/감귤</option><option value="딸기">딸기</option><option value="포도">포도</option><option value="복숭아">복숭아</option><option value="자두">자두</option><option value="참외">참외</option><option value="수박">수박</option><option value="토마토">토마토</option><option value="키위/참다래">키위/참다래</option><option value="체리">체리</option><option value="매실">매실</option><option value="살구">살구</option><option value="망고">망고</option><option value="바나나">바나나</option><option value="파인애플">파인애플</option><option value="아보카도">아보카도</option><option value="자몽">자몽</option><option value="레몬">레몬</option><option value="블루베리">블루베리</option><option value="석류">석류</option><option value="무화과">무화과</option><option value="귤">귤</option><option value="대파">대파</option><option value="상추">상추</option><option value="양파">양파</option><option value="당근">당근</option><option value="감자">감자</option><option value="고구마">고구마</option><option value="오이">오이</option><option value="시금치">시금치</option><option value="배추">배추</option></select></div>
           <div class="field-row"><label>품종</label><select id="pfVariety"><option value="부사">부사</option><option value="홍로">홍로</option><option value="아오리">아오리</option><option value="시나노골드">시나노골드</option><option value="감홍">감홍</option><option value="시나노스위트">시나노스위트</option></select></div>
-          <div class="field-row"><label>총구입수량</label><input id="pfTotalQty" placeholder="예: 10박스"></div>
+          <div class="field-row"><label>총구입수량(개)</label><input type="number" min="0" step="1" inputmode="numeric" id="pfTotalQty" placeholder="예: 10"></div>
           <div class="field-row">
-            <label>구입원가(원)</label>
-            <input type="number" min="0" inputmode="numeric" id="pfCost">
+            <label>단가(원)</label>
+            <input type="text" inputmode="numeric" id="pfCost">
             <div class="quick-btns grid-3col">
               <button type="button" class="quick-btn" data-target="pfCost" data-add="1000">1천</button>
               <button type="button" class="quick-btn" data-target="pfCost" data-add="5000">5천</button>
@@ -370,7 +387,7 @@
           </div>
           <div class="field-row">
             <label>판매금액(원)</label>
-            <input type="number" min="0" inputmode="numeric" id="pfSale">
+            <input type="text" inputmode="numeric" id="pfSale">
             <div class="quick-btns grid-3col">
               <button type="button" class="quick-btn" data-target="pfSale" data-add="1000">1천</button>
               <button type="button" class="quick-btn" data-target="pfSale" data-add="5000">5천</button>
@@ -388,7 +405,7 @@
           </div>
           <div class="field-row"><label>소분수량(개)</label><input type="number" min="0" step="1" inputmode="numeric" id="pfSplit"></div>
         </div>
-        <div class="item-preview" id="pfPreview"><span>개당소분 <b>0g</b></span><span>개당판매가 <b>0원</b></span><span>마진율 <b>0%</b></span><span>이익금 <b>0원</b></span></div>
+        <div class="item-preview" id="pfPreview"><span>총 구입금액 <b>0원</b></span><span>개당소분 <b>0g</b></span><span>개당판매가 <b>0원</b></span><span>마진율 <b>0%</b></span><span>이익금 <b>0원</b></span></div>
         <div class="export-row" style="padding:0;margin:16px 0 0;">
           <button class="btn ghost" id="pfCancel">취소</button>
           <button class="btn primary" id="pfSave">저장하기</button>
@@ -396,12 +413,11 @@
       </div>
     </div>
 
-    <div id="purchaseListWrap" style="display: none;">
-      <div class="export-row" id="purchaseResetRow" style="padding:0;margin-bottom:14px;display:none;">
-        <button class="btn ghost" id="purchaseResetBtn">이 카테고리 초기화</button>
+    <div id="purchaseListWrap" style="">
+      <div class="export-row" id="purchaseResetRow" style="padding:0;margin-bottom:14px;">
+        <button class="btn ghost" id="purchaseResetBtn">전체 삭제</button>
       </div>
-      <div id="purchaseArchiveNotice" class="empty-msg" style="display:none;padding:10px 0;">지난 날짜의 구매 내역은 조회만 가능합니다.</div>
-      <div id="purchaseList"></div>
+      <div id="purchaseList"><div class="item-card" data-id="id_mrxiq1v4_rh6u47"><div class="item-card-head"><label class="switch"><input type="checkbox" class="p-enabled" data-id="id_mrxiq1v4_rh6u47" checked=""><span class="switch-slider"></span></label><span class="cat-pill">과일</span><span class="item-actions"><span class="move-btns"><button class="icon-btn p-up" data-id="id_mrxiq1v4_rh6u47" aria-label="위로" disabled="">▲</button><button class="icon-btn p-down" data-id="id_mrxiq1v4_rh6u47" aria-label="아래로">▼</button></span><button class="icon-btn p-edit" data-id="id_mrxiq1v4_rh6u47" aria-label="수정">✎</button><button class="icon-btn danger p-delete" data-id="id_mrxiq1v4_rh6u47" aria-label="삭제">✕</button></span></div><div class="item-name-row"><span class="item-name">자두</span><span class="item-variety">(후무사)</span></div><div class="item-detail-line">총구입수량 5개 · 단가 30,000원 · 총 구입금액 150,000원 · 판매금액 50,000원 · 박스무게 5kg · 소분 2개</div><div class="item-preview"><span>개당소분 <b>2.5kg</b></span><span>개당판매가 <b>25,000원</b></span><span>마진율 <b>40%</b></span><span>이익금 <b>20,000원</b></span></div></div><div class="item-card" data-id="id_mrxiqik1_pk1hgh"><div class="item-card-head"><label class="switch"><input type="checkbox" class="p-enabled" data-id="id_mrxiqik1_pk1hgh" checked=""><span class="switch-slider"></span></label><span class="cat-pill">과일</span><span class="item-actions"><span class="move-btns"><button class="icon-btn p-up" data-id="id_mrxiqik1_pk1hgh" aria-label="위로">▲</button><button class="icon-btn p-down" data-id="id_mrxiqik1_pk1hgh" aria-label="아래로" disabled="">▼</button></span><button class="icon-btn p-edit" data-id="id_mrxiqik1_pk1hgh" aria-label="수정">✎</button><button class="icon-btn danger p-delete" data-id="id_mrxiqik1_pk1hgh" aria-label="삭제">✕</button></span></div><div class="item-name-row"><span class="item-name">수박</span><span class="item-variety">(씨없는수박)</span></div><div class="item-detail-line">총구입수량 5개 · 단가 30,000원 · 총 구입금액 150,000원 · 판매금액 50,000원 · 박스무게 5kg · 소분 5개</div><div class="item-preview"><span>개당소분 <b>1kg</b></span><span>개당판매가 <b>10,000원</b></span><span>마진율 <b>40%</b></span><span>이익금 <b>20,000원</b></span></div></div></div>
     </div>
   </section>
 
@@ -410,51 +426,50 @@
       <div class="section-title">일일 마감</div>
       <div class="closing-date-row"><input type="date" id="closingDate"></div>
       <div class="field-grid-2">
-        <div class="field-row"><label>카드대금</label><input type="number" min="0" inputmode="numeric" id="closingCard"></div>
-        <div class="field-row"><label>현금매출</label><input type="number" min="0" inputmode="numeric" id="closingCash"></div>
-        <div class="field-row"><label>입금매출</label><input type="number" min="0" inputmode="numeric" id="closingDeposit"></div>
+        <div class="field-row"><label>카드대금</label><input type="text" inputmode="numeric" id="closingCard"></div>
+        <div class="field-row"><label>현금매출</label><input type="text" inputmode="numeric" id="closingCash"></div>
+        <div class="field-row"><label>입금매출</label><input type="text" inputmode="numeric" id="closingDeposit"></div>
         <div class="field-row" aria-hidden="true"></div>
       </div>
       <div class="closing-outputs">
-        <div class="out-line"><span>자동계산 매입총액</span><b id="closingPurchase">0원</b></div>
-        <div class="out-line brand big"><span>오늘 총수입</span><b id="closingIncome">0원</b></div>
-        <div class="out-line price big"><span>오늘 순이익</span><b id="closingProfit">0원</b></div>
+        <div class="out-line"><span>자동계산 매입총액</span><b id="closingPurchase">200,000원</b></div>
+        <div class="out-line brand big"><span>오늘 총수입</span><b id="closingIncome">2,150,000원</b></div>
+        <div class="out-line price big"><span>오늘 순이익</span><b id="closingProfit">1,950,000원</b></div>
       </div>
 
       <div class="section-title" style="margin-top:20px;">원가·마진 분석</div>
       <div class="field-grid-2">
-        <div class="field-row"><label>당일 총 매출액(원)</label><input type="number" min="0" inputmode="numeric" id="closingSaleTotal"></div>
-        <div class="field-row"><label>당일 판매 과일 총 원가(원)</label><input type="number" min="0" inputmode="numeric" id="closingFruitCost"></div>
-        <div class="field-row"><label>폐기/로스 손실액(원)</label><input type="number" min="0" inputmode="numeric" id="closingLoss"></div>
+        <div class="field-row"><label>당일 총 매출액(원)</label><input type="text" inputmode="numeric" id="closingSaleTotal"></div>
+        <div class="field-row"><label>당일 판매 과일 총 원가(원)</label><input type="text" inputmode="numeric" id="closingFruitCost"></div>
+        <div class="field-row"><label>폐기/로스 손실액(원)</label><input type="text" inputmode="numeric" id="closingLoss"></div>
         <div class="field-row" aria-hidden="true"></div>
       </div>
       <div class="hero-outputs">
         <div class="hero-line profit" id="closingFinalProfitCard">
           <span>최종 순이익</span>
-          <b id="closingFinalProfit">0원</b>
+          <b id="closingFinalProfit">1,278,333원</b>
         </div>
         <div class="hero-line" id="closingNetMarginCard">
           <span>순이익률</span>
-          <b id="closingNetMarginRate">0%</b>
+          <b id="closingNetMarginRate">59.5%</b>
         </div>
       </div>
       <div class="closing-outputs">
-        <div class="out-line"><span>원가율</span><b id="closingCostRate">0%</b></div>
-        <div class="out-line"><span>마진율</span><b id="closingMarginRate">0%</b></div>
-        <div class="out-line"><span>차감 고정비(일)</span><b id="closingFixedDaily">0원</b></div>
+        <div class="out-line"><span>원가율</span><b id="closingCostRate">30.2%</b></div>
+        <div class="out-line"><span>마진율</span><b id="closingMarginRate">69.8%</b></div>
+        <div class="out-line"><span>차감 고정비(일)</span><b id="closingFixedDaily">221,667원</b></div>
       </div>
     </div>
 
     <div class="card">
       <div class="section-title">기간별 통계</div>
       <div class="period-tabs" id="periodTabs">
-        <button class="period-tab-btn" data-mode="day">일별</button>
-        <button class="period-tab-btn active" data-mode="month">월별</button>
+        <button class="period-tab-btn active" data-mode="day">일별</button>
+        <button class="period-tab-btn" data-mode="month">월별</button>
         <button class="period-tab-btn" data-mode="quarter">분기별</button>
         <button class="period-tab-btn" data-mode="year">연간</button>
       </div>
       <div class="period-picker">
-        <input type="date" id="periodDay" style="display:none">
         <input type="month" id="periodMonth">
         <select id="periodQuarter" style="display:none">
           <option value="1">1분기(1~3월)</option>
@@ -465,11 +480,12 @@
         <input type="number" id="periodYear" style="display:none" placeholder="연도">
         <input type="number" id="periodYearOnly" style="display:none" placeholder="연도">
       </div>
-      <div class="period-outputs">
-        <div class="out-line"><span>총매입금액</span><b id="periodPurchase">20,000원</b></div>
-        <div class="out-line brand big"><span>총수입금액</span><b id="periodIncome">0원</b></div>
-        <div class="out-line price big"><span>순수익</span><b id="periodProfit">-20,000원</b></div>
+      <div class="period-outputs" id="periodOutputs" style="display: none;">
+        <div class="out-line"><span>총매입금액</span><b id="periodPurchase">3,919,000원</b></div>
+        <div class="out-line brand big"><span>총수입금액</span><b id="periodIncome">650,000원</b></div>
+        <div class="out-line price big"><span>순수익</span><b id="periodProfit">-3,269,000원</b></div>
       </div>
+      <div id="periodDailyList" style=""><div class="day-stat-row"><div class="day-stat-date">2026.7.1(수)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.2(목)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.3(금)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.4(토)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.5(일)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.6(월)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.7(화)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.8(수)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.9(목)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.10(금)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.11(토)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.12(일)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.13(월)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.14(화)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.15(수)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.16(목)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.17(금)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.18(토)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.19(일)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.20(월)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.21(화)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.22(수)</div><div class="day-stat-values"><span>총매입금액 <b>300,000원</b></span><span>총수입금액 <b>500,000원</b></span><span class="profit-val">순수익 <b class="">200,000원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.23(목)</div><div class="day-stat-values"><span>총매입금액 <b>200,000원</b></span><span>총수입금액 <b>2,150,000원</b></span><span class="profit-val">순수익 <b class="">1,950,000원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.24(금)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.25(토)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.26(일)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.27(월)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.28(화)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.29(수)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.30(목)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row"><div class="day-stat-date">2026.7.31(금)</div><div class="day-stat-values"><span>총매입금액 <b>0원</b></span><span>총수입금액 <b>0원</b></span><span class="profit-val">순수익 <b class="">0원</b></span></div></div><div class="day-stat-row day-stat-summary"><div class="day-stat-date">2026년 7월 합계</div><div class="day-stat-values"><span>총매입금액 <b>500,000원</b></span><span>총수입금액 <b>2,650,000원</b></span></div><div class="hero-outputs" style="margin-top:10px;"><div class="hero-line"><span>월고정비</span><b>6,650,000원</b></div><div class="hero-line profit loss"><span>순수익(고정비 반영)</span><b>-4,500,000원</b></div></div></div></div>
     </div>
   </section>
 
@@ -477,16 +493,16 @@
     <div class="card">
       <div class="section-title">월 고정비 설정</div>
       <div class="field-grid-2">
-        <div class="field-row"><label>임대료/관리비(월)</label><input type="number" min="0" inputmode="numeric" id="fcRent"></div>
-        <div class="field-row"><label>차량유류/운행비(월)</label><input type="number" min="0" inputmode="numeric" id="fcFuel"></div>
-        <div class="field-row"><label>저온창고/전기/수도세(월)</label><input type="number" min="0" inputmode="numeric" id="fcUtility"></div>
-        <div class="field-row"><label>인건비(월)</label><input type="number" min="0" inputmode="numeric" id="fcLabor"></div>
-        <div class="field-row"><label>포장재/소모품비(월)</label><input type="number" min="0" inputmode="numeric" id="fcPackaging"></div>
-        <div class="field-row"><label>기타 고정비(월)</label><input type="number" min="0" inputmode="numeric" id="fcEtc"></div>
+        <div class="field-row"><label>임대료/관리비(월)</label><input type="text" inputmode="numeric" id="fcRent"></div>
+        <div class="field-row"><label>차량유류/운행비(월)</label><input type="text" inputmode="numeric" id="fcFuel"></div>
+        <div class="field-row"><label>저온창고/전기/수도세(월)</label><input type="text" inputmode="numeric" id="fcUtility"></div>
+        <div class="field-row"><label>인건비(월)</label><input type="text" inputmode="numeric" id="fcLabor"></div>
+        <div class="field-row"><label>포장재/소모품비(월)</label><input type="text" inputmode="numeric" id="fcPackaging"></div>
+        <div class="field-row"><label>기타 고정비(월)</label><input type="text" inputmode="numeric" id="fcEtc"></div>
       </div>
       <div class="calc-outputs">
-        <div class="out-line"><span>월 고정비 합계</span><b id="fcMonthlyTotal">0원</b></div>
-        <div class="out-line brand big"><span>일일 환산 고정비</span><b id="fcDailyTotal">0원</b></div>
+        <div class="out-line"><span>월 고정비 합계</span><b id="fcMonthlyTotal">6,650,000원</b></div>
+        <div class="out-line brand big"><span>일일 환산 고정비</span><b id="fcDailyTotal">221,667원</b></div>
       </div>
     </div>
 
@@ -497,17 +513,17 @@
         <button class="btn primary" id="settingsAddNameBtn" style="flex:none;min-height:48px;padding:12px 20px;">추가</button>
       </div>
       <div class="section-title" id="settingsTitle" style="margin-top:16px;">품명/품종 관리</div>
-      <div id="settingsList"><div class="settings-product-row" data-name="사과"><div class="settings-product-head"><b>사과</b><span class="move-btns"><button class="icon-btn name-up" data-name="사과" aria-label="위로" disabled="">▲</button><button class="icon-btn name-down" data-name="사과" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="사과" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">부사<button class="variety-del" data-name="사과" data-variety="부사">×</button></span><span class="chip">홍로<button class="variety-del" data-name="사과" data-variety="홍로">×</button></span><span class="chip">아오리<button class="variety-del" data-name="사과" data-variety="아오리">×</button></span><span class="chip">시나노골드<button class="variety-del" data-name="사과" data-variety="시나노골드">×</button></span><span class="chip">감홍<button class="variety-del" data-name="사과" data-variety="감홍">×</button></span><span class="chip">시나노스위트<button class="variety-del" data-name="사과" data-variety="시나노스위트">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="사과"><button class="variety-add-btn" data-name="사과">+</button></span></div></div><div class="settings-product-row" data-name="배"><div class="settings-product-head"><b>배</b><span class="move-btns"><button class="icon-btn name-up" data-name="배" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="배" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="배" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">신고<button class="variety-del" data-name="배" data-variety="신고">×</button></span><span class="chip">원황<button class="variety-del" data-name="배" data-variety="원황">×</button></span><span class="chip">화산<button class="variety-del" data-name="배" data-variety="화산">×</button></span><span class="chip">추황<button class="variety-del" data-name="배" data-variety="추황">×</button></span><span class="chip">20세기<button class="variety-del" data-name="배" data-variety="20세기">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="배"><button class="variety-add-btn" data-name="배">+</button></span></div></div><div class="settings-product-row" data-name="감"><div class="settings-product-head"><b>감</b><span class="move-btns"><button class="icon-btn name-up" data-name="감" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="감" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="감" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">단감<button class="variety-del" data-name="감" data-variety="단감">×</button></span><span class="chip">대봉시<button class="variety-del" data-name="감" data-variety="대봉시">×</button></span><span class="chip">반시<button class="variety-del" data-name="감" data-variety="반시">×</button></span><span class="chip">곶감용<button class="variety-del" data-name="감" data-variety="곶감용">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="감"><button class="variety-add-btn" data-name="감">+</button></span></div></div><div class="settings-product-row" data-name="귤/감귤"><div class="settings-product-head"><b>귤/감귤</b><span class="move-btns"><button class="icon-btn name-up" data-name="귤/감귤" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="귤/감귤" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="귤/감귤" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">조생귤<button class="variety-del" data-name="귤/감귤" data-variety="조생귤">×</button></span><span class="chip">극조생<button class="variety-del" data-name="귤/감귤" data-variety="극조생">×</button></span><span class="chip">한라봉<button class="variety-del" data-name="귤/감귤" data-variety="한라봉">×</button></span><span class="chip">천혜향<button class="variety-del" data-name="귤/감귤" data-variety="천혜향">×</button></span><span class="chip">레드향<button class="variety-del" data-name="귤/감귤" data-variety="레드향">×</button></span><span class="chip">황금향<button class="variety-del" data-name="귤/감귤" data-variety="황금향">×</button></span><span class="chip">카라향<button class="variety-del" data-name="귤/감귤" data-variety="카라향">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="귤/감귤"><button class="variety-add-btn" data-name="귤/감귤">+</button></span></div></div><div class="settings-product-row" data-name="딸기"><div class="settings-product-head"><b>딸기</b><span class="move-btns"><button class="icon-btn name-up" data-name="딸기" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="딸기" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="딸기" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">설향<button class="variety-del" data-name="딸기" data-variety="설향">×</button></span><span class="chip">매향<button class="variety-del" data-name="딸기" data-variety="매향">×</button></span><span class="chip">금실<button class="variety-del" data-name="딸기" data-variety="금실">×</button></span><span class="chip">킹스베리<button class="variety-del" data-name="딸기" data-variety="킹스베리">×</button></span><span class="chip">비타베리<button class="variety-del" data-name="딸기" data-variety="비타베리">×</button></span><span class="chip">죽향<button class="variety-del" data-name="딸기" data-variety="죽향">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="딸기"><button class="variety-add-btn" data-name="딸기">+</button></span></div></div><div class="settings-product-row" data-name="포도"><div class="settings-product-head"><b>포도</b><span class="move-btns"><button class="icon-btn name-up" data-name="포도" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="포도" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="포도" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">샤인머스캣<button class="variety-del" data-name="포도" data-variety="샤인머스캣">×</button></span><span class="chip">거봉<button class="variety-del" data-name="포도" data-variety="거봉">×</button></span><span class="chip">캠벨얼리<button class="variety-del" data-name="포도" data-variety="캠벨얼리">×</button></span><span class="chip">머스캣아달원<button class="variety-del" data-name="포도" data-variety="머스캣아달원">×</button></span><span class="chip">델라웨어<button class="variety-del" data-name="포도" data-variety="델라웨어">×</button></span><span class="chip">블랙사파이어<button class="variety-del" data-name="포도" data-variety="블랙사파이어">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="포도"><button class="variety-add-btn" data-name="포도">+</button></span></div></div><div class="settings-product-row" data-name="복숭아"><div class="settings-product-head"><b>복숭아</b><span class="move-btns"><button class="icon-btn name-up" data-name="복숭아" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="복숭아" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="복숭아" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">백도<button class="variety-del" data-name="복숭아" data-variety="백도">×</button></span><span class="chip">황도<button class="variety-del" data-name="복숭아" data-variety="황도">×</button></span><span class="chip">천도<button class="variety-del" data-name="복숭아" data-variety="천도">×</button></span><span class="chip">신선도<button class="variety-del" data-name="복숭아" data-variety="신선도">×</button></span><span class="chip">개량복숭아<button class="variety-del" data-name="복숭아" data-variety="개량복숭아">×</button></span><span class="chip">납작복숭아<button class="variety-del" data-name="복숭아" data-variety="납작복숭아">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="복숭아"><button class="variety-add-btn" data-name="복숭아">+</button></span></div></div><div class="settings-product-row" data-name="자두"><div class="settings-product-head"><b>자두</b><span class="move-btns"><button class="icon-btn name-up" data-name="자두" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="자두" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="자두" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">후무사<button class="variety-del" data-name="자두" data-variety="후무사">×</button></span><span class="chip">대석<button class="variety-del" data-name="자두" data-variety="대석">×</button></span><span class="chip">피자두<button class="variety-del" data-name="자두" data-variety="피자두">×</button></span><span class="chip">추희<button class="variety-del" data-name="자두" data-variety="추희">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="자두"><button class="variety-add-btn" data-name="자두">+</button></span></div></div><div class="settings-product-row" data-name="참외"><div class="settings-product-head"><b>참외</b><span class="move-btns"><button class="icon-btn name-up" data-name="참외" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="참외" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="참외" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">성주참외<button class="variety-del" data-name="참외" data-variety="성주참외">×</button></span><span class="chip">금싸라기<button class="variety-del" data-name="참외" data-variety="금싸라기">×</button></span><span class="chip">꿀참외<button class="variety-del" data-name="참외" data-variety="꿀참외">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="참외"><button class="variety-add-btn" data-name="참외">+</button></span></div></div><div class="settings-product-row" data-name="수박"><div class="settings-product-head"><b>수박</b><span class="move-btns"><button class="icon-btn name-up" data-name="수박" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="수박" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="수박" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">애플수박<button class="variety-del" data-name="수박" data-variety="애플수박">×</button></span><span class="chip">씨없는수박<button class="variety-del" data-name="수박" data-variety="씨없는수박">×</button></span><span class="chip">흑수박<button class="variety-del" data-name="수박" data-variety="흑수박">×</button></span><span class="chip">애플망고수박<button class="variety-del" data-name="수박" data-variety="애플망고수박">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="수박"><button class="variety-add-btn" data-name="수박">+</button></span></div></div><div class="settings-product-row" data-name="토마토"><div class="settings-product-head"><b>토마토</b><span class="move-btns"><button class="icon-btn name-up" data-name="토마토" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="토마토" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="토마토" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">완숙토마토<button class="variety-del" data-name="토마토" data-variety="완숙토마토">×</button></span><span class="chip">찰토마토<button class="variety-del" data-name="토마토" data-variety="찰토마토">×</button></span><span class="chip">대저토마토<button class="variety-del" data-name="토마토" data-variety="대저토마토">×</button></span><span class="chip">대추방울<button class="variety-del" data-name="토마토" data-variety="대추방울">×</button></span><span class="chip">컬러방울<button class="variety-del" data-name="토마토" data-variety="컬러방울">×</button></span><span class="chip">스테비아토마토<button class="variety-del" data-name="토마토" data-variety="스테비아토마토">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="토마토"><button class="variety-add-btn" data-name="토마토">+</button></span></div></div><div class="settings-product-row" data-name="키위/참다래"><div class="settings-product-head"><b>키위/참다래</b><span class="move-btns"><button class="icon-btn name-up" data-name="키위/참다래" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="키위/참다래" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="키위/참다래" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">참다래<button class="variety-del" data-name="키위/참다래" data-variety="참다래">×</button></span><span class="chip">골드키위<button class="variety-del" data-name="키위/참다래" data-variety="골드키위">×</button></span><span class="chip">그린키위<button class="variety-del" data-name="키위/참다래" data-variety="그린키위">×</button></span><span class="chip">제스프리<button class="variety-del" data-name="키위/참다래" data-variety="제스프리">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="키위/참다래"><button class="variety-add-btn" data-name="키위/참다래">+</button></span></div></div><div class="settings-product-row" data-name="체리"><div class="settings-product-head"><b>체리</b><span class="move-btns"><button class="icon-btn name-up" data-name="체리" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="체리" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="체리" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산(자색)<button class="variety-del" data-name="체리" data-variety="국산(자색)">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="체리" data-variety="수입(미국)">×</button></span><span class="chip">수입(칠레)<button class="variety-del" data-name="체리" data-variety="수입(칠레)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="체리"><button class="variety-add-btn" data-name="체리">+</button></span></div></div><div class="settings-product-row" data-name="매실"><div class="settings-product-head"><b>매실</b><span class="move-btns"><button class="icon-btn name-up" data-name="매실" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="매실" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="매실" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">청매실<button class="variety-del" data-name="매실" data-variety="청매실">×</button></span><span class="chip">황매실<button class="variety-del" data-name="매실" data-variety="황매실">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="매실"><button class="variety-add-btn" data-name="매실">+</button></span></div></div><div class="settings-product-row" data-name="살구"><div class="settings-product-head"><b>살구</b><span class="move-btns"><button class="icon-btn name-up" data-name="살구" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="살구" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="살구" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="살구" data-variety="국산">×</button></span><span class="chip">수입<button class="variety-del" data-name="살구" data-variety="수입">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="살구"><button class="variety-add-btn" data-name="살구">+</button></span></div></div><div class="settings-product-row" data-name="망고"><div class="settings-product-head"><b>망고</b><span class="move-btns"><button class="icon-btn name-up" data-name="망고" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="망고" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="망고" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">애플망고<button class="variety-del" data-name="망고" data-variety="애플망고">×</button></span><span class="chip">카라바오망고<button class="variety-del" data-name="망고" data-variety="카라바오망고">×</button></span><span class="chip">남독마이<button class="variety-del" data-name="망고" data-variety="남독마이">×</button></span><span class="chip">그린망고<button class="variety-del" data-name="망고" data-variety="그린망고">×</button></span><span class="chip">무지개망고<button class="variety-del" data-name="망고" data-variety="무지개망고">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="망고"><button class="variety-add-btn" data-name="망고">+</button></span></div></div><div class="settings-product-row" data-name="바나나"><div class="settings-product-head"><b>바나나</b><span class="move-btns"><button class="icon-btn name-up" data-name="바나나" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="바나나" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="바나나" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">일반바나나<button class="variety-del" data-name="바나나" data-variety="일반바나나">×</button></span><span class="chip">스위티오<button class="variety-del" data-name="바나나" data-variety="스위티오">×</button></span><span class="chip">감숙왕<button class="variety-del" data-name="바나나" data-variety="감숙왕">×</button></span><span class="chip">몽키바나나<button class="variety-del" data-name="바나나" data-variety="몽키바나나">×</button></span><span class="chip">유기농바나나<button class="variety-del" data-name="바나나" data-variety="유기농바나나">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="바나나"><button class="variety-add-btn" data-name="바나나">+</button></span></div></div><div class="settings-product-row" data-name="파인애플"><div class="settings-product-head"><b>파인애플</b><span class="move-btns"><button class="icon-btn name-up" data-name="파인애플" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="파인애플" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="파인애플" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">골드파인애플<button class="variety-del" data-name="파인애플" data-variety="골드파인애플">×</button></span><span class="chip">허니골드<button class="variety-del" data-name="파인애플" data-variety="허니골드">×</button></span><span class="chip">미니파인애플<button class="variety-del" data-name="파인애플" data-variety="미니파인애플">×</button></span><span class="chip">수입<button class="variety-del" data-name="파인애플" data-variety="수입">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="파인애플"><button class="variety-add-btn" data-name="파인애플">+</button></span></div></div><div class="settings-product-row" data-name="아보카도"><div class="settings-product-head"><b>아보카도</b><span class="move-btns"><button class="icon-btn name-up" data-name="아보카도" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="아보카도" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="아보카도" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="아보카도" data-variety="국산">×</button></span><span class="chip">수입(멕시코)<button class="variety-del" data-name="아보카도" data-variety="수입(멕시코)">×</button></span><span class="chip">수입(페루)<button class="variety-del" data-name="아보카도" data-variety="수입(페루)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="아보카도"><button class="variety-add-btn" data-name="아보카도">+</button></span></div></div><div class="settings-product-row" data-name="자몽"><div class="settings-product-head"><b>자몽</b><span class="move-btns"><button class="icon-btn name-up" data-name="자몽" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="자몽" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="자몽" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="자몽" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="자몽" data-variety="수입(미국)">×</button></span><span class="chip">수입(이스라엘)<button class="variety-del" data-name="자몽" data-variety="수입(이스라엘)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="자몽"><button class="variety-add-btn" data-name="자몽">+</button></span></div></div><div class="settings-product-row" data-name="레몬"><div class="settings-product-head"><b>레몬</b><span class="move-btns"><button class="icon-btn name-up" data-name="레몬" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="레몬" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="레몬" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="레몬" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="레몬" data-variety="수입(미국)">×</button></span><span class="chip">수입(칠레)<button class="variety-del" data-name="레몬" data-variety="수입(칠레)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="레몬"><button class="variety-add-btn" data-name="레몬">+</button></span></div></div><div class="settings-product-row" data-name="블루베리"><div class="settings-product-head"><b>블루베리</b><span class="move-btns"><button class="icon-btn name-up" data-name="블루베리" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="블루베리" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="블루베리" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산(생물)<button class="variety-del" data-name="블루베리" data-variety="국산(생물)">×</button></span><span class="chip">수입(생물)<button class="variety-del" data-name="블루베리" data-variety="수입(생물)">×</button></span><span class="chip">수입(냉동)<button class="variety-del" data-name="블루베리" data-variety="수입(냉동)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="블루베리"><button class="variety-add-btn" data-name="블루베리">+</button></span></div></div><div class="settings-product-row" data-name="석류"><div class="settings-product-head"><b>석류</b><span class="move-btns"><button class="icon-btn name-up" data-name="석류" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="석류" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="석류" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="석류" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="석류" data-variety="수입(미국)">×</button></span><span class="chip">수입(이란)<button class="variety-del" data-name="석류" data-variety="수입(이란)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="석류"><button class="variety-add-btn" data-name="석류">+</button></span></div></div><div class="settings-product-row" data-name="무화과"><div class="settings-product-head"><b>무화과</b><span class="move-btns"><button class="icon-btn name-up" data-name="무화과" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="무화과" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="무화과" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">생무화과<button class="variety-del" data-name="무화과" data-variety="생무화과">×</button></span><span class="chip">건무화과<button class="variety-del" data-name="무화과" data-variety="건무화과">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="무화과"><button class="variety-add-btn" data-name="무화과">+</button></span></div></div><div class="settings-product-row" data-name="귤"><div class="settings-product-head"><b>귤</b><span class="move-btns"><button class="icon-btn name-up" data-name="귤" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="귤" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="귤" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="귤"><button class="variety-add-btn" data-name="귤">+</button></span></div></div><div class="settings-product-row" data-name="대파"><div class="settings-product-head"><b>대파</b><span class="move-btns"><button class="icon-btn name-up" data-name="대파" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="대파" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="대파" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="대파"><button class="variety-add-btn" data-name="대파">+</button></span></div></div><div class="settings-product-row" data-name="상추"><div class="settings-product-head"><b>상추</b><span class="move-btns"><button class="icon-btn name-up" data-name="상추" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="상추" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="상추" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="상추"><button class="variety-add-btn" data-name="상추">+</button></span></div></div><div class="settings-product-row" data-name="양파"><div class="settings-product-head"><b>양파</b><span class="move-btns"><button class="icon-btn name-up" data-name="양파" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="양파" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="양파" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="양파"><button class="variety-add-btn" data-name="양파">+</button></span></div></div><div class="settings-product-row" data-name="당근"><div class="settings-product-head"><b>당근</b><span class="move-btns"><button class="icon-btn name-up" data-name="당근" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="당근" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="당근" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="당근"><button class="variety-add-btn" data-name="당근">+</button></span></div></div><div class="settings-product-row" data-name="감자"><div class="settings-product-head"><b>감자</b><span class="move-btns"><button class="icon-btn name-up" data-name="감자" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="감자" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="감자" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="감자"><button class="variety-add-btn" data-name="감자">+</button></span></div></div><div class="settings-product-row" data-name="고구마"><div class="settings-product-head"><b>고구마</b><span class="move-btns"><button class="icon-btn name-up" data-name="고구마" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="고구마" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="고구마" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="고구마"><button class="variety-add-btn" data-name="고구마">+</button></span></div></div><div class="settings-product-row" data-name="오이"><div class="settings-product-head"><b>오이</b><span class="move-btns"><button class="icon-btn name-up" data-name="오이" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="오이" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="오이" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="오이"><button class="variety-add-btn" data-name="오이">+</button></span></div></div><div class="settings-product-row" data-name="시금치"><div class="settings-product-head"><b>시금치</b><span class="move-btns"><button class="icon-btn name-up" data-name="시금치" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="시금치" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="시금치" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="시금치"><button class="variety-add-btn" data-name="시금치">+</button></span></div></div><div class="settings-product-row" data-name="배추"><div class="settings-product-head"><b>배추</b><span class="move-btns"><button class="icon-btn name-up" data-name="배추" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="배추" aria-label="아래로" disabled="">▼</button><button class="icon-btn danger name-del" data-name="배추" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="배추"><button class="variety-add-btn" data-name="배추">+</button></span></div></div></div>
+      <div id="settingsList"><div class="settings-product-row" data-name="사과"><div class="settings-product-head"><b>사과</b><span class="move-btns"><button class="icon-btn name-up" data-name="사과" aria-label="위로" disabled="">▲</button><button class="icon-btn name-down" data-name="사과" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="사과" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">부사<button class="variety-del" data-name="사과" data-variety="부사">×</button></span><span class="chip">홍로<button class="variety-del" data-name="사과" data-variety="홍로">×</button></span><span class="chip">아오리<button class="variety-del" data-name="사과" data-variety="아오리">×</button></span><span class="chip">시나노골드<button class="variety-del" data-name="사과" data-variety="시나노골드">×</button></span><span class="chip">감홍<button class="variety-del" data-name="사과" data-variety="감홍">×</button></span><span class="chip">시나노스위트<button class="variety-del" data-name="사과" data-variety="시나노스위트">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="사과"><button class="variety-add-btn" data-name="사과">+</button></span></div></div><div class="settings-product-row" data-name="배"><div class="settings-product-head"><b>배</b><span class="move-btns"><button class="icon-btn name-up" data-name="배" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="배" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="배" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">신고<button class="variety-del" data-name="배" data-variety="신고">×</button></span><span class="chip">원황<button class="variety-del" data-name="배" data-variety="원황">×</button></span><span class="chip">화산<button class="variety-del" data-name="배" data-variety="화산">×</button></span><span class="chip">추황<button class="variety-del" data-name="배" data-variety="추황">×</button></span><span class="chip">20세기<button class="variety-del" data-name="배" data-variety="20세기">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="배"><button class="variety-add-btn" data-name="배">+</button></span></div></div><div class="settings-product-row" data-name="감"><div class="settings-product-head"><b>감</b><span class="move-btns"><button class="icon-btn name-up" data-name="감" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="감" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="감" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">단감<button class="variety-del" data-name="감" data-variety="단감">×</button></span><span class="chip">대봉시<button class="variety-del" data-name="감" data-variety="대봉시">×</button></span><span class="chip">반시<button class="variety-del" data-name="감" data-variety="반시">×</button></span><span class="chip">곶감용<button class="variety-del" data-name="감" data-variety="곶감용">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="감"><button class="variety-add-btn" data-name="감">+</button></span></div></div><div class="settings-product-row" data-name="귤/감귤"><div class="settings-product-head"><b>귤/감귤</b><span class="move-btns"><button class="icon-btn name-up" data-name="귤/감귤" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="귤/감귤" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="귤/감귤" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">조생귤<button class="variety-del" data-name="귤/감귤" data-variety="조생귤">×</button></span><span class="chip">극조생<button class="variety-del" data-name="귤/감귤" data-variety="극조생">×</button></span><span class="chip">한라봉<button class="variety-del" data-name="귤/감귤" data-variety="한라봉">×</button></span><span class="chip">천혜향<button class="variety-del" data-name="귤/감귤" data-variety="천혜향">×</button></span><span class="chip">레드향<button class="variety-del" data-name="귤/감귤" data-variety="레드향">×</button></span><span class="chip">황금향<button class="variety-del" data-name="귤/감귤" data-variety="황금향">×</button></span><span class="chip">카라향<button class="variety-del" data-name="귤/감귤" data-variety="카라향">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="귤/감귤"><button class="variety-add-btn" data-name="귤/감귤">+</button></span></div></div><div class="settings-product-row" data-name="딸기"><div class="settings-product-head"><b>딸기</b><span class="move-btns"><button class="icon-btn name-up" data-name="딸기" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="딸기" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="딸기" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">설향<button class="variety-del" data-name="딸기" data-variety="설향">×</button></span><span class="chip">매향<button class="variety-del" data-name="딸기" data-variety="매향">×</button></span><span class="chip">금실<button class="variety-del" data-name="딸기" data-variety="금실">×</button></span><span class="chip">킹스베리<button class="variety-del" data-name="딸기" data-variety="킹스베리">×</button></span><span class="chip">비타베리<button class="variety-del" data-name="딸기" data-variety="비타베리">×</button></span><span class="chip">죽향<button class="variety-del" data-name="딸기" data-variety="죽향">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="딸기"><button class="variety-add-btn" data-name="딸기">+</button></span></div></div><div class="settings-product-row" data-name="포도"><div class="settings-product-head"><b>포도</b><span class="move-btns"><button class="icon-btn name-up" data-name="포도" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="포도" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="포도" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">샤인머스캣<button class="variety-del" data-name="포도" data-variety="샤인머스캣">×</button></span><span class="chip">거봉<button class="variety-del" data-name="포도" data-variety="거봉">×</button></span><span class="chip">캠벨얼리<button class="variety-del" data-name="포도" data-variety="캠벨얼리">×</button></span><span class="chip">머스캣아달원<button class="variety-del" data-name="포도" data-variety="머스캣아달원">×</button></span><span class="chip">델라웨어<button class="variety-del" data-name="포도" data-variety="델라웨어">×</button></span><span class="chip">블랙사파이어<button class="variety-del" data-name="포도" data-variety="블랙사파이어">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="포도"><button class="variety-add-btn" data-name="포도">+</button></span></div></div><div class="settings-product-row" data-name="복숭아"><div class="settings-product-head"><b>복숭아</b><span class="move-btns"><button class="icon-btn name-up" data-name="복숭아" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="복숭아" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="복숭아" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">백도<button class="variety-del" data-name="복숭아" data-variety="백도">×</button></span><span class="chip">황도<button class="variety-del" data-name="복숭아" data-variety="황도">×</button></span><span class="chip">천도<button class="variety-del" data-name="복숭아" data-variety="천도">×</button></span><span class="chip">신선도<button class="variety-del" data-name="복숭아" data-variety="신선도">×</button></span><span class="chip">개량복숭아<button class="variety-del" data-name="복숭아" data-variety="개량복숭아">×</button></span><span class="chip">납작복숭아<button class="variety-del" data-name="복숭아" data-variety="납작복숭아">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="복숭아"><button class="variety-add-btn" data-name="복숭아">+</button></span></div></div><div class="settings-product-row" data-name="자두"><div class="settings-product-head"><b>자두</b><span class="move-btns"><button class="icon-btn name-up" data-name="자두" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="자두" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="자두" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">후무사<button class="variety-del" data-name="자두" data-variety="후무사">×</button></span><span class="chip">대석<button class="variety-del" data-name="자두" data-variety="대석">×</button></span><span class="chip">피자두<button class="variety-del" data-name="자두" data-variety="피자두">×</button></span><span class="chip">추희<button class="variety-del" data-name="자두" data-variety="추희">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="자두"><button class="variety-add-btn" data-name="자두">+</button></span></div></div><div class="settings-product-row" data-name="참외"><div class="settings-product-head"><b>참외</b><span class="move-btns"><button class="icon-btn name-up" data-name="참외" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="참외" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="참외" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">성주참외<button class="variety-del" data-name="참외" data-variety="성주참외">×</button></span><span class="chip">금싸라기<button class="variety-del" data-name="참외" data-variety="금싸라기">×</button></span><span class="chip">꿀참외<button class="variety-del" data-name="참외" data-variety="꿀참외">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="참외"><button class="variety-add-btn" data-name="참외">+</button></span></div></div><div class="settings-product-row" data-name="수박"><div class="settings-product-head"><b>수박</b><span class="move-btns"><button class="icon-btn name-up" data-name="수박" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="수박" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="수박" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">애플수박<button class="variety-del" data-name="수박" data-variety="애플수박">×</button></span><span class="chip">씨없는수박<button class="variety-del" data-name="수박" data-variety="씨없는수박">×</button></span><span class="chip">흑수박<button class="variety-del" data-name="수박" data-variety="흑수박">×</button></span><span class="chip">애플망고수박<button class="variety-del" data-name="수박" data-variety="애플망고수박">×</button></span><span class="chip">국산수박<button class="variety-del" data-name="수박" data-variety="국산수박">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="수박"><button class="variety-add-btn" data-name="수박">+</button></span></div></div><div class="settings-product-row" data-name="토마토"><div class="settings-product-head"><b>토마토</b><span class="move-btns"><button class="icon-btn name-up" data-name="토마토" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="토마토" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="토마토" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">완숙토마토<button class="variety-del" data-name="토마토" data-variety="완숙토마토">×</button></span><span class="chip">찰토마토<button class="variety-del" data-name="토마토" data-variety="찰토마토">×</button></span><span class="chip">대저토마토<button class="variety-del" data-name="토마토" data-variety="대저토마토">×</button></span><span class="chip">대추방울<button class="variety-del" data-name="토마토" data-variety="대추방울">×</button></span><span class="chip">컬러방울<button class="variety-del" data-name="토마토" data-variety="컬러방울">×</button></span><span class="chip">스테비아토마토<button class="variety-del" data-name="토마토" data-variety="스테비아토마토">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="토마토"><button class="variety-add-btn" data-name="토마토">+</button></span></div></div><div class="settings-product-row" data-name="키위/참다래"><div class="settings-product-head"><b>키위/참다래</b><span class="move-btns"><button class="icon-btn name-up" data-name="키위/참다래" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="키위/참다래" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="키위/참다래" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">참다래<button class="variety-del" data-name="키위/참다래" data-variety="참다래">×</button></span><span class="chip">골드키위<button class="variety-del" data-name="키위/참다래" data-variety="골드키위">×</button></span><span class="chip">그린키위<button class="variety-del" data-name="키위/참다래" data-variety="그린키위">×</button></span><span class="chip">제스프리<button class="variety-del" data-name="키위/참다래" data-variety="제스프리">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="키위/참다래"><button class="variety-add-btn" data-name="키위/참다래">+</button></span></div></div><div class="settings-product-row" data-name="체리"><div class="settings-product-head"><b>체리</b><span class="move-btns"><button class="icon-btn name-up" data-name="체리" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="체리" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="체리" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산(자색)<button class="variety-del" data-name="체리" data-variety="국산(자색)">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="체리" data-variety="수입(미국)">×</button></span><span class="chip">수입(칠레)<button class="variety-del" data-name="체리" data-variety="수입(칠레)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="체리"><button class="variety-add-btn" data-name="체리">+</button></span></div></div><div class="settings-product-row" data-name="매실"><div class="settings-product-head"><b>매실</b><span class="move-btns"><button class="icon-btn name-up" data-name="매실" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="매실" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="매실" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">청매실<button class="variety-del" data-name="매실" data-variety="청매실">×</button></span><span class="chip">황매실<button class="variety-del" data-name="매실" data-variety="황매실">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="매실"><button class="variety-add-btn" data-name="매실">+</button></span></div></div><div class="settings-product-row" data-name="살구"><div class="settings-product-head"><b>살구</b><span class="move-btns"><button class="icon-btn name-up" data-name="살구" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="살구" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="살구" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="살구" data-variety="국산">×</button></span><span class="chip">수입<button class="variety-del" data-name="살구" data-variety="수입">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="살구"><button class="variety-add-btn" data-name="살구">+</button></span></div></div><div class="settings-product-row" data-name="망고"><div class="settings-product-head"><b>망고</b><span class="move-btns"><button class="icon-btn name-up" data-name="망고" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="망고" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="망고" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">애플망고<button class="variety-del" data-name="망고" data-variety="애플망고">×</button></span><span class="chip">카라바오망고<button class="variety-del" data-name="망고" data-variety="카라바오망고">×</button></span><span class="chip">남독마이<button class="variety-del" data-name="망고" data-variety="남독마이">×</button></span><span class="chip">그린망고<button class="variety-del" data-name="망고" data-variety="그린망고">×</button></span><span class="chip">무지개망고<button class="variety-del" data-name="망고" data-variety="무지개망고">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="망고"><button class="variety-add-btn" data-name="망고">+</button></span></div></div><div class="settings-product-row" data-name="바나나"><div class="settings-product-head"><b>바나나</b><span class="move-btns"><button class="icon-btn name-up" data-name="바나나" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="바나나" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="바나나" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">일반바나나<button class="variety-del" data-name="바나나" data-variety="일반바나나">×</button></span><span class="chip">스위티오<button class="variety-del" data-name="바나나" data-variety="스위티오">×</button></span><span class="chip">감숙왕<button class="variety-del" data-name="바나나" data-variety="감숙왕">×</button></span><span class="chip">몽키바나나<button class="variety-del" data-name="바나나" data-variety="몽키바나나">×</button></span><span class="chip">유기농바나나<button class="variety-del" data-name="바나나" data-variety="유기농바나나">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="바나나"><button class="variety-add-btn" data-name="바나나">+</button></span></div></div><div class="settings-product-row" data-name="파인애플"><div class="settings-product-head"><b>파인애플</b><span class="move-btns"><button class="icon-btn name-up" data-name="파인애플" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="파인애플" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="파인애플" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">골드파인애플<button class="variety-del" data-name="파인애플" data-variety="골드파인애플">×</button></span><span class="chip">허니골드<button class="variety-del" data-name="파인애플" data-variety="허니골드">×</button></span><span class="chip">미니파인애플<button class="variety-del" data-name="파인애플" data-variety="미니파인애플">×</button></span><span class="chip">수입<button class="variety-del" data-name="파인애플" data-variety="수입">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="파인애플"><button class="variety-add-btn" data-name="파인애플">+</button></span></div></div><div class="settings-product-row" data-name="아보카도"><div class="settings-product-head"><b>아보카도</b><span class="move-btns"><button class="icon-btn name-up" data-name="아보카도" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="아보카도" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="아보카도" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="아보카도" data-variety="국산">×</button></span><span class="chip">수입(멕시코)<button class="variety-del" data-name="아보카도" data-variety="수입(멕시코)">×</button></span><span class="chip">수입(페루)<button class="variety-del" data-name="아보카도" data-variety="수입(페루)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="아보카도"><button class="variety-add-btn" data-name="아보카도">+</button></span></div></div><div class="settings-product-row" data-name="자몽"><div class="settings-product-head"><b>자몽</b><span class="move-btns"><button class="icon-btn name-up" data-name="자몽" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="자몽" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="자몽" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="자몽" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="자몽" data-variety="수입(미국)">×</button></span><span class="chip">수입(이스라엘)<button class="variety-del" data-name="자몽" data-variety="수입(이스라엘)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="자몽"><button class="variety-add-btn" data-name="자몽">+</button></span></div></div><div class="settings-product-row" data-name="레몬"><div class="settings-product-head"><b>레몬</b><span class="move-btns"><button class="icon-btn name-up" data-name="레몬" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="레몬" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="레몬" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="레몬" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="레몬" data-variety="수입(미국)">×</button></span><span class="chip">수입(칠레)<button class="variety-del" data-name="레몬" data-variety="수입(칠레)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="레몬"><button class="variety-add-btn" data-name="레몬">+</button></span></div></div><div class="settings-product-row" data-name="블루베리"><div class="settings-product-head"><b>블루베리</b><span class="move-btns"><button class="icon-btn name-up" data-name="블루베리" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="블루베리" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="블루베리" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산(생물)<button class="variety-del" data-name="블루베리" data-variety="국산(생물)">×</button></span><span class="chip">수입(생물)<button class="variety-del" data-name="블루베리" data-variety="수입(생물)">×</button></span><span class="chip">수입(냉동)<button class="variety-del" data-name="블루베리" data-variety="수입(냉동)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="블루베리"><button class="variety-add-btn" data-name="블루베리">+</button></span></div></div><div class="settings-product-row" data-name="석류"><div class="settings-product-head"><b>석류</b><span class="move-btns"><button class="icon-btn name-up" data-name="석류" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="석류" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="석류" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">국산<button class="variety-del" data-name="석류" data-variety="국산">×</button></span><span class="chip">수입(미국)<button class="variety-del" data-name="석류" data-variety="수입(미국)">×</button></span><span class="chip">수입(이란)<button class="variety-del" data-name="석류" data-variety="수입(이란)">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="석류"><button class="variety-add-btn" data-name="석류">+</button></span></div></div><div class="settings-product-row" data-name="무화과"><div class="settings-product-head"><b>무화과</b><span class="move-btns"><button class="icon-btn name-up" data-name="무화과" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="무화과" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="무화과" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="chip">생무화과<button class="variety-del" data-name="무화과" data-variety="생무화과">×</button></span><span class="chip">건무화과<button class="variety-del" data-name="무화과" data-variety="건무화과">×</button></span><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="무화과"><button class="variety-add-btn" data-name="무화과">+</button></span></div></div><div class="settings-product-row" data-name="귤"><div class="settings-product-head"><b>귤</b><span class="move-btns"><button class="icon-btn name-up" data-name="귤" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="귤" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="귤" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="귤"><button class="variety-add-btn" data-name="귤">+</button></span></div></div><div class="settings-product-row" data-name="대파"><div class="settings-product-head"><b>대파</b><span class="move-btns"><button class="icon-btn name-up" data-name="대파" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="대파" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="대파" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="대파"><button class="variety-add-btn" data-name="대파">+</button></span></div></div><div class="settings-product-row" data-name="상추"><div class="settings-product-head"><b>상추</b><span class="move-btns"><button class="icon-btn name-up" data-name="상추" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="상추" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="상추" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="상추"><button class="variety-add-btn" data-name="상추">+</button></span></div></div><div class="settings-product-row" data-name="양파"><div class="settings-product-head"><b>양파</b><span class="move-btns"><button class="icon-btn name-up" data-name="양파" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="양파" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="양파" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="양파"><button class="variety-add-btn" data-name="양파">+</button></span></div></div><div class="settings-product-row" data-name="당근"><div class="settings-product-head"><b>당근</b><span class="move-btns"><button class="icon-btn name-up" data-name="당근" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="당근" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="당근" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="당근"><button class="variety-add-btn" data-name="당근">+</button></span></div></div><div class="settings-product-row" data-name="감자"><div class="settings-product-head"><b>감자</b><span class="move-btns"><button class="icon-btn name-up" data-name="감자" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="감자" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="감자" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="감자"><button class="variety-add-btn" data-name="감자">+</button></span></div></div><div class="settings-product-row" data-name="고구마"><div class="settings-product-head"><b>고구마</b><span class="move-btns"><button class="icon-btn name-up" data-name="고구마" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="고구마" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="고구마" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="고구마"><button class="variety-add-btn" data-name="고구마">+</button></span></div></div><div class="settings-product-row" data-name="오이"><div class="settings-product-head"><b>오이</b><span class="move-btns"><button class="icon-btn name-up" data-name="오이" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="오이" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="오이" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="오이"><button class="variety-add-btn" data-name="오이">+</button></span></div></div><div class="settings-product-row" data-name="시금치"><div class="settings-product-head"><b>시금치</b><span class="move-btns"><button class="icon-btn name-up" data-name="시금치" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="시금치" aria-label="아래로">▼</button><button class="icon-btn danger name-del" data-name="시금치" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="시금치"><button class="variety-add-btn" data-name="시금치">+</button></span></div></div><div class="settings-product-row" data-name="배추"><div class="settings-product-head"><b>배추</b><span class="move-btns"><button class="icon-btn name-up" data-name="배추" aria-label="위로">▲</button><button class="icon-btn name-down" data-name="배추" aria-label="아래로" disabled="">▼</button><button class="icon-btn danger name-del" data-name="배추" aria-label="품명 삭제">✕</button></span></div><div class="variety-chips"><span class="variety-add-row"><input placeholder="품종 추가" class="variety-add-input" data-name="배추"><button class="variety-add-btn" data-name="배추">+</button></span></div></div></div>
     </div>
   </section>
 </div>
 
 <div id="printArea"></div>
-<div class="toast" id="toast"></div>
+<div class="toast" id="toast">저장되었습니다.</div>
 
 <div class="confirm-overlay" id="confirmOverlay">
   <div class="confirm-box">
-    <div class="confirm-msg" id="confirmMsg"></div>
+    <div class="confirm-msg" id="confirmMsg">2026.7.22(수) 전체 구매 내역을 삭제할까요?</div>
     <div class="confirm-actions">
       <button class="btn ghost" id="confirmCancelBtn">취소</button>
       <button class="btn danger" id="confirmOkBtn">삭제</button>
@@ -698,7 +714,7 @@
     { key: 'goods', label: '공산품/기타' }
   ];
 
-  var state = { masterData: {}, purchases: [], purchaseArchive: {}, lastPurchaseDate: '', dailyClosing: {}, fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 }, calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 } };
+  var state = { masterData: {}, purchasesByDate: {}, dailyClosing: {}, fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 }, calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 } };
   var currentTab = 'calc';
   var currentPurchaseView = 'input';
   var periodMode = 'month';
@@ -716,6 +732,17 @@
 
   function round1(n) { return Math.round((n || 0) * 10) / 10; }
   function formatWon(n) { return Math.round(n || 0).toLocaleString('ko-KR') + '원'; }
+  function toWonPlain(n) { return Math.round(n || 0).toLocaleString('ko-KR'); }
+  function parseWon(v) { return parseFloat(String(v == null ? '' : v).replace(/,/g, '')) || 0; }
+  function formatMoneyInput(el) {
+    var digits = String(el.value).replace(/[^0-9]/g, '').replace(/^0+(?=\d)/, '');
+    var formatted = digits ? parseInt(digits, 10).toLocaleString('ko-KR') : '';
+    if (el.value === formatted) return;
+    var caretFromEnd = el.value.length - (el.selectionEnd == null ? el.value.length : el.selectionEnd);
+    el.value = formatted;
+    var pos = Math.max(formatted.length - caretFromEnd, 0);
+    if (el.setSelectionRange) { try { el.setSelectionRange(pos, pos); } catch (e) {} }
+  }
   function formatG(n) {
     n = n || 0;
     if (n >= 1000) return round1(n / 1000) + 'kg';
@@ -734,9 +761,13 @@
   function backfillPurchase(p) {
     var merged = Object.assign({
       id: uid(), category: 'fruit', name: '', variety: '', enabled: true,
-      totalQtyText: '', costTotal: 0, saleTotal: 0, weight: 0, weightUnit: 'kg', splitQty: 0
+      totalQtyText: '', unitPrice: 0, costTotal: 0, saleTotal: 0, weight: 0, weightUnit: 'kg', splitQty: 0
     }, p);
     merged.category = normalizeCategory(merged.category);
+    if (!merged.unitPrice) {
+      var qtyNum = parseFloat(merged.totalQtyText) || 0;
+      merged.unitPrice = qtyNum > 0 ? Math.round((merged.costTotal || 0) / qtyNum) : (merged.costTotal || 0);
+    }
     return merged;
   }
 
@@ -785,9 +816,24 @@
       if (raw) {
         var parsed = JSON.parse(raw);
         state.masterData = parsed.masterData && typeof parsed.masterData === 'object' ? parsed.masterData : buildMasterSeed();
-        state.purchases = Array.isArray(parsed.purchases) ? parsed.purchases.map(backfillPurchase) : [];
-        state.purchaseArchive = (parsed.purchaseArchive && typeof parsed.purchaseArchive === 'object') ? parsed.purchaseArchive : {};
-        state.lastPurchaseDate = parsed.lastPurchaseDate || todayStr();
+        if (parsed.purchasesByDate && typeof parsed.purchasesByDate === 'object') {
+          state.purchasesByDate = {};
+          Object.keys(parsed.purchasesByDate).forEach(function (dstr) {
+            state.purchasesByDate[dstr] = Array.isArray(parsed.purchasesByDate[dstr]) ? parsed.purchasesByDate[dstr].map(backfillPurchase) : [];
+          });
+        } else {
+          // migrate from the old today-bucket + archive model
+          state.purchasesByDate = {};
+          if (parsed.purchaseArchive && typeof parsed.purchaseArchive === 'object') {
+            Object.keys(parsed.purchaseArchive).forEach(function (dstr) {
+              state.purchasesByDate[dstr] = Array.isArray(parsed.purchaseArchive[dstr]) ? parsed.purchaseArchive[dstr].map(backfillPurchase) : [];
+            });
+          }
+          if (Array.isArray(parsed.purchases) && parsed.purchases.length) {
+            var todayBucketDate = parsed.lastPurchaseDate || todayStr();
+            state.purchasesByDate[todayBucketDate] = (state.purchasesByDate[todayBucketDate] || []).concat(parsed.purchases.map(backfillPurchase));
+          }
+        }
         state.dailyClosing = (parsed.dailyClosing && typeof parsed.dailyClosing === 'object') ? parsed.dailyClosing : {};
         state.fixedCosts = (parsed.fixedCosts && typeof parsed.fixedCosts === 'object') ? parsed.fixedCosts : { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 };
         state.calc = parsed.calc || { cost: 0, sale: 0, weight: 0, split: 0 };
@@ -798,42 +844,40 @@
     if (!loaded) {
       state.masterData = buildMasterSeed();
       var migrated = migrateFromV3() || migrateFromV2();
+      state.purchasesByDate = {};
       if (migrated) {
-        state.purchases = migrated.purchases;
+        state.purchasesByDate[todayStr()] = migrated.purchases;
         state.dailyClosing = migrated.dailyClosing;
         state.calc = migrated.calc || { cost: 0, sale: 0, weight: 0, split: 0 };
-        state.purchases.forEach(function (p) { ensureMasterHasName(p.category, p.name); });
+        migrated.purchases.forEach(function (p) { ensureMasterHasName(p.category, p.name); });
       } else {
-        state.purchases = [];
         state.dailyClosing = {};
         state.calc = { cost: 0, sale: 0, weight: 0, split: 0 };
       }
-      state.purchaseArchive = {};
-      state.lastPurchaseDate = todayStr();
       state.fixedCosts = { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0 };
     }
   }
 
-  function checkDayRollover() {
-    var today = todayStr();
-    if (state.lastPurchaseDate && state.lastPurchaseDate !== today && state.purchases.length) {
-      var prevDate = state.lastPurchaseDate;
-      state.purchaseArchive[prevDate] = (state.purchaseArchive[prevDate] || []).concat(state.purchases);
-      state.purchases = [];
-    }
-    state.lastPurchaseDate = today;
-    save();
+  function getPurchasesForDate(date) {
+    return state.purchasesByDate[date] || [];
+  }
+  function setPurchasesForDate(date, arr) {
+    state.purchasesByDate[date] = arr;
+  }
+  function computePurchaseTotalForDate(date) {
+    return getPurchasesForDate(date).reduce(function (sum, p) { return p.enabled ? sum + (p.costTotal || 0) : sum; }, 0);
   }
 
   function save() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      masterData: state.masterData, purchases: state.purchases, purchaseArchive: state.purchaseArchive,
-      lastPurchaseDate: state.lastPurchaseDate, dailyClosing: state.dailyClosing, fixedCosts: state.fixedCosts, calc: state.calc
+      masterData: state.masterData, purchasesByDate: state.purchasesByDate,
+      dailyClosing: state.dailyClosing, fixedCosts: state.fixedCosts, calc: state.calc
     }));
   }
 
   function computeCard(entry) {
     var cost = entry.costTotal || 0, sale = entry.saleTotal || 0, weight = entry.weight || 0, split = entry.splitQty || 0;
+    var unitCost = entry.unitPrice || 0;
     var perSplitDisplay;
     if (split > 0 && weight > 0) {
       var perSplit = weight / split;
@@ -843,8 +887,8 @@
     }
     var perPrice = split > 0 ? sale / split : 0;
     var perCost = split > 0 ? cost / split : 0;
-    var marginRate = sale > 0 ? (sale - cost) / sale * 100 : 0;
-    var profit = sale - cost;
+    var marginRate = sale > 0 ? (sale - unitCost) / sale * 100 : 0;
+    var profit = sale - unitCost;
     return { perSplitDisplay: perSplitDisplay, perPrice: perPrice, perCost: perCost, marginRate: marginRate, profit: profit };
   }
 
@@ -853,14 +897,14 @@
       'calcModeTabs', 'calcSaleRow', 'calcTargetMarginRow', 'calcWeightUnitToggle', 'calcSaleTotalOut', 'calcSaleTotalDisplay',
       'shareBtn', 'pdfBtn', 'printArea', 'toast', 'tabbar',
       'pdfOverlay', 'pdfContent', 'pdfCloseBtn', 'pdfCopyBtn',
-      'purchaseDateInput', 'purchaseViewRow', 'purchaseFormWrap', 'purchaseListWrap', 'purchaseList', 'purchaseFormTitle',
-      'purchaseResetRow', 'purchaseResetBtn', 'purchaseArchiveNotice',
+      'purchaseDateInput', 'purchaseViewRow', 'purchaseFormWrap', 'purchaseListWrap', 'purchaseList', 'purchaseFormTitle', 'purchaseActiveDate',
+      'purchaseResetRow', 'purchaseResetBtn',
       'pfCategory', 'pfName', 'pfVariety', 'pfTotalQty', 'pfCost', 'pfSale', 'pfWeight', 'pfWeightUnit', 'pfSplit', 'pfPreview', 'pfCancel', 'pfSave',
       'closingDate', 'closingCard', 'closingCash', 'closingDeposit', 'closingPurchase', 'closingIncome', 'closingProfit',
       'closingSaleTotal', 'closingFruitCost', 'closingLoss',
       'closingFinalProfit', 'closingFinalProfitCard', 'closingNetMarginRate', 'closingNetMarginCard',
       'closingCostRate', 'closingMarginRate', 'closingFixedDaily',
-      'periodTabs', 'periodDay', 'periodMonth', 'periodQuarter', 'periodYear', 'periodYearOnly', 'periodPurchase', 'periodIncome', 'periodProfit',
+      'periodTabs', 'periodMonth', 'periodQuarter', 'periodYear', 'periodYearOnly', 'periodPurchase', 'periodIncome', 'periodProfit', 'periodOutputs', 'periodDailyList',
       'settingsCatRow', 'settingsList', 'settingsNewName', 'settingsAddNameBtn',
       'fcRent', 'fcFuel', 'fcUtility', 'fcLabor', 'fcPackaging', 'fcEtc', 'fcMonthlyTotal', 'fcDailyTotal',
       'confirmOverlay', 'confirmMsg', 'confirmCancelBtn', 'confirmOkBtn'
@@ -969,8 +1013,8 @@
     updateCalcOutputs();
   }
   function renderCalc() {
-    els.calcCost.value = state.calc.cost || 0;
-    els.calcSale.value = state.calc.sale || 0;
+    els.calcCost.value = toWonPlain(state.calc.cost || 0);
+    els.calcSale.value = toWonPlain(state.calc.sale || 0);
     els.calcWeight.value = state.calc.weight || 0;
     els.calcSplit.value = state.calc.split || 0;
     els.calcLoss.value = state.calc.loss || 0;
@@ -981,10 +1025,12 @@
     setCalcMode(state.calc.mode || 'sale');
   }
   function bindCalc() {
+    var moneyFields = { calcCost: true, calcSale: true };
     var map = [['calcCost', 'cost'], ['calcSale', 'sale'], ['calcWeight', 'weight'], ['calcSplit', 'split'], ['calcLoss', 'loss'], ['calcTargetMargin', 'targetMargin']];
     map.forEach(function (pair) {
       els[pair[0]].addEventListener('input', function () {
-        state.calc[pair[1]] = parseFloat(els[pair[0]].value) || 0;
+        if (moneyFields[pair[0]]) formatMoneyInput(els[pair[0]]);
+        state.calc[pair[1]] = parseWon(els[pair[0]].value);
         save();
         updateCalcOutputs();
       });
@@ -1025,7 +1071,7 @@
           var add = parseFloat(btn.getAttribute('data-add')) || 0;
           state.calc[field] = (state.calc[field] || 0) + add;
         }
-        els[targetId].value = state.calc[field];
+        els[targetId].value = toWonPlain(state.calc[field]);
         save();
         updateCalcOutputs();
       });
@@ -1072,21 +1118,26 @@
   }
 
   function readForm() {
+    var qty = parseFloat(els.pfTotalQty.value) || 0;
+    var unitPrice = parseWon(els.pfCost.value);
     return {
       category: normalizeCategory(els.pfCategory.value),
       name: els.pfName.value,
       variety: els.pfVariety.disabled ? '' : els.pfVariety.value,
-      totalQtyText: els.pfTotalQty.value,
-      costTotal: parseFloat(els.pfCost.value) || 0,
-      saleTotal: parseFloat(els.pfSale.value) || 0,
+      totalQtyText: String(qty),
+      unitPrice: unitPrice,
+      costTotal: qty * unitPrice,
+      saleTotal: parseWon(els.pfSale.value),
       weight: parseFloat(els.pfWeight.value) || 0,
       weightUnit: els.pfWeightUnit.value,
       splitQty: parseFloat(els.pfSplit.value) || 0
     };
   }
   function updateFormPreview() {
-    var c = computeCard(readForm());
+    var data = readForm();
+    var c = computeCard(data);
     els.pfPreview.innerHTML =
+      '<span>총 구입금액 <b>' + formatWon(data.costTotal) + '</b></span>' +
       '<span>개당소분 <b>' + c.perSplitDisplay + '</b></span>' +
       '<span>개당판매가 <b>' + formatWon(c.perPrice) + '</b></span>' +
       '<span>마진율 <b>' + round1(c.marginRate) + '%</b></span>' +
@@ -1099,8 +1150,8 @@
     els.pfCategory.value = 'fruit';
     populateNameSelect('fruit');
     els.pfTotalQty.value = '';
-    els.pfCost.value = 0;
-    els.pfSale.value = 0;
+    els.pfCost.value = toWonPlain(0);
+    els.pfSale.value = toWonPlain(0);
     els.pfWeight.value = 0;
     els.pfWeightUnit.value = 'kg';
     els.pfSplit.value = 0;
@@ -1116,8 +1167,12 @@
       populateVarietySelect(els.pfCategory.value, els.pfName.value);
       updateFormPreview();
     });
+    var pfMoneyFields = { pfCost: true, pfSale: true };
     ['pfVariety', 'pfTotalQty', 'pfCost', 'pfSale', 'pfWeight', 'pfWeightUnit', 'pfSplit'].forEach(function (id) {
-      els[id].addEventListener('input', updateFormPreview);
+      els[id].addEventListener('input', function () {
+        if (pfMoneyFields[id]) formatMoneyInput(els[id]);
+        updateFormPreview();
+      });
       els[id].addEventListener('change', updateFormPreview);
     });
     Array.prototype.forEach.call(document.querySelectorAll('#page-purchase .quick-btn'), function (btn) {
@@ -1125,10 +1180,10 @@
         var targetId = btn.getAttribute('data-target');
         var input = els[targetId];
         if (btn.getAttribute('data-reset')) {
-          input.value = 0;
+          input.value = toWonPlain(0);
         } else {
           var add = parseFloat(btn.getAttribute('data-add')) || 0;
-          input.value = (parseFloat(input.value) || 0) + add;
+          input.value = toWonPlain(parseWon(input.value) + add);
         }
         updateFormPreview();
       });
@@ -1139,14 +1194,17 @@
     els.pfSave.addEventListener('click', function () {
       var data = readForm();
       if (!data.name) { showToast('품명을 선택해 주세요.'); return; }
+      var date = els.purchaseDateInput.value || todayStr();
+      var arr = getPurchasesForDate(date);
       if (editingPurchaseId) {
-        var idx = state.purchases.findIndex(function (p) { return p.id === editingPurchaseId; });
-        if (idx !== -1) state.purchases[idx] = Object.assign({}, state.purchases[idx], data);
+        var idx = arr.findIndex(function (p) { return p.id === editingPurchaseId; });
+        if (idx !== -1) arr[idx] = Object.assign({}, arr[idx], data);
         showToast('수정되었습니다.');
       } else {
-        state.purchases.push(backfillPurchase(Object.assign({ id: uid(), enabled: true }, data)));
+        arr.push(backfillPurchase(Object.assign({ id: uid(), enabled: true }, data)));
         showToast('저장되었습니다.');
       }
+      setPurchasesForDate(date, arr);
       save();
       resetForm();
       renderPurchaseList();
@@ -1190,7 +1248,7 @@
       '<span class="item-name">' + escapeHtml(p.name) + '</span>' +
       (p.variety ? '<span class="item-variety">(' + escapeHtml(p.variety) + ')</span>' : '') +
       '</div>' +
-      '<div class="item-detail-line">총구입 ' + escapeHtml(p.totalQtyText || '-') + ' · 구입원가 ' + formatWon(p.costTotal) + ' · 판매금액 ' + formatWon(p.saleTotal) + ' · ' + (p.weightUnit === 'EA' ? '수량 ' + round1(p.weight) + 'EA' : '박스무게 ' + round1(p.weight) + 'kg') + ' · 소분 ' + (p.splitQty || 0) + '개</div>' +
+      '<div class="item-detail-line">총구입수량 ' + escapeHtml(p.totalQtyText || '0') + '개 · 단가 ' + formatWon(p.unitPrice) + ' · 총 구입금액 ' + formatWon(p.costTotal) + ' · 판매금액 ' + formatWon(p.saleTotal) + ' · ' + (p.weightUnit === 'EA' ? '수량 ' + round1(p.weight) + 'EA' : '박스무게 ' + round1(p.weight) + 'kg') + ' · 소분 ' + (p.splitQty || 0) + '개</div>' +
       '<div class="item-preview">' +
       '<span>개당소분 <b>' + c.perSplitDisplay + '</b></span>' +
       '<span>개당판매가 <b>' + formatWon(c.perPrice) + '</b></span>' +
@@ -1199,56 +1257,55 @@
       '</div>' +
       '</div>';
   }
-  function isPurchaseDateToday() {
-    return (els.purchaseDateInput.value || todayStr()) === todayStr();
+  function formatPurchaseDateLabel(date) {
+    var p = parseDateStr(date);
+    var wd = ['일', '월', '화', '수', '목', '금', '토'][new Date(p.y, p.m - 1, p.d).getDay()];
+    return p.y + '.' + p.m + '.' + p.d + '(' + wd + ')';
   }
   function renderPurchaseList() {
     var date = els.purchaseDateInput.value || todayStr();
-    var isToday = date === todayStr();
-    var source = isToday ? state.purchases : (state.purchaseArchive[date] || []);
+    var source = getPurchasesForDate(date);
     var list = source.filter(function (p) {
       return currentPurchaseView === 'all' || p.category === currentPurchaseView;
     });
     els.purchaseList.innerHTML = list.map(function (p, idx) {
-      return purchaseCardHtml(p, idx === 0, idx === list.length - 1, !isToday);
+      return purchaseCardHtml(p, idx === 0, idx === list.length - 1, false);
     }).join('') || '<div class="empty-msg">저장된 구매 품목이 없습니다.</div>';
     renderPurchaseViewRow();
-    els.purchaseArchiveNotice.style.display = isToday ? 'none' : '';
-    els.purchaseResetRow.style.display = isToday ? '' : 'none';
-    if (isToday) {
-      els.purchaseResetBtn.textContent = (currentPurchaseView === 'all' ? '전체' : (CAT_LABEL[currentPurchaseView] || '')) + ' 초기화';
-    }
+    els.purchaseResetRow.style.display = '';
+    els.purchaseResetBtn.textContent = (currentPurchaseView === 'all' ? '전체' : (CAT_LABEL[currentPurchaseView] || '')) + ' 삭제';
+    if (els.purchaseActiveDate) els.purchaseActiveDate.textContent = formatPurchaseDateLabel(date);
     renderClosing();
   }
   function movePurchase(id, direction) {
-    if (!isPurchaseDateToday()) return;
-    var filtered = state.purchases.filter(function (p) {
+    var date = els.purchaseDateInput.value || todayStr();
+    var arr = getPurchasesForDate(date);
+    var filtered = arr.filter(function (p) {
       return currentPurchaseView === 'all' || p.category === currentPurchaseView;
     });
     var idx = filtered.findIndex(function (p) { return p.id === id; });
     var swapIdx = idx + direction;
     if (idx === -1 || swapIdx < 0 || swapIdx >= filtered.length) return;
     var a = filtered[idx], b = filtered[swapIdx];
-    var realIdxA = state.purchases.indexOf(a);
-    var realIdxB = state.purchases.indexOf(b);
-    state.purchases[realIdxA] = b;
-    state.purchases[realIdxB] = a;
+    var realIdxA = arr.indexOf(a);
+    var realIdxB = arr.indexOf(b);
+    arr[realIdxA] = b;
+    arr[realIdxB] = a;
     save();
     renderPurchaseList();
   }
   function resetPurchaseCategory() {
-    if (!isPurchaseDateToday()) return;
+    var date = els.purchaseDateInput.value || todayStr();
+    var arr = getPurchasesForDate(date);
     var scope = currentPurchaseView;
-    var toArchive = state.purchases.filter(function (p) { return scope === 'all' || p.category === scope; });
-    if (!toArchive.length) { showToast('초기화할 항목이 없습니다.'); return; }
+    var toRemove = arr.filter(function (p) { return scope === 'all' || p.category === scope; });
+    if (!toRemove.length) { showToast('삭제할 항목이 없습니다.'); return; }
     var scopeLabel = scope === 'all' ? '전체' : (CAT_LABEL[scope] || '');
-    showConfirm(scopeLabel + ' 구매 내역을 초기화할까요? (내역은 기록에 보관됩니다)', function () {
-      var today = todayStr();
-      state.purchaseArchive[today] = (state.purchaseArchive[today] || []).concat(toArchive);
-      state.purchases = state.purchases.filter(function (p) { return !(scope === 'all' || p.category === scope); });
+    showConfirm(formatPurchaseDateLabel(date) + ' ' + scopeLabel + ' 구매 내역을 삭제할까요?', function () {
+      setPurchasesForDate(date, arr.filter(function (p) { return !(scope === 'all' || p.category === scope); }));
       save();
       renderPurchaseList();
-      showToast('초기화되었습니다.');
+      showToast('삭제되었습니다.');
     });
   }
   function bindPurchaseList() {
@@ -1261,9 +1318,11 @@
     });
     els.purchaseList.addEventListener('change', function (e) {
       var t = e.target;
-      if (!t.classList.contains('p-enabled') || !isPurchaseDateToday()) return;
+      if (!t.classList.contains('p-enabled')) return;
+      var date = els.purchaseDateInput.value || todayStr();
+      var arr = getPurchasesForDate(date);
       var id = t.getAttribute('data-id');
-      var p = state.purchases.find(function (x) { return x.id === id; });
+      var p = arr.find(function (x) { return x.id === id; });
       if (!p) return;
       p.enabled = t.checked;
       var card = els.purchaseList.querySelector('.item-card[data-id="' + id + '"]');
@@ -1272,7 +1331,8 @@
       renderClosing();
     });
     els.purchaseList.addEventListener('click', function (e) {
-      if (!isPurchaseDateToday()) return;
+      var date = els.purchaseDateInput.value || todayStr();
+      var arr = getPurchasesForDate(date);
       var delBtn = e.target.closest('.p-delete');
       var editBtn = e.target.closest('.p-edit');
       var upBtn = e.target.closest('.p-up');
@@ -1282,7 +1342,7 @@
       if (delBtn) {
         var id1 = delBtn.getAttribute('data-id');
         showConfirm('이 구매 기록을 삭제할까요?', function () {
-          state.purchases = state.purchases.filter(function (x) { return x.id !== id1; });
+          setPurchasesForDate(date, arr.filter(function (x) { return x.id !== id1; }));
           save();
           renderPurchaseList();
         });
@@ -1290,7 +1350,7 @@
       }
       if (editBtn) {
         var id2 = editBtn.getAttribute('data-id');
-        var p2 = state.purchases.find(function (x) { return x.id === id2; });
+        var p2 = arr.find(function (x) { return x.id === id2; });
         if (!p2) return;
         editingPurchaseId = id2;
         els.purchaseFormTitle.textContent = '구매 수정';
@@ -1299,8 +1359,8 @@
         populateNameSelect(p2.category, p2.name);
         populateVarietySelect(p2.category, p2.name, p2.variety);
         els.pfTotalQty.value = p2.totalQtyText || '';
-        els.pfCost.value = p2.costTotal || 0;
-        els.pfSale.value = p2.saleTotal || 0;
+        els.pfCost.value = toWonPlain(p2.unitPrice || 0);
+        els.pfSale.value = toWonPlain(p2.saleTotal || 0);
         els.pfWeight.value = p2.weight || 0;
         els.pfWeightUnit.value = p2.weightUnit || 'kg';
         els.pfSplit.value = p2.splitQty || 0;
@@ -1313,25 +1373,24 @@
 
   // ---- closing tab ----
   function getClosing(date) {
-    return state.dailyClosing[date] || { purchaseTotal: 0, card: 0, cash: 0, deposit: 0, saleTotal: 0, fruitCost: 0, fruitCostManual: false, lossAmount: 0 };
+    return state.dailyClosing[date] || { purchaseTotal: 0, card: 0, cash: 0, deposit: 0, saleTotal: 0, saleTotalManual: false, fruitCost: 0, fruitCostManual: false, lossAmount: 0 };
   }
-  function computePurchaseTotalNow() {
-    return state.purchases.reduce(function (sum, p) { return p.enabled ? sum + (p.costTotal || 0) : sum; }, 0);
+  function computeMonthlyFixedCostTotal() {
+    var fc = state.fixedCosts || {};
+    return (fc.rent || 0) + (fc.fuel || 0) + (fc.utility || 0) + (fc.labor || 0) + (fc.packaging || 0) + (fc.etc || 0);
   }
   function computeDailyFixedCost() {
-    var fc = state.fixedCosts || {};
-    var total = (fc.rent || 0) + (fc.fuel || 0) + (fc.utility || 0) + (fc.labor || 0) + (fc.packaging || 0) + (fc.etc || 0);
-    return total / 30;
+    return computeMonthlyFixedCostTotal() / 30;
   }
   function renderClosing() {
     var date = els.closingDate.value || todayStr();
     var rec = getClosing(date);
     var isToday = date === todayStr();
-    var purchaseTotal = isToday ? computePurchaseTotalNow() : (rec.purchaseTotal || 0);
+    var purchaseTotal = computePurchaseTotalForDate(date);
     els.closingPurchase.textContent = formatWon(purchaseTotal);
-    els.closingCard.value = rec.card || 0;
-    els.closingCash.value = rec.cash || 0;
-    els.closingDeposit.value = rec.deposit || 0;
+    els.closingCard.value = toWonPlain(rec.card || 0);
+    els.closingCash.value = toWonPlain(rec.cash || 0);
+    els.closingDeposit.value = toWonPlain(rec.deposit || 0);
     var totalIncome = (rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0);
     els.closingIncome.textContent = formatWon(totalIncome);
     els.closingProfit.textContent = formatWon(totalIncome - purchaseTotal);
@@ -1339,9 +1398,12 @@
     if (isToday && !rec.fruitCostManual) {
       rec.fruitCost = purchaseTotal;
     }
-    els.closingSaleTotal.value = rec.saleTotal || 0;
-    els.closingFruitCost.value = rec.fruitCost || 0;
-    els.closingLoss.value = rec.lossAmount || 0;
+    if (isToday && !rec.saleTotalManual) {
+      rec.saleTotal = totalIncome;
+    }
+    els.closingSaleTotal.value = toWonPlain(rec.saleTotal || 0);
+    els.closingFruitCost.value = toWonPlain(rec.fruitCost || 0);
+    els.closingLoss.value = toWonPlain(rec.lossAmount || 0);
 
     var saleTotal = rec.saleTotal || 0;
     var fruitCost = rec.fruitCost || 0;
@@ -1374,29 +1436,38 @@
       els[pair[0]].addEventListener('input', function () {
         var date = els.closingDate.value || todayStr();
         var rec = getClosing(date);
-        rec[pair[1]] = parseFloat(els[pair[0]].value) || 0;
-        if (date === todayStr()) rec.purchaseTotal = computePurchaseTotalNow();
+        rec[pair[1]] = parseWon(els[pair[0]].value);
+        rec.purchaseTotal = computePurchaseTotalForDate(date);
         state.dailyClosing[date] = rec;
         save();
         renderClosing();
         renderPeriodStats();
       });
     });
-    var analysisMap = [['closingSaleTotal', 'saleTotal'], ['closingLoss', 'lossAmount']];
+    var analysisMap = [['closingLoss', 'lossAmount']];
     analysisMap.forEach(function (pair) {
       els[pair[0]].addEventListener('input', function () {
         var date = els.closingDate.value || todayStr();
         var rec = getClosing(date);
-        rec[pair[1]] = parseFloat(els[pair[0]].value) || 0;
+        rec[pair[1]] = parseWon(els[pair[0]].value);
         state.dailyClosing[date] = rec;
         save();
         renderClosing();
       });
     });
+    els.closingSaleTotal.addEventListener('input', function () {
+      var date = els.closingDate.value || todayStr();
+      var rec = getClosing(date);
+      rec.saleTotal = parseWon(els.closingSaleTotal.value);
+      rec.saleTotalManual = true;
+      state.dailyClosing[date] = rec;
+      save();
+      renderClosing();
+    });
     els.closingFruitCost.addEventListener('input', function () {
       var date = els.closingDate.value || todayStr();
       var rec = getClosing(date);
-      rec.fruitCost = parseFloat(els.closingFruitCost.value) || 0;
+      rec.fruitCost = parseWon(els.closingFruitCost.value);
       rec.fruitCostManual = true;
       state.dailyClosing[date] = rec;
       save();
@@ -1416,15 +1487,54 @@
     if (mode === 'year') return p.y === ref.y;
     return false;
   }
+  function pad2(n) { return (n < 10 ? '0' : '') + n; }
+  function weekdayLabel(y, m, d) {
+    return ['일', '월', '화', '수', '목', '금', '토'][new Date(y, m - 1, d).getDay()];
+  }
+  function renderDailyBreakdown(y, m) {
+    var daysInMonth = new Date(y, m, 0).getDate();
+    var rows = [];
+    var purchaseSum = 0, incomeSum = 0;
+    for (var d = 1; d <= daysInMonth; d++) {
+      var dstr = y + '-' + pad2(m) + '-' + pad2(d);
+      var rec = state.dailyClosing[dstr];
+      var purchase = computePurchaseTotalForDate(dstr);
+      var income = rec ? ((rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0)) : 0;
+      var profit = income - purchase;
+      purchaseSum += purchase;
+      incomeSum += income;
+      rows.push(
+        '<div class="day-stat-row">' +
+        '<div class="day-stat-date">' + y + '.' + m + '.' + d + '(' + weekdayLabel(y, m, d) + ')</div>' +
+        '<div class="day-stat-values">' +
+        '<span>총매입금액 <b>' + formatWon(purchase) + '</b></span>' +
+        '<span>총수입금액 <b>' + formatWon(income) + '</b></span>' +
+        '<span class="profit-val">순수익 <b class="' + (profit < 0 ? 'neg' : '') + '">' + formatWon(profit) + '</b></span>' +
+        '</div></div>'
+      );
+    }
+    var monthlyFixed = computeMonthlyFixedCostTotal();
+    var netProfit = incomeSum - purchaseSum - monthlyFixed;
+    rows.push(
+      '<div class="day-stat-row day-stat-summary">' +
+      '<div class="day-stat-date">' + y + '년 ' + m + '월 합계</div>' +
+      '<div class="day-stat-values">' +
+      '<span>총매입금액 <b>' + formatWon(purchaseSum) + '</b></span>' +
+      '<span>총수입금액 <b>' + formatWon(incomeSum) + '</b></span>' +
+      '</div>' +
+      '<div class="hero-outputs" style="margin-top:10px;">' +
+      '<div class="hero-line"><span>월고정비</span><b>' + formatWon(monthlyFixed) + '</b></div>' +
+      '<div class="hero-line profit' + (netProfit < 0 ? ' loss' : '') + '"><span>순수익(고정비 반영)</span><b>' + formatWon(netProfit) + '</b></div>' +
+      '</div></div>'
+    );
+    els.periodDailyList.innerHTML = rows.join('');
+  }
   function renderPeriodStats() {
     if (periodMode === 'day') {
-      var date = els.periodDay.value || todayStr();
-      var rec = getClosing(date);
-      var purchase = rec.purchaseTotal || 0;
-      var income = (rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0);
-      els.periodPurchase.textContent = formatWon(purchase);
-      els.periodIncome.textContent = formatWon(income);
-      els.periodProfit.textContent = formatWon(income - purchase);
+      var val0 = els.periodMonth.value;
+      if (!val0) return;
+      var parts0 = val0.split('-');
+      renderDailyBreakdown(parseInt(parts0[0], 10), parseInt(parts0[1], 10));
       return;
     }
     var ref;
@@ -1439,11 +1549,14 @@
       ref = { y: parseInt(els.periodYearOnly.value, 10) || new Date().getFullYear() };
     }
     var purchaseSum = 0, incomeSum = 0;
-    Object.keys(state.dailyClosing).forEach(function (dstr) {
+    var allDates = {};
+    Object.keys(state.dailyClosing).forEach(function (d) { allDates[d] = true; });
+    Object.keys(state.purchasesByDate).forEach(function (d) { allDates[d] = true; });
+    Object.keys(allDates).forEach(function (dstr) {
       if (inPeriod(dstr, periodMode, ref)) {
         var rec = state.dailyClosing[dstr];
-        purchaseSum += rec.purchaseTotal || 0;
-        incomeSum += (rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0);
+        purchaseSum += computePurchaseTotalForDate(dstr);
+        incomeSum += rec ? ((rec.card || 0) + (rec.cash || 0) + (rec.deposit || 0)) : 0;
       }
     });
     els.periodPurchase.textContent = formatWon(purchaseSum);
@@ -1455,11 +1568,12 @@
     Array.prototype.forEach.call(els.periodTabs.querySelectorAll('.period-tab-btn'), function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
     });
-    els.periodDay.style.display = mode === 'day' ? '' : 'none';
-    els.periodMonth.style.display = mode === 'month' ? '' : 'none';
+    els.periodMonth.style.display = (mode === 'month' || mode === 'day') ? '' : 'none';
     els.periodQuarter.style.display = mode === 'quarter' ? '' : 'none';
     els.periodYear.style.display = mode === 'quarter' ? '' : 'none';
     els.periodYearOnly.style.display = mode === 'year' ? '' : 'none';
+    els.periodOutputs.style.display = mode === 'day' ? 'none' : '';
+    els.periodDailyList.style.display = mode === 'day' ? '' : 'none';
     renderPeriodStats();
   }
   function bindPeriod() {
@@ -1468,7 +1582,7 @@
       if (!t) return;
       setPeriodMode(t.getAttribute('data-mode'));
     });
-    [els.periodDay, els.periodMonth, els.periodQuarter, els.periodYear, els.periodYearOnly].forEach(function (el) {
+    [els.periodMonth, els.periodQuarter, els.periodYear, els.periodYearOnly].forEach(function (el) {
       el.addEventListener('input', renderPeriodStats);
     });
   }
@@ -1476,12 +1590,12 @@
   // ---- fixed costs ----
   function renderFixedCosts() {
     var fc = state.fixedCosts || {};
-    els.fcRent.value = fc.rent || 0;
-    els.fcFuel.value = fc.fuel || 0;
-    els.fcUtility.value = fc.utility || 0;
-    els.fcLabor.value = fc.labor || 0;
-    els.fcPackaging.value = fc.packaging || 0;
-    els.fcEtc.value = fc.etc || 0;
+    els.fcRent.value = toWonPlain(fc.rent || 0);
+    els.fcFuel.value = toWonPlain(fc.fuel || 0);
+    els.fcUtility.value = toWonPlain(fc.utility || 0);
+    els.fcLabor.value = toWonPlain(fc.labor || 0);
+    els.fcPackaging.value = toWonPlain(fc.packaging || 0);
+    els.fcEtc.value = toWonPlain(fc.etc || 0);
     var monthlyTotal = (fc.rent || 0) + (fc.fuel || 0) + (fc.utility || 0) + (fc.labor || 0) + (fc.packaging || 0) + (fc.etc || 0);
     els.fcMonthlyTotal.textContent = formatWon(monthlyTotal);
     els.fcDailyTotal.textContent = formatWon(monthlyTotal / 30);
@@ -1490,7 +1604,7 @@
     var map = [['fcRent', 'rent'], ['fcFuel', 'fuel'], ['fcUtility', 'utility'], ['fcLabor', 'labor'], ['fcPackaging', 'packaging'], ['fcEtc', 'etc']];
     map.forEach(function (pair) {
       els[pair[0]].addEventListener('input', function () {
-        state.fixedCosts[pair[1]] = parseFloat(els[pair[0]].value) || 0;
+        state.fixedCosts[pair[1]] = parseWon(els[pair[0]].value);
         save();
         renderFixedCosts();
         renderClosing();
@@ -1614,7 +1728,7 @@
     var p = parseDateStr(date);
     var lines = ['다판다 상품 판매 목록 [' + p.y + '년 ' + p.m + '월 ' + p.d + '일] 기준', ''];
     var groups = { fruit: [], veg: [], fish: [], dried: [], goods: [] };
-    state.purchases.forEach(function (it) {
+    getPurchasesForDate(date).forEach(function (it) {
       if (it.enabled && groups[it.category]) groups[it.category].push(it);
     });
     CATS.forEach(function (cat) {
@@ -1625,7 +1739,7 @@
       arr.forEach(function (it) {
         var c = computeCard(it);
         var nameStr = it.variety ? it.name + '(' + it.variety + ')' : it.name;
-        lines.push('- ' + nameStr + ' ' + formatPurchaseWeight(it) + ' / 총수량 ' + it.totalQtyText + ' / 소분할개수 ' + (it.splitQty || 0) + '개 / 개당소분 ' + c.perSplitDisplay + ' / 판매가 ' + formatWon(c.perPrice));
+        lines.push('- ' + nameStr + ' ' + formatPurchaseWeight(it) + ' / 총구입수량 ' + it.totalQtyText + '개 / 소분할개수 ' + (it.splitQty || 0) + '개 / 개당소분 ' + c.perSplitDisplay + ' / 판매가 ' + formatWon(c.perPrice));
       });
       lines.push('');
     });
@@ -1695,12 +1809,10 @@
 
   function init() {
     load();
-    checkDayRollover();
     cacheEls();
     els.closingDate.value = todayStr();
     els.purchaseDateInput.value = todayStr();
     var now = new Date();
-    els.periodDay.value = todayStr();
     els.periodMonth.value = todayStr().slice(0, 7);
     els.periodYear.value = now.getFullYear();
     els.periodYearOnly.value = now.getFullYear();
