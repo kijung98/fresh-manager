@@ -436,23 +436,90 @@
   .sheet-item.sel { color: var(--brand); }
   .sheet-item.sel::after { content: '✓'; color: var(--brand); font-weight: 900; }
 
+  /* ===== 헤더 가로 배치 ===== */
+  .brand-line { margin: 0; display: flex; align-items: baseline; gap: 8px; min-width: 0; flex-wrap: wrap; }
+  .brand-line #storeNameTitle { font-size: 24px; font-weight: 800; letter-spacing: .3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 60vw; }
+  .brand-line .brand-suffix { font-size: 15px; font-weight: 800; color: var(--brand); white-space: nowrap; }
+
+  /* ===== 계산 기록 ===== */
+  .calc-top { display: flex; justify-content: flex-start; margin-bottom: 2px; }
+  .calc-hist-btn { border: none; background: #333; color: #fff; width: 42px; height: 42px; border-radius: 50%; font-size: 18px; cursor: pointer; line-height: 1; }
+  .calc-hist-btn:active { filter: brightness(1.4); }
+  .hist-item { display: flex; flex-direction: column; gap: 2px; padding: 13px 8px; border-bottom: 1px solid var(--line); cursor: pointer; }
+  .hist-item:active { background: var(--brand-soft); }
+  .hist-item .he { font-size: 15px; color: var(--ink-faint); font-weight: 600; overflow-wrap: anywhere; }
+  .hist-item .hr { font-size: 23px; font-weight: 800; color: var(--ink); }
+  .hist-empty { text-align: center; color: var(--ink-faint); padding: 34px 0; font-size: 16px; }
+
+  /* 확인/입력 대화상자는 바텀시트보다 위에 */
+  .confirm-overlay { z-index: 95; }
+
+  /* ===== 설정 아코디언 ===== */
+  .acc {
+    background: var(--paper-raise); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: var(--shadow); margin-bottom: 12px; overflow: hidden;
+  }
+  .acc-head {
+    list-style: none; cursor: pointer; padding: 16px; font-size: 19px; font-weight: 800; color: var(--ink);
+    display: flex; align-items: center; justify-content: space-between; gap: 10px; -webkit-user-select: none; user-select: none;
+  }
+  .acc-head::-webkit-details-marker { display: none; }
+  .acc-head::after { content: '▾'; font-size: 16px; color: var(--ink-faint); transition: transform .15s; margin-left: auto; }
+  .acc[open] > .acc-head::after { transform: rotate(180deg); }
+  .acc-head .acc-sum { font-size: 15px; font-weight: 800; color: var(--brand); margin-left: auto; }
+  .acc-head .acc-sum + ::after, .acc-head .acc-sum ~ ::after { } /* noop */
+  .acc[open] > .acc-head { border-bottom: 1px solid var(--line); }
+  .acc-body { padding: 16px; }
+
+  /* ===== 인건비 직원 행 ===== */
+  .staff-row { border: 1px solid var(--line); border-radius: 12px; padding: 12px; margin-bottom: 10px; background: var(--paper); }
+  .staff-row .sr-top { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; }
+  .staff-row .staff-name { flex: 1; padding: 11px 12px; border-radius: 10px; border: 2px solid var(--line-strong); background: var(--paper-raise); color: var(--ink); font-size: 17px; font-weight: 700; min-height: 46px; }
+  .staff-row .staff-del { flex: none; }
+  .staff-row .sr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .staff-row select, .staff-row input.num { padding: 11px 12px; border-radius: 10px; border: 2px solid var(--line-strong); background: var(--paper-raise); color: var(--ink); font-size: 17px; font-weight: 700; min-height: 46px; width: 100%; }
+  .staff-row .sr-monthly { margin-top: 8px; text-align: right; font-size: 15px; color: var(--ink-faint); font-weight: 700; }
+  .staff-row .sr-monthly b { color: var(--brand); font-size: 18px; }
+  .auto-toggle { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 15px; font-weight: 700; color: var(--ink-soft); cursor: pointer; line-height: 1.4; }
+  .auto-toggle input { width: 22px; height: 22px; flex: none; accent-color: var(--brand); }
+  .field-row input:disabled { opacity: .55; }
+
+  /* ===== 햄버거 + 사이드 드로어 ===== */
+  .menu-btn { flex: none; width: 44px; height: 44px; border-radius: 12px; border: 2px solid var(--line-strong); background: var(--paper-raise); color: var(--ink); font-size: 22px; cursor: pointer; line-height: 1; }
+  .menu-btn:active { background: var(--brand-soft); }
+  .drawer-overlay { position: fixed; inset: 0; background: rgba(10,15,10,.5); display: none; z-index: 85; }
+  .drawer-overlay.open { display: block; }
+  .drawer {
+    position: absolute; top: 0; left: 0; bottom: 0; width: 82%; max-width: 320px;
+    background: var(--paper-raise); box-shadow: 2px 0 24px rgba(0,0,0,.28);
+    padding: calc(16px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom)) calc(14px + env(safe-area-inset-left));
+    display: flex; flex-direction: column; gap: 2px; overflow-y: auto;
+    transform: translateX(-100%); transition: transform .2s ease;
+  }
+  .drawer-overlay.open .drawer { transform: translateX(0); }
+  .drawer-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .drawer-title { font-size: 20px; font-weight: 800; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .drawer-x { border: none; background: transparent; font-size: 20px; color: var(--ink-faint); cursor: pointer; min-width: 40px; min-height: 40px; }
+  .drawer-group { font-size: 13px; font-weight: 800; color: var(--ink-faint); margin: 14px 8px 4px; letter-spacing: .5px; }
+  .drawer-item { text-align: left; border: none; background: transparent; color: var(--ink); font-size: 17px; font-weight: 700; padding: 14px 10px; border-radius: 12px; cursor: pointer; }
+  .drawer-item:active { background: var(--brand-soft); }
+  .drawer-item.cur { background: var(--brand-soft); color: var(--brand); }
+  .drawer-foot { margin-top: auto; padding: 14px 10px 0; color: var(--ink-faint); font-size: 13px; }
+
 </style>
 </head>
 <body>
 <div class="tabbar" id="tabbar">
   <button class="tab-btn active" data-tab="calc">단가</button>
-  <button class="tab-btn" data-tab="tools">도구</button>
+  <button class="tab-btn" data-tab="tools">계산기</button>
   <button class="tab-btn" data-tab="purchase">매입</button>
   <button class="tab-btn" data-tab="closing">마감</button>
-  <button class="tab-btn" data-tab="settings">설정</button>
 </div>
 
 <div class="container">
   <div class="app-bar">
-    <div class="brand-block">
-      <span class="app-name">단가계산기 Pro</span>
-      <h1 id="storeNameTitle">우리가게</h1>
-    </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-label="메뉴">☰</button>
+    <h1 class="brand-line"><span id="storeNameTitle">우리가게</span><span class="brand-suffix">단가계산기 Pro</span></h1>
     <button class="industry-pill" id="industryPill" type="button">업종</button>
   </div>
 
@@ -557,6 +624,7 @@
     <!-- 기본 계산기 (아이폰 스타일) -->
     <div class="tool-panel active" id="tool-basic">
       <div class="card calc-card ios-card">
+        <div class="calc-top"><button class="calc-hist-btn" id="basicHistBtn" type="button" aria-label="계산 기록">🕘</button></div>
         <div class="calc-expr" id="basicExpr"></div>
         <div class="calc-display" id="basicDisplay">0</div>
         <div class="calcpad ios" id="basicPad">
@@ -668,6 +736,38 @@
       </div>
     </div>
   </section>
+
+  <!-- 사이드 메뉴(드로어) -->
+  <div class="drawer-overlay" id="drawerOverlay">
+    <nav class="drawer" id="drawer">
+      <div class="drawer-head">
+        <span class="drawer-title" id="drawerStore">우리가게</span>
+        <button class="drawer-x" id="drawerClose" type="button" aria-label="닫기">✕</button>
+      </div>
+      <div class="drawer-group">화면</div>
+      <button class="drawer-item" data-nav="calc" type="button">📊 단가 계산</button>
+      <button class="drawer-item" data-nav="tools" type="button">🧮 계산기</button>
+      <button class="drawer-item" data-nav="purchase" type="button">📥 매입</button>
+      <button class="drawer-item" data-nav="closing" type="button">📒 마감정산</button>
+      <button class="drawer-item" data-nav="settings" type="button">⚙️ 설정</button>
+      <div class="drawer-group">관리</div>
+      <button class="drawer-item" data-act="industry" type="button">🏷️ 업종 변경</button>
+      <button class="drawer-item" data-act="backup" type="button">💾 백업 저장</button>
+      <button class="drawer-item" data-act="restore" type="button">📂 백업 불러오기</button>
+      <button class="drawer-item" data-act="privacy" type="button">🔒 개인정보처리방침</button>
+      <div class="drawer-foot" id="drawerVer"></div>
+    </nav>
+  </div>
+
+  <!-- 계산 기록 바텀시트 -->
+  <div class="sheet-overlay" id="histPicker">
+    <div class="sheet">
+      <div class="sheet-head"><b>계산 기록</b>
+        <span><button class="sheet-done danger-line" id="histClear" style="color:var(--danger);">전체삭제</button><button class="sheet-done" id="histClose">완료</button></span>
+      </div>
+      <div class="sheet-list" id="histList"></div>
+    </div>
+  </div>
 
   <!-- 단위 선택 바텀시트 -->
   <div class="sheet-overlay" id="unitPicker">
@@ -811,9 +911,11 @@
 
   <!-- ===== 설정 ===== -->
   <section class="tab-page" id="page-settings">
-    <div class="settings-two">
-      <div class="card">
-        <div class="section-title">가게 정보</div>
+    <p class="hint" style="margin:4px 2px 12px;">항목 제목을 누르면 펼쳐지고, 다시 누르면 접혀요.</p>
+
+    <details class="acc" open>
+      <summary class="acc-head">가게 정보</summary>
+      <div class="acc-body">
         <div class="field-row">
           <label>상호명</label>
           <input type="text" id="storeNameInput" maxlength="20" placeholder="예: 다판다">
@@ -824,9 +926,11 @@
         </div>
         <p class="hint">업종을 바꾸면 카테고리와 품목 목록이 해당 업종 기본값으로 바뀌어요. 기존 매입·마감 기록은 그대로 남아요.</p>
       </div>
+    </details>
 
-      <div class="card">
-        <div class="section-title">월 고정비 설정</div>
+    <details class="acc">
+      <summary class="acc-head">월 고정비 설정 <span class="acc-sum" id="fcHeadSum">0원</span></summary>
+      <div class="acc-body">
         <div class="field-grid-2">
           <div class="field-row"><label>임대료/관리비</label><input type="text" inputmode="numeric" id="fcRent" autocomplete="off"></div>
           <div class="field-row"><label>차량·운행비</label><input type="text" inputmode="numeric" id="fcFuel" autocomplete="off"></div>
@@ -836,32 +940,52 @@
           <div class="field-row"><label>기타 고정비</label><input type="text" inputmode="numeric" id="fcEtc" autocomplete="off"></div>
           <div class="field-row"><label>월 영업일수(일)</label><input type="number" min="1" max="31" step="1" inputmode="numeric" id="fcDays"></div>
         </div>
+        <p class="hint" id="fcLaborHint" style="display:none;">인건비는 아래 "인건비 관리"의 직원 합계로 자동 입력되고 있어요.</p>
         <div class="calc-outputs">
           <div class="out-line"><span>월 고정비 합계</span><b id="fcMonthlyTotal">0원</b></div>
           <div class="out-line brand big"><span>하루 고정비</span><b id="fcDailyTotal">0원</b></div>
         </div>
       </div>
-    </div>
+    </details>
 
-    <div class="card">
-      <div class="settings-cat-head">
-        <div class="section-title" style="margin:0;">카테고리·품목 관리</div>
-        <button class="btn small" id="addCategoryBtn" type="button">+ 카테고리</button>
+    <details class="acc">
+      <summary class="acc-head">인건비 관리 <span class="acc-sum" id="staffTotalHead">0원</span></summary>
+      <div class="acc-body">
+        <p class="hint" style="margin-top:0;">직원·알바 인건비를 등록하면 합계를 월 고정비에 자동 반영할 수 있어요. 이름은 비워두거나 "직원1"처럼 적어도 돼요.</p>
+        <div id="staffList"></div>
+        <button class="btn small" id="addStaffBtn" type="button" style="width:100%;margin-top:4px;">+ 직원 추가</button>
+        <div class="tool-result" style="margin-top:14px;">
+          <div class="rline hi"><span>월 인건비 합계</span><b id="staffTotal">0원</b></div>
+        </div>
+        <label class="auto-toggle">
+          <input type="checkbox" id="laborAuto">
+          <span>직원 합계를 월 고정비의 <b>인건비</b>에 자동 반영</span>
+        </label>
       </div>
-      <div class="cat-row" id="settingsCatRow"></div>
-      <div class="settings-add-row">
-        <input id="settingsNewName" placeholder="새 품명 추가" style="padding:12px 14px;border-radius:12px;border:2px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:17px;min-height:48px;">
-        <button class="btn primary" id="settingsAddNameBtn" style="flex:none;min-height:48px;padding:12px 20px;">추가</button>
-      </div>
-      <div id="settingsList" style="margin-top:14px;"></div>
-      <div class="settings-actions">
-        <button class="btn small danger-line" id="deleteCategoryBtn" type="button">이 카테고리 삭제</button>
-      </div>
-    </div>
+    </details>
 
-    <div class="settings-two">
-      <div class="card">
-        <div class="section-title">데이터 백업·복원</div>
+    <details class="acc">
+      <summary class="acc-head">카테고리·품목 관리</summary>
+      <div class="acc-body">
+        <div class="settings-cat-head">
+          <span class="hint" style="margin:0;">업종별 품목을 추가·수정해요.</span>
+          <button class="btn small" id="addCategoryBtn" type="button">+ 카테고리</button>
+        </div>
+        <div class="cat-row" id="settingsCatRow"></div>
+        <div class="settings-add-row">
+          <input id="settingsNewName" placeholder="새 품명 추가" style="padding:12px 14px;border-radius:12px;border:2px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:17px;min-height:48px;">
+          <button class="btn primary" id="settingsAddNameBtn" style="flex:none;min-height:48px;padding:12px 20px;">추가</button>
+        </div>
+        <div id="settingsList" style="margin-top:14px;"></div>
+        <div class="settings-actions">
+          <button class="btn small danger-line" id="deleteCategoryBtn" type="button">이 카테고리 삭제</button>
+        </div>
+      </div>
+    </details>
+
+    <details class="acc">
+      <summary class="acc-head">데이터 백업·복원</summary>
+      <div class="acc-body">
         <p class="about-line" style="margin-top:0;">모든 데이터는 이 기기 안에만 저장돼요. 휴대폰을 바꾸거나 앱을 지우기 전에 꼭 백업해 두세요.</p>
         <div class="settings-actions">
           <button class="btn primary" id="backupBtn" type="button">백업 파일 저장</button>
@@ -869,15 +993,18 @@
         </div>
         <input type="file" id="restoreFile" accept=".json,application/json" style="display:none;">
       </div>
-      <div class="card">
-        <div class="section-title">앱 정보</div>
+    </details>
+
+    <details class="acc">
+      <summary class="acc-head">앱 정보</summary>
+      <div class="acc-body">
         <div class="about-line">
           단가계산기 Pro <span id="appVersion"></span><br>
-          개인정보·영업정보는 수집·전송하지 않고 기기 안에만 저장돼요. (환율 조회 시에만 환율 서버에 연결)<br>
+          개인정보·영업정보·직원정보는 수집·전송하지 않고 기기 안에만 저장돼요. (환율 조회 시에만 환율 서버에 연결)<br>
           <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>
         </div>
       </div>
-    </div>
+    </details>
   </section>
 </div>
 
@@ -1111,7 +1238,7 @@ var INDUSTRY_PRESETS = {
 (function () {
   'use strict';
 
-  var APP_VERSION = '1.2.0';
+  var APP_VERSION = '1.5.0';
   var STORAGE_KEY = 'ucp_v1';
   var LEGACY_KEY = 'fv_inventory_v4';
 
@@ -1122,13 +1249,15 @@ var INDUSTRY_PRESETS = {
     masterData: {},
     purchasesByDate: {},
     dailyClosing: {},
-    fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0, days: 30 },
+    fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0, days: 30, laborAuto: false },
+    staff: [],
     calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 },
     tools: {
       vatRate: 10,
       fxRates: { USD: 1340, CNY: 185, JPY: 9, EUR: 1450, VND: 0.055, THB: 38 },
       fxUpdated: null
-    }
+    },
+    calcHistory: []
   };
   var currentTab = 'calc';
   var currentPurchaseView = 'input';
@@ -1276,12 +1405,15 @@ var INDUSTRY_PRESETS = {
      'closingCostRate','closingMarginRate','closingFixedDaily',
      'periodTabs','periodMonth','periodQuarter','periodYear','periodYearOnly','periodPurchase','periodIncome','periodProfit','periodOutputs','periodDailyList',
      'settingsCatRow','settingsList','settingsNewName','settingsAddNameBtn','addCategoryBtn','deleteCategoryBtn',
-     'fcRent','fcFuel','fcUtility','fcLabor','fcPackaging','fcEtc','fcDays','fcMonthlyTotal','fcDailyTotal',
+     'fcRent','fcFuel','fcUtility','fcLabor','fcPackaging','fcEtc','fcDays','fcMonthlyTotal','fcDailyTotal','fcHeadSum','fcLaborHint',
+     'staffList','addStaffBtn','laborAuto','staffTotal','staffTotalHead',
      'confirmOverlay','confirmMsg','confirmCancelBtn','confirmOkBtn',
      'promptOverlay','promptMsg','promptInput','promptCancelBtn','promptOkBtn',
      'onboardOverlay','onboardTitle','onboardSub','onboardStoreName','industryGrid','onboardCancelBtn','onboardOkBtn','onboardNameRow',
      'backupBtn','restoreBtn','restoreFile','appVersion',
+     'menuBtn','drawerOverlay','drawer','drawerClose','drawerStore','drawerVer',
      'toolsNav','basicExpr','basicDisplay','basicPad','basicCopy','basicToCost',
+     'basicHistBtn','histPicker','histList','histClose','histClear',
      'vatMode','vatAmount','vatAmountLabel','vatRate','vatSupply','vatTax','vatTotal',
      'dcPrice','dcRate','dcTax','dcOff','dcAfter','dcFinal',
      'unitCatTitle','unitTopVal','unitTopBtn','unitTopLabel','unitBotVal','unitBotBtn','unitBotLabel','unitRef',
@@ -1788,16 +1920,91 @@ var INDUSTRY_PRESETS = {
   // ---------- fixed costs ----------
   function renderFixedCosts(){
     var fc=state.fixedCosts||{};
+    if(fc.laborAuto) fc.labor = staffTotalSum();
     els.fcRent.value=toWonPlain(fc.rent||0);
     els.fcFuel.value=toWonPlain(fc.fuel||0);
     els.fcUtility.value=toWonPlain(fc.utility||0);
     els.fcLabor.value=toWonPlain(fc.labor||0);
+    els.fcLabor.disabled = !!fc.laborAuto;
+    if(els.fcLaborHint) els.fcLaborHint.style.display = fc.laborAuto ? '' : 'none';
     els.fcPackaging.value=toWonPlain(fc.packaging||0);
     els.fcEtc.value=toWonPlain(fc.etc||0);
     els.fcDays.value=fc.days||30;
     var mt=monthlyFixedTotal();
     els.fcMonthlyTotal.textContent=formatWon(mt);
     els.fcDailyTotal.textContent=formatWon(dailyFixed());
+    if(els.fcHeadSum) els.fcHeadSum.textContent=formatWon(mt);
+  }
+
+  // ---- 인건비(직원) ----
+  function uidStaff(){ return 's_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6); }
+  function staffMonthly(s){
+    var amt=s.amount||0;
+    if(s.kind==='hour') return Math.round(amt*(s.hours||0));
+    if(s.kind==='bonusYear') return Math.round(amt/12);
+    return amt;
+  }
+  function staffTotalSum(){ return (state.staff||[]).reduce(function(t,s){return t+staffMonthly(s);},0); }
+  function staffRowHtml(s){
+    var isHour = s.kind==='hour';
+    return '<div class="staff-row" data-id="'+s.id+'">'
+      +'<div class="sr-top"><input class="staff-name" data-f="name" value="'+escapeHtml(s.name||'')+'" placeholder="이름 또는 직원1" maxlength="12"><button class="icon-btn danger staff-del" aria-label="삭제">✕</button></div>'
+      +'<div class="sr-grid">'
+      +'<select class="staff-kind" data-f="kind"><option value="month"'+(s.kind==='month'?' selected':'')+'>월급</option><option value="hour"'+(isHour?' selected':'')+'>시급</option><option value="bonusYear"'+(s.kind==='bonusYear'?' selected':'')+'>상여(연)</option></select>'
+      +'<input class="num staff-amount" data-f="amount" inputmode="numeric" value="'+toWonPlain(s.amount||0)+'" placeholder="금액(원)">'
+      +(isHour ? '<input class="num staff-hours" data-f="hours" inputmode="numeric" value="'+(s.hours||0)+'" placeholder="월 근무시간" style="grid-column:1 / -1;">' : '')
+      +'</div>'
+      +'<div class="sr-monthly">월 환산 <b>'+formatWon(staffMonthly(s))+'</b></div>'
+      +'</div>';
+  }
+  function renderStaff(){
+    els.staffList.innerHTML = (state.staff && state.staff.length)
+      ? state.staff.map(staffRowHtml).join('')
+      : '<div class="empty-msg" style="padding:14px 0;">등록된 직원이 없어요. 아래에서 추가하세요.</div>';
+    var tot=staffTotalSum();
+    els.staffTotal.textContent=formatWon(tot);
+    els.staffTotalHead.textContent=formatWon(tot);
+    els.laborAuto.checked = !!state.fixedCosts.laborAuto;
+  }
+  function applyLaborAuto(){
+    if(state.fixedCosts.laborAuto) state.fixedCosts.labor = staffTotalSum();
+    save(); renderFixedCosts(); renderClosing();
+  }
+  function bindStaff(){
+    els.addStaffBtn.addEventListener('click', function(){
+      if(!state.staff) state.staff=[];
+      state.staff.push({ id:uidStaff(), name:'', kind:'month', amount:0, hours:0 });
+      save(); renderStaff(); applyLaborAuto();
+    });
+    els.staffList.addEventListener('input', function(e){
+      var row=e.target.closest('.staff-row'); if(!row) return;
+      var s=(state.staff||[]).find(function(x){return x.id===row.getAttribute('data-id');}); if(!s) return;
+      var f=e.target.getAttribute('data-f');
+      if(f==='name') s.name=e.target.value;
+      else if(f==='amount'){ formatMoneyInput(e.target); s.amount=parseWon(e.target.value); }
+      else if(f==='hours') s.hours=parseFloat(e.target.value)||0;
+      var ml=row.querySelector('.sr-monthly b'); if(ml) ml.textContent=formatWon(staffMonthly(s));
+      var tot=staffTotalSum(); els.staffTotal.textContent=formatWon(tot); els.staffTotalHead.textContent=formatWon(tot);
+      save(); applyLaborAuto();
+    });
+    els.staffList.addEventListener('change', function(e){
+      if(!e.target.classList.contains('staff-kind')) return;
+      var row=e.target.closest('.staff-row');
+      var s=(state.staff||[]).find(function(x){return x.id===row.getAttribute('data-id');}); if(!s) return;
+      s.kind=e.target.value; save(); renderStaff(); applyLaborAuto();
+    });
+    els.staffList.addEventListener('click', function(e){
+      var del=e.target.closest('.staff-del'); if(!del) return;
+      var id=del.closest('.staff-row').getAttribute('data-id');
+      showConfirm('이 직원을 삭제할까요?', function(){
+        state.staff=(state.staff||[]).filter(function(x){return x.id!==id;});
+        save(); renderStaff(); applyLaborAuto();
+      }, '삭제');
+    });
+    els.laborAuto.addEventListener('change', function(){
+      state.fixedCosts.laborAuto = els.laborAuto.checked;
+      save(); applyLaborAuto();
+    });
   }
   function bindFixedCosts(){
     [['fcRent','rent'],['fcFuel','fuel'],['fcUtility','utility'],['fcLabor','labor'],['fcPackaging','packaging'],['fcEtc','etc']].forEach(function(p){
@@ -2004,6 +2211,8 @@ var INDUSTRY_PRESETS = {
           showConfirm('현재 데이터를 모두 바꾸고 백업을 불러올까요?', function(){
             state = Object.assign(state, payload);
             if(!state.fixedCosts.days) state.fixedCosts.days=30;
+            if(!state.staff) state.staff=[];
+            if(state.fixedCosts.laborAuto==null) state.fixedCosts.laborAuto=false;
             save();
             renderAll();
             showToast('복원되었습니다.');
@@ -2067,6 +2276,7 @@ var INDUSTRY_PRESETS = {
     renderCalc();
     resetForm();
     setPurchaseView('input');
+    renderStaff();
     renderFixedCosts();
     renderClosing();
     renderPeriodStats();
@@ -2079,6 +2289,30 @@ var INDUSTRY_PRESETS = {
     document.addEventListener('focus', function(e){
       if(e.target && e.target.tagName==='INPUT' && e.target.type==='number') e.target.select();
     }, true);
+  }
+
+  // ---- 사이드 드로어 ----
+  function openDrawer(){
+    els.drawerStore.textContent = state.storeName || '우리가게';
+    Array.prototype.forEach.call(els.drawer.querySelectorAll('.drawer-item[data-nav]'), function(b){
+      b.classList.toggle('cur', b.getAttribute('data-nav')===currentTab);
+    });
+    els.drawerOverlay.classList.add('open');
+  }
+  function closeDrawer(){ els.drawerOverlay.classList.remove('open'); }
+  function bindDrawer(){
+    els.menuBtn.addEventListener('click', openDrawer);
+    els.drawerClose.addEventListener('click', closeDrawer);
+    els.drawerOverlay.addEventListener('click', function(e){ if(e.target===els.drawerOverlay) closeDrawer(); });
+    els.drawer.addEventListener('click', function(e){
+      var it=e.target.closest('.drawer-item'); if(!it) return;
+      var nav=it.getAttribute('data-nav'), act=it.getAttribute('data-act');
+      if(nav){ setTab(nav); closeDrawer(); return; }
+      if(act==='industry'){ closeDrawer(); openOnboard(true); }
+      else if(act==='backup'){ closeDrawer(); els.backupBtn.click(); }
+      else if(act==='restore'){ closeDrawer(); els.restoreBtn.click(); }
+      else if(act==='privacy'){ closeDrawer(); window.open('privacy.html','_blank'); }
+    });
   }
 
   // ===================== 도구함 =====================
@@ -2160,12 +2394,29 @@ var INDUSTRY_PRESETS = {
   function bcEquals(){
     if(bc.op===null||bc.prev===null){ bc.justEq=true; renderBasic(); return; }
     var b=parseFloat(bc.cur);
-    var r=bcCompute(bc.prev, bc.op, b);
-    bc.expr = bcFmt(numToStr(bc.prev))+' '+OPSYM[bc.op]+' '+bcFmt(numToStr(b))+' =';
+    var prevVal=bc.prev, opUsed=bc.op;
+    var r=bcCompute(prevVal, opUsed, b);
+    var exprText = bcFmt(numToStr(prevVal))+' '+OPSYM[opUsed]+' '+bcFmt(numToStr(b));
+    bc.expr = exprText+' =';
     bc.cur = numToStr(r);
     bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false;
+    if(isFinite(r)) addHistory(exprText, numToStr(r));
     renderBasic();
   }
+  function addHistory(expr, result){
+    if(!state.calcHistory) state.calcHistory=[];
+    state.calcHistory.unshift({ e: expr, r: result });
+    if(state.calcHistory.length>50) state.calcHistory.length=50;
+    save();
+  }
+  function renderHistList(){
+    var h = state.calcHistory || [];
+    els.histList.innerHTML = h.length
+      ? h.map(function(it,i){ return '<div class="hist-item" data-i="'+i+'"><span class="he">'+escapeHtml(it.e)+' =</span><span class="hr">'+escapeHtml(bcFmt(it.r))+'</span></div>'; }).join('')
+      : '<div class="hist-empty">아직 계산 기록이 없어요.</div>';
+  }
+  function openHist(){ renderHistList(); els.histPicker.classList.add('open'); }
+  function closeHist(){ els.histPicker.classList.remove('open'); }
   function bindBasic(){
     els.basicPad.addEventListener('click', function(e){
       var k=e.target.closest('.key'); if(!k) return;
@@ -2182,6 +2433,22 @@ var INDUSTRY_PRESETS = {
     els.basicDisplay.addEventListener('pointerdown', function(e){ sx=e.clientX; });
     els.basicDisplay.addEventListener('pointerup', function(e){
       if(sx!=null && Math.abs(e.clientX-sx)>28){ bcBack(); } sx=null;
+    });
+    // 계산 기록
+    els.basicHistBtn.addEventListener('click', openHist);
+    els.histClose.addEventListener('click', closeHist);
+    els.histPicker.addEventListener('click', function(e){ if(e.target===els.histPicker) closeHist(); });
+    els.histClear.addEventListener('click', function(){
+      if(!state.calcHistory || !state.calcHistory.length){ showToast('기록이 없습니다.'); return; }
+      showConfirm('계산 기록을 모두 지울까요?', function(){ state.calcHistory=[]; save(); renderHistList(); showToast('기록을 지웠어요.'); }, '삭제');
+    });
+    els.histList.addEventListener('click', function(e){
+      var it=e.target.closest('.hist-item'); if(!it) return;
+      var i=parseInt(it.getAttribute('data-i'),10);
+      var rec=(state.calcHistory||[])[i]; if(!rec) return;
+      bc.cur=rec.r; bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false; bc.expr='';
+      renderBasic(); closeHist();
+      showToast('결과를 불러왔어요.');
     });
     els.basicCopy.addEventListener('click', function(){
       var t = els.basicDisplay.textContent;
@@ -2385,6 +2652,7 @@ var INDUSTRY_PRESETS = {
     if(!state.tools) state.tools={};
     if(!state.tools.fxRates) state.tools.fxRates={USD:1340,CNY:185,JPY:9,EUR:1450,VND:0.055,THB:38};
     if(state.tools.vatRate==null) state.tools.vatRate=10;
+    if(!state.calcHistory) state.calcHistory=[];
     els.toolsNav.addEventListener('click', function(e){ var t=e.target.closest('.cat-btn'); if(t) setToolPanel(t.getAttribute('data-tool')); });
     bindBasic(); bindVat(); bindDc(); bindUnit(); bindFx();
     populateFxCur(); renderFxRateField(); renderUnit();
@@ -2395,15 +2663,18 @@ var INDUSTRY_PRESETS = {
     cacheEls();
     els.appVersion.textContent = 'v'+APP_VERSION;
     var hasData = load();
+    if(!state.staff) state.staff=[];
+    if(state.fixedCosts.laborAuto==null) state.fixedCosts.laborAuto=false;
     bindGlobal();
     bindConfirm(); bindPrompt();
     bindTabs(); bindCalc();
     bindPurchaseForm(); bindPurchaseList();
     bindClosing(); bindPeriod();
-    bindFixedCosts(); bindSettings();
+    bindFixedCosts(); bindStaff(); bindSettings();
     bindExport(); bindBackup();
-    bindOnboard();
+    bindOnboard(); bindDrawer();
     initTools();
+    if(els.drawerVer) els.drawerVer.textContent = '단가계산기 Pro v'+APP_VERSION;
 
     var today=todayStr();
     els.closingDate.value=today;
