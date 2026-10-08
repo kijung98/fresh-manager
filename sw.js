@@ -1,5 +1,5 @@
 // 단가계산기 Pro service worker
-var CACHE = 'ucp-v1-1-0';
+var CACHE = 'ucp-v1-2-0';
 var ASSETS = [
   './',
   './index.html',

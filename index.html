@@ -382,6 +382,60 @@
   .swap-btn { flex: none; width: 54px; min-height: 54px; border-radius: 12px; border: 2px solid var(--line-strong); background: var(--paper-raise); color: var(--brand); font-size: 22px; font-weight: 800; cursor: pointer; }
   .fx-note { font-size: 13px; color: var(--ink-faint); margin-top: 8px; }
 
+  /* ===== 아이폰 스타일 기본 계산기 ===== */
+  .ios-card { background: #000; border-color: #000; box-shadow: var(--shadow); padding: 14px 14px 18px; }
+  .ios-card .calc-expr { color: #8a8a8e; min-height: 22px; font-size: 17px; font-weight: 400; }
+  .ios-card .calc-display { color: #fff; font-weight: 200; font-size: clamp(46px, 16vw, 84px); margin: 4px 0 16px; }
+  .calcpad.ios { gap: 12px; max-width: 420px; }
+  .calcpad.ios .key {
+    aspect-ratio: 1 / 1; border-radius: 50%;
+    font-size: clamp(26px, 8.5vw, 36px); font-weight: 400; letter-spacing: 0;
+    background: #333; color: #fff; box-shadow: none;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Apple SD Gothic Neo", system-ui, sans-serif;
+  }
+  .calcpad.ios .key:active { transform: none; filter: brightness(1.45); box-shadow: none; }
+  .calcpad.ios .key.fn { background: #a5a5a5; color: #000; }
+  .calcpad.ios .key.op { background: #ff9f0a; color: #fff; }
+  .calcpad.ios .key.op.sel { background: #fff; color: #ff9f0a; }
+  .calcpad.ios .key.eq { background: #ff9f0a; color: #fff; }
+  .calcpad.ios .key.zero { aspect-ratio: auto; grid-column: span 2; border-radius: 999px; text-align: left; padding-left: 30px; }
+  .calc-display { -webkit-user-select: none; user-select: none; }
+
+  /* ===== 단위 변환 (양방향 + 선택창) ===== */
+  .conv-row { display: flex; gap: 10px; align-items: stretch; }
+  .conv-input {
+    flex: 1; min-width: 0; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--line-strong);
+    background: var(--paper); color: var(--ink); font-size: 26px; font-weight: 800; letter-spacing: .3px; min-height: 60px; width: 100%;
+  }
+  .conv-input:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+  .conv-unit {
+    flex: none; min-width: 108px; padding: 10px 14px; border-radius: 14px; border: 2px solid var(--brand);
+    background: var(--brand-soft); color: var(--brand); font-size: 17px; font-weight: 800; cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 6px;
+  }
+  .conv-unit i { font-style: normal; font-size: 13px; opacity: .8; }
+  .conv-eq { text-align: center; font-size: 22px; font-weight: 800; color: var(--ink-faint); margin: 8px 0; }
+
+  /* 바텀시트 */
+  .sheet-overlay { position: fixed; inset: 0; background: rgba(10,15,10,.5); display: none; z-index: 80; align-items: flex-end; justify-content: center; }
+  .sheet-overlay.open { display: flex; }
+  .sheet {
+    background: var(--paper-raise); width: 100%; max-width: 560px; max-height: 76vh; display: flex; flex-direction: column;
+    border-radius: 22px 22px 0 0; padding: 14px 16px calc(20px + env(safe-area-inset-bottom)); box-shadow: 0 -8px 30px rgba(0,0,0,.25);
+  }
+  @media (min-width: 560px){ .sheet { border-radius: 22px; margin-bottom: 24px; } }
+  .sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .sheet-head b { font-size: 19px; }
+  .sheet-done { border: none; background: transparent; color: var(--brand); font-size: 17px; font-weight: 800; cursor: pointer; min-height: 44px; padding: 0 6px; }
+  .sheet-list { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+  .sheet-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 15px 8px; border-bottom: 1px solid var(--line); font-size: 18px; font-weight: 700; color: var(--ink); cursor: pointer;
+  }
+  .sheet-item .code { font-size: 14px; color: var(--ink-faint); font-weight: 700; }
+  .sheet-item.sel { color: var(--brand); }
+  .sheet-item.sel::after { content: '✓'; color: var(--brand); font-weight: 900; }
+
 </style>
 </head>
 <body>
@@ -500,14 +554,14 @@
       <button class="cat-btn" data-tool="fx">환율</button>
     </div>
 
-    <!-- 기본 계산기 -->
+    <!-- 기본 계산기 (아이폰 스타일) -->
     <div class="tool-panel active" id="tool-basic">
-      <div class="card calc-card">
+      <div class="card calc-card ios-card">
         <div class="calc-expr" id="basicExpr"></div>
         <div class="calc-display" id="basicDisplay">0</div>
-        <div class="calcpad" id="basicPad">
+        <div class="calcpad ios" id="basicPad">
           <button class="key fn" data-k="ac">AC</button>
-          <button class="key fn" data-k="neg">±</button>
+          <button class="key fn" data-k="neg">+/−</button>
           <button class="key fn" data-k="pct">%</button>
           <button class="key op" data-k="div">÷</button>
           <button class="key" data-k="7">7</button>
@@ -522,16 +576,16 @@
           <button class="key" data-k="2">2</button>
           <button class="key" data-k="3">3</button>
           <button class="key op" data-k="add">+</button>
-          <button class="key" data-k="back">⌫</button>
-          <button class="key" data-k="0">0</button>
+          <button class="key zero" data-k="0">0</button>
           <button class="key" data-k="dot">.</button>
           <button class="key eq" data-k="eq">=</button>
         </div>
-        <div class="calc-actions">
-          <button class="btn ghost" id="basicCopy">결과 복사</button>
-          <button class="btn primary" id="basicToCost">단가 원가로 보내기</button>
-        </div>
       </div>
+      <div class="calc-actions">
+        <button class="btn ghost" id="basicCopy">결과 복사</button>
+        <button class="btn primary" id="basicToCost">단가 원가로 보내기</button>
+      </div>
+      <p class="hint" style="text-align:center;">숫자 표시줄을 좌우로 쓸어넘기면 한 자리씩 지워져요.</p>
     </div>
 
     <!-- 부가세 -->
@@ -572,33 +626,30 @@
       </div>
     </div>
 
-    <!-- 단위 변환 -->
+    <!-- 단위 변환 (아이폰 방식: 단위 버튼→선택창, 양방향) -->
     <div class="tool-panel" id="tool-unit">
       <div class="card">
-        <div class="section-title">단위 변환기</div>
-        <div class="cat-row unit-cat-row" id="unitCatRow"></div>
-        <div class="field-row" style="margin-bottom:12px;">
-          <label>값</label>
-          <input type="number" step="any" inputmode="decimal" id="unitValue" value="1">
+        <div class="section-title" id="unitCatTitle">단위 변환기 · 무게</div>
+        <div class="conv-row">
+          <input class="conv-input" id="unitTopVal" type="number" step="any" inputmode="decimal" value="1">
+          <button class="conv-unit" data-side="top" id="unitTopBtn"><span id="unitTopLabel">kg</span> <i>▾</i></button>
         </div>
-        <div class="field-grid-2">
-          <div class="field-row"><label>변환 전</label><select id="unitFrom"></select></div>
-          <div class="field-row"><label>변환 후</label><select id="unitTo"></select></div>
-        </div>
-        <div class="export-row" style="padding:0;margin:12px 0 0;justify-content:center;">
-          <button class="swap-btn" id="unitSwap" aria-label="단위 서로 바꾸기">⇅</button>
-        </div>
-        <div class="tool-result">
-          <div class="rline hi"><span id="unitResultLabel">결과</span><b id="unitResult">0</b></div>
+        <div class="conv-eq">=</div>
+        <div class="conv-row">
+          <input class="conv-input" id="unitBotVal" type="number" step="any" inputmode="decimal">
+          <button class="conv-unit" data-side="bottom" id="unitBotBtn"><span id="unitBotLabel">g</span> <i>▾</i></button>
         </div>
         <p class="hint" id="unitRef"></p>
       </div>
     </div>
 
-    <!-- 환율 -->
+    <!-- 환율 (자동 업데이트) -->
     <div class="tool-panel" id="tool-fx">
       <div class="card">
-        <div class="section-title">환율 계산기</div>
+        <div class="section-title-row">
+          <div class="section-title" style="margin:0;">환율 계산기</div>
+          <button class="btn small" id="fxRefresh" type="button" style="min-height:40px;padding:8px 14px;">↻ 최신환율</button>
+        </div>
         <div class="field-grid-2">
           <div class="field-row"><label>통화</label><select id="fxCur"></select></div>
           <div class="field-row"><label>방향</label>
@@ -607,16 +658,25 @@
               <option value="toFX">원화 → 외화</option>
             </select>
           </div>
-          <div class="field-row"><label id="fxAmountLabel">금액</label><input type="text" inputmode="numeric" id="fxAmount" autocomplete="off"></div>
+          <div class="field-row"><label id="fxAmountLabel">금액</label><input type="text" inputmode="decimal" id="fxAmount" autocomplete="off"></div>
           <div class="field-row"><label id="fxRateLabel">기준 환율(원)</label><input type="number" step="any" inputmode="decimal" id="fxRate"></div>
         </div>
         <div class="tool-result">
           <div class="rline hi"><span id="fxResultLabel">환산 결과</span><b id="fxResult">0</b></div>
         </div>
-        <p class="fx-note" id="fxNote">환율은 직접 입력하고 저장돼요. 매일 바뀌니 거래 전 최신 환율로 수정해서 쓰세요.</p>
+        <p class="fx-note" id="fxNote"></p>
       </div>
     </div>
   </section>
+
+  <!-- 단위 선택 바텀시트 -->
+  <div class="sheet-overlay" id="unitPicker">
+    <div class="sheet">
+      <div class="sheet-head"><b>단위 선택</b><button class="sheet-done" id="unitPickerClose">완료</button></div>
+      <div class="cat-row" id="pickerCatRow"></div>
+      <div class="sheet-list" id="pickerList"></div>
+    </div>
+  </div>
 
   <!-- ===== 매입 ===== -->
   <section class="tab-page" id="page-purchase">
@@ -813,7 +873,7 @@
         <div class="section-title">앱 정보</div>
         <div class="about-line">
           단가계산기 Pro <span id="appVersion"></span><br>
-          서버 없이 기기 안에서만 동작하며, 개인정보를 수집하지 않습니다.<br>
+          개인정보·영업정보는 수집·전송하지 않고 기기 안에만 저장돼요. (환율 조회 시에만 환율 서버에 연결)<br>
           <a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a>
         </div>
       </div>
@@ -1051,7 +1111,7 @@ var INDUSTRY_PRESETS = {
 (function () {
   'use strict';
 
-  var APP_VERSION = '1.1.0';
+  var APP_VERSION = '1.2.0';
   var STORAGE_KEY = 'ucp_v1';
   var LEGACY_KEY = 'fv_inventory_v4';
 
@@ -1224,8 +1284,9 @@ var INDUSTRY_PRESETS = {
      'toolsNav','basicExpr','basicDisplay','basicPad','basicCopy','basicToCost',
      'vatMode','vatAmount','vatAmountLabel','vatRate','vatSupply','vatTax','vatTotal',
      'dcPrice','dcRate','dcTax','dcOff','dcAfter','dcFinal',
-     'unitCatRow','unitValue','unitFrom','unitTo','unitSwap','unitResult','unitResultLabel','unitRef',
-     'fxCur','fxDir','fxAmount','fxAmountLabel','fxRate','fxRateLabel','fxResult','fxResultLabel','fxNote'
+     'unitCatTitle','unitTopVal','unitTopBtn','unitTopLabel','unitBotVal','unitBotBtn','unitBotLabel','unitRef',
+     'unitPicker','unitPickerClose','pickerCatRow','pickerList',
+     'fxCur','fxDir','fxAmount','fxAmountLabel','fxRate','fxRateLabel','fxResult','fxResultLabel','fxNote','fxRefresh'
     ].forEach(function(id){ els[id]=document.getElementById(id); });
   }
 
@@ -2060,6 +2121,12 @@ var INDUSTRY_PRESETS = {
     Array.prototype.forEach.call(els.basicPad.querySelectorAll('.key.op'), function(k){
       k.classList.toggle('sel', !!bc.op && bc.startNew && k.getAttribute('data-k')===bc.op);
     });
+    var acBtn = els.basicPad.querySelector('[data-k="ac"]');
+    if(acBtn) acBtn.textContent = (bc.cur!=='0' && bc.cur!=='오류' && !bc.justEq && !bc.startNew) ? 'C' : 'AC';
+  }
+  function bcAC(){
+    if(bc.cur!=='0' && bc.cur!=='오류' && !bc.justEq && !bc.startNew){ bc.cur='0'; renderBasic(); } // 현재 입력만 지움
+    else bcClear(); // 전체 초기화
   }
   function bcInput(d){
     if(bc.cur==='오류'){ bcClear(); }
@@ -2104,12 +2171,17 @@ var INDUSTRY_PRESETS = {
       var k=e.target.closest('.key'); if(!k) return;
       var key=k.getAttribute('data-k');
       if(/^[0-9]$/.test(key)||key==='dot') bcInput(key==='dot'?'.':key);
-      else if(key==='ac') bcClear();
-      else if(key==='back') bcBack();
+      else if(key==='ac') bcAC();
       else if(key==='neg') bcNeg();
       else if(key==='pct') bcPct();
       else if(key==='eq') bcEquals();
       else bcOp(key);
+    });
+    // 디스플레이 좌우 스와이프 → 한 자리 삭제 (아이폰과 동일)
+    var sx=null;
+    els.basicDisplay.addEventListener('pointerdown', function(e){ sx=e.clientX; });
+    els.basicDisplay.addEventListener('pointerup', function(e){
+      if(sx!=null && Math.abs(e.clientX-sx)>28){ bcBack(); } sx=null;
     });
     els.basicCopy.addEventListener('click', function(){
       var t = els.basicDisplay.textContent;
@@ -2187,44 +2259,58 @@ var INDUSTRY_PRESETS = {
       {k:'in',l:'인치',f:2.54},{k:'ft',l:'피트',f:30.48}
     ]}
   ];
-  var unitCat='weight';
-  function curUnitList(){ return (UNIT_CATS.find(function(c){return c.key===unitCat;})||UNIT_CATS[0]).units; }
-  function renderUnitCatRow(){
-    els.unitCatRow.innerHTML = UNIT_CATS.map(function(c){
-      return '<button class="cat-btn'+(c.key===unitCat?' active':'')+'" data-uc="'+c.key+'">'+c.label+'</button>';
+  var unitCat='weight', uFrom='kg', uTo='g', uVal=1, uSide='top', pickSide='top';
+  function catOf(){ return UNIT_CATS.find(function(c){return c.key===unitCat;})||UNIT_CATS[0]; }
+  function unitList(){ return catOf().units; }
+  function unitObj(k){ return unitList().find(function(x){return x.k===k;})||unitList()[0]; }
+  function convert(v,fromK,toK){ return v*unitObj(fromK).f/unitObj(toK).f; }
+  function shortUnit(u){ return u.l.split('(')[0]; }
+  function plainNum(n){ return numToStr(Math.round((n||0)*1e6)/1e6); }
+  function renderUnit(){
+    var top=unitObj(uFrom), bot=unitObj(uTo);
+    els.unitTopLabel.textContent = shortUnit(top);
+    els.unitBotLabel.textContent = shortUnit(bot);
+    els.unitCatTitle.textContent = '단위 변환기 · '+catOf().label;
+    if(uSide==='top'){
+      els.unitTopVal.value = plainNum(uVal);
+      els.unitBotVal.value = plainNum(convert(uVal, uFrom, uTo));
+    } else {
+      els.unitBotVal.value = plainNum(uVal);
+      els.unitTopVal.value = plainNum(convert(uVal, uTo, uFrom));
+    }
+    els.unitRef.textContent = '1 '+top.l+' = '+bcFmt(plainNum(convert(1,uFrom,uTo)))+' '+bot.l;
+  }
+  function renderPickerCats(){
+    els.pickerCatRow.innerHTML = UNIT_CATS.map(function(c){
+      return '<button class="cat-btn'+(c.key===unitCat?' active':'')+'" data-pc="'+c.key+'">'+c.label+'</button>';
     }).join('');
   }
-  function populateUnitSelects(fromK,toK){
-    var list=curUnitList();
-    var opts=list.map(function(u){return '<option value="'+u.k+'">'+u.l+'</option>';}).join('');
-    els.unitFrom.innerHTML=opts; els.unitTo.innerHTML=opts;
-    els.unitFrom.value = fromK || list[0].k;
-    els.unitTo.value = toK || (list[1]?list[1].k:list[0].k);
+  function renderPickerList(){
+    var selKey = pickSide==='top'?uFrom:uTo;
+    els.pickerList.innerHTML = unitList().map(function(u){
+      return '<div class="sheet-item'+(u.k===selKey?' sel':'')+'" data-uk="'+u.k+'"><span>'+u.l+'</span></div>';
+    }).join('');
   }
-  function renderUnit(){
-    var list=curUnitList();
-    var fu=list.find(function(u){return u.k===els.unitFrom.value;})||list[0];
-    var tu=list.find(function(u){return u.k===els.unitTo.value;})||list[0];
-    var v=parseFloat(els.unitValue.value)||0;
-    var res = v*fu.f/tu.f;
-    var resStr = numToStr(Math.round(res*1e6)/1e6);
-    els.unitResult.textContent = bcFmt(resStr);
-    els.unitResultLabel.textContent = fu.l.replace(/\(.*/,'')+' → '+tu.l.replace(/\(.*/,'');
-    var one = numToStr(Math.round((fu.f/tu.f)*1e6)/1e6);
-    els.unitRef.textContent = '1 '+fu.l+' = '+bcFmt(one)+' '+tu.l;
-  }
+  function openUnitPicker(side){ pickSide=side; renderPickerCats(); renderPickerList(); els.unitPicker.classList.add('open'); }
+  function closeUnitPicker(){ els.unitPicker.classList.remove('open'); }
   function bindUnit(){
-    els.unitCatRow.addEventListener('click', function(e){
+    els.unitTopVal.addEventListener('input', function(){ uSide='top'; uVal=parseFloat(els.unitTopVal.value)||0; var bot=unitObj(uTo); els.unitBotVal.value=plainNum(convert(uVal,uFrom,uTo)); els.unitRef.textContent='1 '+unitObj(uFrom).l+' = '+bcFmt(plainNum(convert(1,uFrom,uTo)))+' '+bot.l; });
+    els.unitBotVal.addEventListener('input', function(){ uSide='bottom'; uVal=parseFloat(els.unitBotVal.value)||0; els.unitTopVal.value=plainNum(convert(uVal,uTo,uFrom)); });
+    els.unitTopBtn.addEventListener('click', function(){ openUnitPicker('top'); });
+    els.unitBotBtn.addEventListener('click', function(){ openUnitPicker('bottom'); });
+    els.unitPickerClose.addEventListener('click', closeUnitPicker);
+    els.unitPicker.addEventListener('click', function(e){ if(e.target===els.unitPicker) closeUnitPicker(); });
+    els.pickerCatRow.addEventListener('click', function(e){
       var t=e.target.closest('.cat-btn'); if(!t)return;
-      unitCat=t.getAttribute('data-uc');
-      renderUnitCatRow(); populateUnitSelects(); renderUnit();
+      var nc=t.getAttribute('data-pc');
+      if(nc!==unitCat){ unitCat=nc; uFrom=unitList()[0].k; uTo=(unitList()[1]||unitList()[0]).k; uSide='top'; uVal=1; }
+      renderPickerCats(); renderPickerList();
     });
-    els.unitValue.addEventListener('input', renderUnit);
-    els.unitFrom.addEventListener('change', renderUnit);
-    els.unitTo.addEventListener('change', renderUnit);
-    els.unitSwap.addEventListener('click', function(){
-      var a=els.unitFrom.value, b=els.unitTo.value;
-      els.unitFrom.value=b; els.unitTo.value=a; renderUnit();
+    els.pickerList.addEventListener('click', function(e){
+      var t=e.target.closest('.sheet-item'); if(!t)return;
+      var k=t.getAttribute('data-uk');
+      if(pickSide==='top') uFrom=k; else uTo=k;
+      renderUnit(); closeUnitPicker();
     });
   }
 
@@ -2252,8 +2338,25 @@ var INDUSTRY_PRESETS = {
     if(dir==='toKRW'){ res=amt*rate; label=cur+' → 원화'; els.fxAmountLabel.textContent=cur+' 금액'; els.fxResult.textContent=formatWon(res); }
     else { res=rate>0?amt/rate:0; label='원화 → '+cur; els.fxAmountLabel.textContent='원화 금액(원)'; els.fxResult.textContent=fxNum(res)+' '+cur; }
     els.fxResultLabel.textContent=label;
-    var upd = state.tools.fxUpdated ? (' · 최근 수정 '+state.tools.fxUpdated) : '';
-    els.fxNote.textContent = '환율은 직접 입력하고 저장돼요. 거래 전 최신 환율로 수정하세요.'+upd;
+    var upd = state.tools.fxUpdated ? (' · 최근 '+state.tools.fxUpdated) : '';
+    els.fxNote.textContent = '환율 탭을 열면 자동으로 최신값을 불러오고, 직접 수정도 돼요'+upd+' · 출처 open.er-api.com';
+  }
+  var FX_API='https://open.er-api.com/v6/latest/USD';
+  var fxFetched=false;
+  function fetchFxRates(manual){
+    if(typeof navigator!=='undefined' && navigator.onLine===false){ if(manual) showToast('오프라인이에요. 저장된 환율을 사용합니다.'); return; }
+    if(els.fxRefresh) els.fxRefresh.textContent='불러오는 중…';
+    fetch(FX_API, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
+      if(!d || d.result!=='success' || !d.rates || !d.rates.KRW) throw new Error('bad');
+      var krw=d.rates.KRW;
+      if(!state.tools.fxRates) state.tools.fxRates={};
+      FX_CURS.forEach(function(c){ var rr=d.rates[c.k]; if(rr) state.tools.fxRates[c.k]=Math.round((krw/rr)*10000)/10000; });
+      state.tools.fxUpdated=todayStr(); fxFetched=true; save();
+      renderFxRateField(); renderFx();
+      if(manual) showToast('최신 환율을 불러왔어요.');
+    }).catch(function(){
+      if(manual) showToast('환율을 불러오지 못했어요. 저장된 환율을 사용합니다.');
+    }).then(function(){ if(els.fxRefresh) els.fxRefresh.textContent='↻ 최신환율'; });
   }
   function bindFx(){
     els.fxCur.addEventListener('change', function(){ renderFxRateField(); renderFx(); });
@@ -2266,11 +2369,13 @@ var INDUSTRY_PRESETS = {
       state.tools.fxUpdated = todayStr();
       save(); renderFx();
     });
+    els.fxRefresh.addEventListener('click', function(){ fetchFxRates(true); });
   }
 
   function setToolPanel(t){
     Array.prototype.forEach.call(els.toolsNav.querySelectorAll('.cat-btn'),function(b){b.classList.toggle('active',b.getAttribute('data-tool')===t);});
     ['basic','vat','discount','unit','fx'].forEach(function(x){ document.getElementById('tool-'+x).classList.toggle('active',x===t); });
+    if(t==='fx' && !fxFetched) fetchFxRates(false);
   }
   function renderToolsAll(){
     els.vatRate.value = (state.tools&&state.tools.vatRate)!=null?state.tools.vatRate:10;
@@ -2282,7 +2387,7 @@ var INDUSTRY_PRESETS = {
     if(state.tools.vatRate==null) state.tools.vatRate=10;
     els.toolsNav.addEventListener('click', function(e){ var t=e.target.closest('.cat-btn'); if(t) setToolPanel(t.getAttribute('data-tool')); });
     bindBasic(); bindVat(); bindDc(); bindUnit(); bindFx();
-    renderUnitCatRow(); populateUnitSelects(); populateFxCur(); renderFxRateField();
+    populateFxCur(); renderFxRateField(); renderUnit();
     bcClear(); renderToolsAll();
   }
 
