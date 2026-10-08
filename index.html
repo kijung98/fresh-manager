@@ -321,6 +321,17 @@
     .calc-layout .hero-outputs { margin-top: 0; flex-direction: column; }
   }
 
+  /* 총량 입력: 입력칸을 넓게, 단위 토글은 아래 줄로 */
+  .unit-combo.stacked { flex-direction: column; align-items: stretch; gap: 8px; }
+  .unit-combo.stacked input { width: 100%; }
+  .unit-combo.stacked .unit-toggle { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .unit-combo.stacked .unit-toggle-btn { width: 100%; padding: 11px 4px; min-height: 48px; }
+
+  /* 날짜 입력 오른쪽 잘림 방지 */
+  input[type="date"] { width: 100%; max-width: 100%; display: block; -webkit-appearance: none; appearance: none; }
+  .closing-date-row input[type="date"] { width: 100%; }
+  .field-row input[type="date"] { width: 100%; }
+
 </style>
 </head>
 <body>
@@ -381,7 +392,7 @@
             </div>
             <div class="field-row">
               <label>총량(무게/개수)</label>
-              <div class="unit-combo">
+              <div class="unit-combo stacked">
                 <input type="number" min="0" step="0.1" inputmode="decimal" id="calcWeight">
                 <div class="unit-toggle" id="calcWeightUnitToggle">
                   <button type="button" class="unit-toggle-btn active" data-unit="kg">kg</button>
