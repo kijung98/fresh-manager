@@ -332,13 +332,64 @@
   .closing-date-row input[type="date"] { width: 100%; }
   .field-row input[type="date"] { width: 100%; }
 
+  /* ===== 도구함(계산 도구) ===== */
+  .tabbar .tab-btn { font-size: 15px; padding: 11px 2px; }
+  @media (max-width: 360px){ .tabbar .tab-btn { font-size: 13px; } }
+
+  .tool-panel { display: none; }
+  .tool-panel.active { display: block; }
+  #toolsNav { margin-top: 2px; }
+
+  /* 디스플레이 */
+  .calc-card { padding: 18px 16px 16px; }
+  .calc-expr { min-height: 24px; text-align: right; font-size: 16px; color: var(--ink-faint); font-weight: 700; letter-spacing: .5px; overflow: hidden; white-space: nowrap; }
+  .calc-display { text-align: right; font-size: clamp(34px, 11vw, 52px); font-weight: 800; color: var(--ink); letter-spacing: .5px; line-height: 1.1; margin: 2px 0 14px; overflow: hidden; white-space: nowrap; }
+
+  /* 키패드 (입체) */
+  .calcpad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 460px; margin: 0 auto; }
+  .key {
+    position: relative; border: none; cursor: pointer;
+    aspect-ratio: 1 / 1; border-radius: 18px;
+    font-size: clamp(22px, 6.5vw, 30px); font-weight: 800; letter-spacing: .3px;
+    color: var(--ink); background: linear-gradient(#ffffff, #eef1ec);
+    box-shadow: 0 3px 0 #c9d1c0, 0 5px 10px rgba(20,30,20,.14);
+    transition: transform .05s, box-shadow .05s; -webkit-user-select: none; user-select: none;
+  }
+  .key:active { transform: translateY(3px); box-shadow: 0 0 0 #c9d1c0, 0 2px 5px rgba(20,30,20,.18); }
+  .key.fn { background: linear-gradient(#e7ebe2, #d6dccd); color: var(--ink-soft); box-shadow: 0 3px 0 #b3bca8, 0 5px 10px rgba(20,30,20,.12); }
+  .key.op { background: linear-gradient(#2f8a56, #1f6b43); color: #fff; box-shadow: 0 3px 0 #164d30, 0 5px 12px rgba(16,60,40,.3); }
+  .key.op.sel { background: linear-gradient(#f4d58a, #e0a93f); color: #5a3d0e; box-shadow: 0 3px 0 #b9842a, 0 5px 12px rgba(150,90,20,.3); }
+  .key.eq { background: linear-gradient(#f4d58a, #e0a93f); color: #5a3d0e; box-shadow: 0 3px 0 #b9842a, 0 5px 12px rgba(150,90,20,.3); }
+  .key.zero { aspect-ratio: auto; grid-column: span 2; }
+  @media (prefers-color-scheme: dark){
+    .key { background: linear-gradient(#273020, #1b221a); color: var(--ink); box-shadow: 0 3px 0 #0d1209, 0 5px 10px rgba(0,0,0,.4); }
+    .key.fn { background: linear-gradient(#333d2b, #262e20); color: var(--ink-soft); box-shadow: 0 3px 0 #11160d, 0 5px 10px rgba(0,0,0,.4); }
+  }
+  :root[data-theme="dark"] .key { background: linear-gradient(#273020, #1b221a); color: var(--ink); box-shadow: 0 3px 0 #0d1209, 0 5px 10px rgba(0,0,0,.4); }
+  :root[data-theme="dark"] .key.fn { background: linear-gradient(#333d2b, #262e20); color: var(--ink-soft); box-shadow: 0 3px 0 #11160d, 0 5px 10px rgba(0,0,0,.4); }
+
+  .calc-actions { display: flex; gap: 10px; margin-top: 16px; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .calc-actions .btn { flex: 1; }
+
+  .tool-result { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; padding-top: 16px; border-top: 1px dashed var(--line-strong); }
+  .tool-result .rline { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .tool-result .rline span { font-size: 16px; color: var(--ink-faint); font-weight: 700; }
+  .tool-result .rline b { font-size: 24px; font-weight: 800; color: var(--ink); }
+  .tool-result .rline.hi b { font-size: 30px; color: var(--brand); }
+  .tool-result .rline.gold b { color: var(--price); }
+
+  .unit-cat-row { margin-bottom: 12px; }
+  .swap-btn { flex: none; width: 54px; min-height: 54px; border-radius: 12px; border: 2px solid var(--line-strong); background: var(--paper-raise); color: var(--brand); font-size: 22px; font-weight: 800; cursor: pointer; }
+  .fx-note { font-size: 13px; color: var(--ink-faint); margin-top: 8px; }
+
 </style>
 </head>
 <body>
 <div class="tabbar" id="tabbar">
-  <button class="tab-btn active" data-tab="calc">계산기</button>
+  <button class="tab-btn active" data-tab="calc">단가</button>
+  <button class="tab-btn" data-tab="tools">도구</button>
   <button class="tab-btn" data-tab="purchase">매입</button>
-  <button class="tab-btn" data-tab="closing">마감정산</button>
+  <button class="tab-btn" data-tab="closing">마감</button>
   <button class="tab-btn" data-tab="settings">설정</button>
 </div>
 
@@ -436,6 +487,134 @@
         <button class="btn" id="pdfBtn">목록 보기·인쇄</button>
       </div>
       <p class="hint">공유하면 오늘 매입한 품목의 판매가 목록이 카카오톡·문자로 전송돼요.</p>
+    </div>
+  </section>
+
+  <!-- ===== 도구함 ===== -->
+  <section class="tab-page" id="page-tools">
+    <div class="cat-row" id="toolsNav">
+      <button class="cat-btn active" data-tool="basic">기본</button>
+      <button class="cat-btn" data-tool="vat">부가세</button>
+      <button class="cat-btn" data-tool="discount">할인</button>
+      <button class="cat-btn" data-tool="unit">단위</button>
+      <button class="cat-btn" data-tool="fx">환율</button>
+    </div>
+
+    <!-- 기본 계산기 -->
+    <div class="tool-panel active" id="tool-basic">
+      <div class="card calc-card">
+        <div class="calc-expr" id="basicExpr"></div>
+        <div class="calc-display" id="basicDisplay">0</div>
+        <div class="calcpad" id="basicPad">
+          <button class="key fn" data-k="ac">AC</button>
+          <button class="key fn" data-k="neg">±</button>
+          <button class="key fn" data-k="pct">%</button>
+          <button class="key op" data-k="div">÷</button>
+          <button class="key" data-k="7">7</button>
+          <button class="key" data-k="8">8</button>
+          <button class="key" data-k="9">9</button>
+          <button class="key op" data-k="mul">×</button>
+          <button class="key" data-k="4">4</button>
+          <button class="key" data-k="5">5</button>
+          <button class="key" data-k="6">6</button>
+          <button class="key op" data-k="sub">−</button>
+          <button class="key" data-k="1">1</button>
+          <button class="key" data-k="2">2</button>
+          <button class="key" data-k="3">3</button>
+          <button class="key op" data-k="add">+</button>
+          <button class="key" data-k="back">⌫</button>
+          <button class="key" data-k="0">0</button>
+          <button class="key" data-k="dot">.</button>
+          <button class="key eq" data-k="eq">=</button>
+        </div>
+        <div class="calc-actions">
+          <button class="btn ghost" id="basicCopy">결과 복사</button>
+          <button class="btn primary" id="basicToCost">단가 원가로 보내기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 부가세 -->
+    <div class="tool-panel" id="tool-vat">
+      <div class="card">
+        <div class="section-title">부가세 계산기</div>
+        <div class="period-tabs" id="vatMode">
+          <button class="period-tab-btn active" data-m="supply">공급가 기준</button>
+          <button class="period-tab-btn" data-m="total">합계 기준</button>
+        </div>
+        <div class="field-grid-2">
+          <div class="field-row"><label id="vatAmountLabel">공급가액(원)</label><input type="text" inputmode="numeric" id="vatAmount" autocomplete="off"></div>
+          <div class="field-row"><label>부가세율(%)</label><input type="number" min="0" step="0.1" inputmode="decimal" id="vatRate" value="10"></div>
+        </div>
+        <div class="tool-result">
+          <div class="rline"><span>공급가액</span><b id="vatSupply">0원</b></div>
+          <div class="rline"><span>부가세</span><b id="vatTax">0원</b></div>
+          <div class="rline hi"><span>합계금액</span><b id="vatTotal">0원</b></div>
+        </div>
+        <p class="hint">공급가 기준: 입력액에 세금을 더합니다. 합계 기준: 입력액에서 세금을 역산합니다.</p>
+      </div>
+    </div>
+
+    <!-- 할인 -->
+    <div class="tool-panel" id="tool-discount">
+      <div class="card">
+        <div class="section-title">할인 계산기</div>
+        <div class="field-grid-2">
+          <div class="field-row"><label>원래 가격(원)</label><input type="text" inputmode="numeric" id="dcPrice" autocomplete="off"></div>
+          <div class="field-row"><label>할인율(%)</label><input type="number" min="0" max="100" step="0.1" inputmode="decimal" id="dcRate"></div>
+          <div class="field-row"><label>추가 세금(%)</label><input type="number" min="0" step="0.1" inputmode="decimal" id="dcTax" value="0"></div>
+        </div>
+        <div class="tool-result">
+          <div class="rline"><span>할인 금액</span><b id="dcOff">0원</b></div>
+          <div class="rline"><span>할인된 가격</span><b id="dcAfter">0원</b></div>
+          <div class="rline hi"><span>최종 가격(세금 포함)</span><b id="dcFinal">0원</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 단위 변환 -->
+    <div class="tool-panel" id="tool-unit">
+      <div class="card">
+        <div class="section-title">단위 변환기</div>
+        <div class="cat-row unit-cat-row" id="unitCatRow"></div>
+        <div class="field-row" style="margin-bottom:12px;">
+          <label>값</label>
+          <input type="number" step="any" inputmode="decimal" id="unitValue" value="1">
+        </div>
+        <div class="field-grid-2">
+          <div class="field-row"><label>변환 전</label><select id="unitFrom"></select></div>
+          <div class="field-row"><label>변환 후</label><select id="unitTo"></select></div>
+        </div>
+        <div class="export-row" style="padding:0;margin:12px 0 0;justify-content:center;">
+          <button class="swap-btn" id="unitSwap" aria-label="단위 서로 바꾸기">⇅</button>
+        </div>
+        <div class="tool-result">
+          <div class="rline hi"><span id="unitResultLabel">결과</span><b id="unitResult">0</b></div>
+        </div>
+        <p class="hint" id="unitRef"></p>
+      </div>
+    </div>
+
+    <!-- 환율 -->
+    <div class="tool-panel" id="tool-fx">
+      <div class="card">
+        <div class="section-title">환율 계산기</div>
+        <div class="field-grid-2">
+          <div class="field-row"><label>통화</label><select id="fxCur"></select></div>
+          <div class="field-row"><label>방향</label>
+            <select id="fxDir">
+              <option value="toKRW">외화 → 원화</option>
+              <option value="toFX">원화 → 외화</option>
+            </select>
+          </div>
+          <div class="field-row"><label id="fxAmountLabel">금액</label><input type="text" inputmode="numeric" id="fxAmount" autocomplete="off"></div>
+          <div class="field-row"><label id="fxRateLabel">기준 환율(원)</label><input type="number" step="any" inputmode="decimal" id="fxRate"></div>
+        </div>
+        <div class="tool-result">
+          <div class="rline hi"><span id="fxResultLabel">환산 결과</span><b id="fxResult">0</b></div>
+        </div>
+        <p class="fx-note" id="fxNote">환율은 직접 입력하고 저장돼요. 매일 바뀌니 거래 전 최신 환율로 수정해서 쓰세요.</p>
+      </div>
     </div>
   </section>
 
@@ -872,7 +1051,7 @@ var INDUSTRY_PRESETS = {
 (function () {
   'use strict';
 
-  var APP_VERSION = '1.0.0';
+  var APP_VERSION = '1.1.0';
   var STORAGE_KEY = 'ucp_v1';
   var LEGACY_KEY = 'fv_inventory_v4';
 
@@ -884,7 +1063,12 @@ var INDUSTRY_PRESETS = {
     purchasesByDate: {},
     dailyClosing: {},
     fixedCosts: { rent: 0, fuel: 0, utility: 0, labor: 0, packaging: 0, etc: 0, days: 30 },
-    calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 }
+    calc: { cost: 0, sale: 0, weight: 0, split: 0, loss: 0, weightUnit: 'kg', mode: 'sale', targetMargin: 0 },
+    tools: {
+      vatRate: 10,
+      fxRates: { USD: 1340, CNY: 185, JPY: 9, EUR: 1450, VND: 0.055, THB: 38 },
+      fxUpdated: null
+    }
   };
   var currentTab = 'calc';
   var currentPurchaseView = 'input';
@@ -1036,7 +1220,12 @@ var INDUSTRY_PRESETS = {
      'confirmOverlay','confirmMsg','confirmCancelBtn','confirmOkBtn',
      'promptOverlay','promptMsg','promptInput','promptCancelBtn','promptOkBtn',
      'onboardOverlay','onboardTitle','onboardSub','onboardStoreName','industryGrid','onboardCancelBtn','onboardOkBtn','onboardNameRow',
-     'backupBtn','restoreBtn','restoreFile','appVersion'
+     'backupBtn','restoreBtn','restoreFile','appVersion',
+     'toolsNav','basicExpr','basicDisplay','basicPad','basicCopy','basicToCost',
+     'vatMode','vatAmount','vatAmountLabel','vatRate','vatSupply','vatTax','vatTotal',
+     'dcPrice','dcRate','dcTax','dcOff','dcAfter','dcFinal',
+     'unitCatRow','unitValue','unitFrom','unitTo','unitSwap','unitResult','unitResultLabel','unitRef',
+     'fxCur','fxDir','fxAmount','fxAmountLabel','fxRate','fxRateLabel','fxResult','fxResultLabel','fxNote'
     ].forEach(function(id){ els[id]=document.getElementById(id); });
   }
 
@@ -1046,7 +1235,7 @@ var INDUSTRY_PRESETS = {
     Array.prototype.forEach.call(els.tabbar.querySelectorAll('.tab-btn'), function(b){
       b.classList.toggle('active', b.getAttribute('data-tab')===tab);
     });
-    ['calc','purchase','closing','settings'].forEach(function(t){
+    ['calc','tools','purchase','closing','settings'].forEach(function(t){
       document.getElementById('page-'+t).classList.toggle('active', t===tab);
     });
     window.scrollTo({top:0});
@@ -1822,12 +2011,279 @@ var INDUSTRY_PRESETS = {
     renderPeriodStats();
     renderSettingsCatRow();
     renderSettingsList();
+    if(els.vatRate) renderToolsAll();
   }
 
   function bindGlobal(){
     document.addEventListener('focus', function(e){
       if(e.target && e.target.tagName==='INPUT' && e.target.type==='number') e.target.select();
     }, true);
+  }
+
+  // ===================== 도구함 =====================
+  function groupInt(s){ return String(s).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+  function numToStr(n){
+    if(!isFinite(n)) return '오류';
+    var r = Math.round(n*1e10)/1e10;
+    var s = String(r);
+    if(s.indexOf('e')!==-1) s = r.toFixed(10);
+    if(s.indexOf('.')!==-1) s = s.replace(/0+$/,'').replace(/\.$/,'');
+    return s;
+  }
+  function bcFmt(numStr){
+    numStr = String(numStr);
+    if(numStr==='오류') return '오류';
+    var neg = numStr.charAt(0)==='-';
+    var s = neg ? numStr.slice(1) : numStr;
+    if(s==='') s='0';
+    var parts = s.split('.');
+    var out = groupInt(parts[0]||'0');
+    if(parts.length>1) out += '.' + parts[1];
+    return (neg?'-':'')+out;
+  }
+  function fxNum(n){ // 외화 등 소수 결과 표시
+    if(!isFinite(n)) return '0';
+    var r = Math.round(n*100)/100;
+    return bcFmt(numToStr(r));
+  }
+
+  // ---- 기본 계산기 ----
+  var bc = { cur:'0', prev:null, op:null, justEq:false, startNew:false, expr:'' };
+  var OPSYM = { add:'+', sub:'−', mul:'×', div:'÷' };
+  function bcCompute(a,op,b){
+    if(op==='add') return a+b; if(op==='sub') return a-b;
+    if(op==='mul') return a*b; if(op==='div') return b===0?NaN:a/b; return b;
+  }
+  function renderBasic(){
+    els.basicExpr.textContent = bc.expr;
+    els.basicDisplay.textContent = (bc.cur==='오류'||bc.cur==='NaN') ? '오류' : bcFmt(bc.cur);
+    Array.prototype.forEach.call(els.basicPad.querySelectorAll('.key.op'), function(k){
+      k.classList.toggle('sel', !!bc.op && bc.startNew && k.getAttribute('data-k')===bc.op);
+    });
+  }
+  function bcInput(d){
+    if(bc.cur==='오류'){ bcClear(); }
+    if(bc.justEq){ bc.cur='0'; bc.justEq=false; bc.expr=''; bc.prev=null; bc.op=null; }
+    if(bc.startNew){ bc.cur = (d==='.')?'0':''; bc.startNew=false; }
+    if(d==='.'){ if(bc.cur==='') bc.cur='0'; if(bc.cur.indexOf('.')===-1) bc.cur+='.'; }
+    else { if(bc.cur==='0'||bc.cur==='') bc.cur=d; else bc.cur+=d; }
+    renderBasic();
+  }
+  function bcClear(){ bc={cur:'0',prev:null,op:null,justEq:false,startNew:false,expr:''}; renderBasic(); }
+  function bcBack(){
+    if(bc.justEq||bc.startNew) return;
+    if(bc.cur.length<=1 || (bc.cur.length===2 && bc.cur.charAt(0)==='-')) bc.cur='0';
+    else bc.cur=bc.cur.slice(0,-1);
+    renderBasic();
+  }
+  function bcNeg(){ if(bc.cur==='0'||bc.cur==='오류')return; bc.cur = bc.cur.charAt(0)==='-'?bc.cur.slice(1):'-'+bc.cur; renderBasic(); }
+  function bcPct(){ if(bc.cur==='오류')return; bc.cur=numToStr((parseFloat(bc.cur)||0)/100); bc.justEq=false; bc.startNew=false; renderBasic(); }
+  function bcOp(op){
+    if(bc.cur==='오류')return;
+    if(bc.op && !bc.startNew && bc.prev!==null){
+      var r=bcCompute(bc.prev, bc.op, parseFloat(bc.cur));
+      bc.prev=r; bc.cur=numToStr(r);
+    } else {
+      bc.prev=parseFloat(bc.cur);
+    }
+    bc.op=op; bc.justEq=false; bc.startNew=true;
+    bc.expr = bcFmt(numToStr(bc.prev))+' '+OPSYM[op];
+    renderBasic();
+  }
+  function bcEquals(){
+    if(bc.op===null||bc.prev===null){ bc.justEq=true; renderBasic(); return; }
+    var b=parseFloat(bc.cur);
+    var r=bcCompute(bc.prev, bc.op, b);
+    bc.expr = bcFmt(numToStr(bc.prev))+' '+OPSYM[bc.op]+' '+bcFmt(numToStr(b))+' =';
+    bc.cur = numToStr(r);
+    bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false;
+    renderBasic();
+  }
+  function bindBasic(){
+    els.basicPad.addEventListener('click', function(e){
+      var k=e.target.closest('.key'); if(!k) return;
+      var key=k.getAttribute('data-k');
+      if(/^[0-9]$/.test(key)||key==='dot') bcInput(key==='dot'?'.':key);
+      else if(key==='ac') bcClear();
+      else if(key==='back') bcBack();
+      else if(key==='neg') bcNeg();
+      else if(key==='pct') bcPct();
+      else if(key==='eq') bcEquals();
+      else bcOp(key);
+    });
+    els.basicCopy.addEventListener('click', function(){
+      var t = els.basicDisplay.textContent;
+      if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){showToast('복사했어요: '+t);}).catch(function(){showToast('복사 실패');});
+      else showToast('복사: '+t);
+    });
+    els.basicToCost.addEventListener('click', function(){
+      var v = parseFloat(bc.cur)||0;
+      if(v<=0){ showToast('먼저 금액을 계산하세요.'); return; }
+      state.calc.cost = Math.round(v); save();
+      renderCalc(); setTab('calc');
+      showToast('구입원가로 보냈어요.');
+    });
+  }
+
+  // ---- 부가세 ----
+  var vatMode='supply';
+  function renderVat(){
+    var amt=parseWon(els.vatAmount.value);
+    var rate=parseFloat(els.vatRate.value)||0;
+    var supply,tax,total;
+    if(vatMode==='supply'){ supply=amt; tax=amt*rate/100; total=supply+tax; }
+    else { total=amt; supply=amt/(1+rate/100); tax=total-supply; }
+    els.vatSupply.textContent=formatWon(supply);
+    els.vatTax.textContent=formatWon(tax);
+    els.vatTotal.textContent=formatWon(total);
+  }
+  function bindVat(){
+    els.vatMode.addEventListener('click', function(e){
+      var t=e.target.closest('.period-tab-btn'); if(!t)return;
+      vatMode=t.getAttribute('data-m');
+      Array.prototype.forEach.call(els.vatMode.querySelectorAll('.period-tab-btn'),function(b){b.classList.toggle('active',b===t);});
+      els.vatAmountLabel.textContent = vatMode==='supply'?'공급가액(원)':'합계금액(원)';
+      renderVat();
+    });
+    els.vatAmount.addEventListener('input', function(){ formatMoneyInput(els.vatAmount); renderVat(); });
+    els.vatRate.addEventListener('input', function(){ state.tools.vatRate=parseFloat(els.vatRate.value)||0; save(); renderVat(); });
+  }
+
+  // ---- 할인 ----
+  function renderDc(){
+    var price=parseWon(els.dcPrice.value);
+    var rate=Math.min(Math.max(parseFloat(els.dcRate.value)||0,0),100);
+    var tax=parseFloat(els.dcTax.value)||0;
+    var off=price*rate/100, after=price-off, fin=after*(1+tax/100);
+    els.dcOff.textContent=formatWon(off);
+    els.dcAfter.textContent=formatWon(after);
+    els.dcFinal.textContent=formatWon(fin);
+  }
+  function bindDc(){
+    els.dcPrice.addEventListener('input', function(){ formatMoneyInput(els.dcPrice); renderDc(); });
+    els.dcRate.addEventListener('input', renderDc);
+    els.dcTax.addEventListener('input', renderDc);
+  }
+
+  // ---- 단위 변환 ----
+  var UNIT_CATS=[
+    {key:'weight',label:'무게',units:[
+      {k:'kg',l:'킬로그램(kg)',f:1000},{k:'g',l:'그램(g)',f:1},
+      {k:'geun',l:'근(600g)',f:600},{k:'gwan',l:'관(3.75kg)',f:3750},
+      {k:'don',l:'돈(3.75g)',f:3.75},{k:'nyang',l:'냥(37.5g)',f:37.5},
+      {k:'lb',l:'파운드(lb)',f:453.592},{k:'oz',l:'온스(oz)',f:28.3495}
+    ]},
+    {key:'area',label:'넓이',units:[
+      {k:'m2',l:'제곱미터(㎡)',f:1},{k:'py',l:'평',f:3.305785},
+      {k:'danbo',l:'단보(300평)',f:991.736},{k:'ha',l:'헥타르(ha)',f:10000},{k:'ac',l:'에이커',f:4046.86}
+    ]},
+    {key:'volume',label:'부피',units:[
+      {k:'l',l:'리터(L)',f:1000},{k:'ml',l:'밀리리터(mL)',f:1},
+      {k:'hop',l:'홉(180mL)',f:180},{k:'doe',l:'되(1.8L)',f:1800},{k:'mal',l:'말(18L)',f:18000}
+    ]},
+    {key:'length',label:'길이',units:[
+      {k:'m',l:'미터(m)',f:100},{k:'cm',l:'센티미터(cm)',f:1},
+      {k:'ja',l:'자(30.3cm)',f:30.3},{k:'chi',l:'치(3.03cm)',f:3.03},
+      {k:'in',l:'인치',f:2.54},{k:'ft',l:'피트',f:30.48}
+    ]}
+  ];
+  var unitCat='weight';
+  function curUnitList(){ return (UNIT_CATS.find(function(c){return c.key===unitCat;})||UNIT_CATS[0]).units; }
+  function renderUnitCatRow(){
+    els.unitCatRow.innerHTML = UNIT_CATS.map(function(c){
+      return '<button class="cat-btn'+(c.key===unitCat?' active':'')+'" data-uc="'+c.key+'">'+c.label+'</button>';
+    }).join('');
+  }
+  function populateUnitSelects(fromK,toK){
+    var list=curUnitList();
+    var opts=list.map(function(u){return '<option value="'+u.k+'">'+u.l+'</option>';}).join('');
+    els.unitFrom.innerHTML=opts; els.unitTo.innerHTML=opts;
+    els.unitFrom.value = fromK || list[0].k;
+    els.unitTo.value = toK || (list[1]?list[1].k:list[0].k);
+  }
+  function renderUnit(){
+    var list=curUnitList();
+    var fu=list.find(function(u){return u.k===els.unitFrom.value;})||list[0];
+    var tu=list.find(function(u){return u.k===els.unitTo.value;})||list[0];
+    var v=parseFloat(els.unitValue.value)||0;
+    var res = v*fu.f/tu.f;
+    var resStr = numToStr(Math.round(res*1e6)/1e6);
+    els.unitResult.textContent = bcFmt(resStr);
+    els.unitResultLabel.textContent = fu.l.replace(/\(.*/,'')+' → '+tu.l.replace(/\(.*/,'');
+    var one = numToStr(Math.round((fu.f/tu.f)*1e6)/1e6);
+    els.unitRef.textContent = '1 '+fu.l+' = '+bcFmt(one)+' '+tu.l;
+  }
+  function bindUnit(){
+    els.unitCatRow.addEventListener('click', function(e){
+      var t=e.target.closest('.cat-btn'); if(!t)return;
+      unitCat=t.getAttribute('data-uc');
+      renderUnitCatRow(); populateUnitSelects(); renderUnit();
+    });
+    els.unitValue.addEventListener('input', renderUnit);
+    els.unitFrom.addEventListener('change', renderUnit);
+    els.unitTo.addEventListener('change', renderUnit);
+    els.unitSwap.addEventListener('click', function(){
+      var a=els.unitFrom.value, b=els.unitTo.value;
+      els.unitFrom.value=b; els.unitTo.value=a; renderUnit();
+    });
+  }
+
+  // ---- 환율 ----
+  var FX_CURS=[
+    {k:'USD',l:'미국 달러 (USD)'},{k:'CNY',l:'중국 위안 (CNY)'},
+    {k:'JPY',l:'일본 엔 (JPY)'},{k:'EUR',l:'유럽 유로 (EUR)'},
+    {k:'VND',l:'베트남 동 (VND)'},{k:'THB',l:'태국 바트 (THB)'}
+  ];
+  function populateFxCur(){
+    els.fxCur.innerHTML = FX_CURS.map(function(c){return '<option value="'+c.k+'">'+c.l+'</option>';}).join('');
+  }
+  function renderFxRateField(){
+    var cur=els.fxCur.value;
+    var rate=(state.tools.fxRates&&state.tools.fxRates[cur])||0;
+    els.fxRate.value=rate;
+    els.fxRateLabel.textContent='1 '+cur+' = ___ 원';
+  }
+  function renderFx(){
+    var cur=els.fxCur.value;
+    var dir=els.fxDir.value;
+    var rate=parseFloat(els.fxRate.value)||0;
+    var amt=parseWon(els.fxAmount.value);
+    var res, label, unit;
+    if(dir==='toKRW'){ res=amt*rate; label=cur+' → 원화'; els.fxAmountLabel.textContent=cur+' 금액'; els.fxResult.textContent=formatWon(res); }
+    else { res=rate>0?amt/rate:0; label='원화 → '+cur; els.fxAmountLabel.textContent='원화 금액(원)'; els.fxResult.textContent=fxNum(res)+' '+cur; }
+    els.fxResultLabel.textContent=label;
+    var upd = state.tools.fxUpdated ? (' · 최근 수정 '+state.tools.fxUpdated) : '';
+    els.fxNote.textContent = '환율은 직접 입력하고 저장돼요. 거래 전 최신 환율로 수정하세요.'+upd;
+  }
+  function bindFx(){
+    els.fxCur.addEventListener('change', function(){ renderFxRateField(); renderFx(); });
+    els.fxDir.addEventListener('change', renderFx);
+    els.fxAmount.addEventListener('input', function(){ renderFx(); });
+    els.fxRate.addEventListener('input', function(){
+      var cur=els.fxCur.value; var v=parseFloat(els.fxRate.value)||0;
+      if(!state.tools.fxRates) state.tools.fxRates={};
+      state.tools.fxRates[cur]=v;
+      state.tools.fxUpdated = todayStr();
+      save(); renderFx();
+    });
+  }
+
+  function setToolPanel(t){
+    Array.prototype.forEach.call(els.toolsNav.querySelectorAll('.cat-btn'),function(b){b.classList.toggle('active',b.getAttribute('data-tool')===t);});
+    ['basic','vat','discount','unit','fx'].forEach(function(x){ document.getElementById('tool-'+x).classList.toggle('active',x===t); });
+  }
+  function renderToolsAll(){
+    els.vatRate.value = (state.tools&&state.tools.vatRate)!=null?state.tools.vatRate:10;
+    renderVat(); renderDc(); renderUnit(); renderFxRateField(); renderFx();
+  }
+  function initTools(){
+    if(!state.tools) state.tools={};
+    if(!state.tools.fxRates) state.tools.fxRates={USD:1340,CNY:185,JPY:9,EUR:1450,VND:0.055,THB:38};
+    if(state.tools.vatRate==null) state.tools.vatRate=10;
+    els.toolsNav.addEventListener('click', function(e){ var t=e.target.closest('.cat-btn'); if(t) setToolPanel(t.getAttribute('data-tool')); });
+    bindBasic(); bindVat(); bindDc(); bindUnit(); bindFx();
+    renderUnitCatRow(); populateUnitSelects(); populateFxCur(); renderFxRateField();
+    bcClear(); renderToolsAll();
   }
 
   function init(){
@@ -1842,6 +2298,7 @@ var INDUSTRY_PRESETS = {
     bindFixedCosts(); bindSettings();
     bindExport(); bindBackup();
     bindOnboard();
+    initTools();
 
     var today=todayStr();
     els.closingDate.value=today;
