@@ -506,6 +506,29 @@
   .drawer-item.cur { background: var(--brand-soft); color: var(--brand); }
   .drawer-foot { margin-top: auto; padding: 14px 10px 0; color: var(--ink-faint); font-size: 13px; }
 
+  /* ===== 품목관리/장보기 페이지 공통 ===== */
+  .app-sub-bar { padding: 4px 2px 8px; }
+  .page-h2 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: .3px; }
+  .drawer-badge { display: inline-block; min-width: 22px; padding: 1px 7px; border-radius: 999px; background: var(--danger); color: #fff; font-size: 13px; font-weight: 800; text-align: center; margin-left: 6px; }
+
+  /* 품목 체크(장보기 담기) */
+  .settings-product-head { gap: 8px; }
+  .prod-check { flex: none; width: 26px; height: 26px; accent-color: var(--brand); margin-right: 4px; }
+  .settings-product-head .prod-name-wrap { display: flex; align-items: center; gap: 8px; flex: 1; min-width: 0; }
+  .settings-product-head b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  /* ===== 장보기 To-Do ===== */
+  .todo-add-row { display: flex; gap: 8px; }
+  .todo-add-row input { flex: 1; min-width: 0; padding: 13px 14px; border-radius: 12px; border: 2px solid var(--line-strong); background: var(--paper); color: var(--ink); font-size: 17px; font-weight: 600; min-height: 50px; }
+  .todo-item { display: flex; align-items: center; gap: 12px; padding: 14px 6px; border-bottom: 1px solid var(--line); }
+  .todo-item label { flex: 1; display: flex; align-items: center; gap: 12px; cursor: pointer; min-width: 0; }
+  .todo-item input[type="checkbox"] { flex: none; width: 26px; height: 26px; accent-color: var(--brand); }
+  .todo-text { font-size: 18px; font-weight: 700; color: var(--ink); overflow-wrap: anywhere; }
+  .todo-item.done .todo-text { color: var(--ink-faint); text-decoration: line-through; text-decoration-color: var(--danger); text-decoration-thickness: 3px; }
+  .todo-del { flex: none; }
+  .todo-empty { text-align: center; color: var(--ink-faint); padding: 30px 0; font-size: 16px; }
+  .todo-count { font-size: 15px; color: var(--ink-faint); font-weight: 700; margin: 2px 2px 10px; }
+
 </style>
 </head>
 <body>
@@ -749,8 +772,11 @@
       <button class="drawer-item" data-nav="tools" type="button">🧮 계산기</button>
       <button class="drawer-item" data-nav="purchase" type="button">📥 매입</button>
       <button class="drawer-item" data-nav="closing" type="button">📒 마감정산</button>
+      <div class="drawer-group">품목·장보기</div>
+      <button class="drawer-item" data-nav="items" type="button">📦 품목 관리</button>
+      <button class="drawer-item" data-nav="todo" type="button">🛒 장보기 목록 <span class="drawer-badge" id="todoBadge" style="display:none;"></span></button>
+      <div class="drawer-group">설정</div>
       <button class="drawer-item" data-nav="settings" type="button">⚙️ 설정</button>
-      <div class="drawer-group">관리</div>
       <button class="drawer-item" data-act="industry" type="button">🏷️ 업종 변경</button>
       <button class="drawer-item" data-act="backup" type="button">💾 백업 저장</button>
       <button class="drawer-item" data-act="restore" type="button">📂 백업 불러오기</button>
@@ -964,24 +990,6 @@
       </div>
     </details>
 
-    <details class="acc">
-      <summary class="acc-head">카테고리·품목 관리</summary>
-      <div class="acc-body">
-        <div class="settings-cat-head">
-          <span class="hint" style="margin:0;">업종별 품목을 추가·수정해요.</span>
-          <button class="btn small" id="addCategoryBtn" type="button">+ 카테고리</button>
-        </div>
-        <div class="cat-row" id="settingsCatRow"></div>
-        <div class="settings-add-row">
-          <input id="settingsNewName" placeholder="새 품명 추가" style="padding:12px 14px;border-radius:12px;border:2px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:17px;min-height:48px;">
-          <button class="btn primary" id="settingsAddNameBtn" style="flex:none;min-height:48px;padding:12px 20px;">추가</button>
-        </div>
-        <div id="settingsList" style="margin-top:14px;"></div>
-        <div class="settings-actions">
-          <button class="btn small danger-line" id="deleteCategoryBtn" type="button">이 카테고리 삭제</button>
-        </div>
-      </div>
-    </details>
 
     <details class="acc">
       <summary class="acc-head">데이터 백업·복원</summary>
@@ -1005,6 +1013,44 @@
         </div>
       </div>
     </details>
+  </section>
+
+  <!-- ===== 품목 관리 (메뉴에서 진입) ===== -->
+  <section class="tab-page" id="page-items">
+    <div class="app-sub-bar"><h2 class="page-h2">품목 관리</h2></div>
+    <p class="hint" style="margin:0 2px 10px;">품목 왼쪽 ☐를 체크하면 <b>장보기 목록</b>에 담겨요. 업종별 기본 품목에 직접 추가·수정할 수 있어요.</p>
+    <div class="card">
+      <div class="settings-cat-head">
+        <span class="hint" style="margin:0;">카테고리를 선택하세요.</span>
+        <button class="btn small" id="addCategoryBtn" type="button">+ 카테고리</button>
+      </div>
+      <div class="cat-row" id="settingsCatRow"></div>
+      <div class="settings-add-row">
+        <input id="settingsNewName" placeholder="새 품명 추가" style="padding:12px 14px;border-radius:12px;border:2px solid var(--line-strong);background:var(--paper);color:var(--ink);font-size:17px;min-height:48px;">
+        <button class="btn primary" id="settingsAddNameBtn" style="flex:none;min-height:48px;padding:12px 20px;">추가</button>
+      </div>
+      <div id="settingsList" style="margin-top:14px;"></div>
+      <div class="settings-actions">
+        <button class="btn small danger-line" id="deleteCategoryBtn" type="button">이 카테고리 삭제</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 장보기 목록 (To-Do) ===== -->
+  <section class="tab-page" id="page-todo">
+    <div class="app-sub-bar"><h2 class="page-h2">장보기 목록</h2></div>
+    <p class="hint" style="margin:0 2px 10px;">살 것을 적거나 품목 관리에서 담아보세요. 구입하면 체크 → 빨간 줄로 지워져요.</p>
+    <div class="card">
+      <div class="todo-add-row">
+        <input type="text" id="todoInput" placeholder="예: 사과 2박스, 배 1박스" maxlength="40">
+        <button class="btn primary" id="todoAddBtn" type="button" style="flex:none;min-height:50px;padding:12px 18px;">담기</button>
+      </div>
+      <div id="todoList" style="margin-top:14px;"></div>
+      <div class="settings-actions" id="todoActions" style="display:none;">
+        <button class="btn small" id="todoClearDone" type="button">완료 항목 비우기</button>
+        <button class="btn small danger-line" id="todoClearAll" type="button">전체 비우기</button>
+      </div>
+    </div>
   </section>
 </div>
 
@@ -1062,7 +1108,7 @@
 </div>
 
 <script>
-// ===== 업종 프리셋 =====
+// ===== 업종 프리셋 (품목 대폭 보완판) =====
 var INDUSTRY_PRESETS = {
   produce: {
     label: '과일·야채·수산',
@@ -1074,87 +1120,103 @@ var INDUSTRY_PRESETS = {
     ],
     data: {
       fruit: {
-        "사과":["부사","홍로","아오리","시나노골드","감홍","시나노스위트"],
-        "배":["신고","원황","화산","추황","20세기"],
-        "감":["단감","대봉시","반시","곶감용"],
-        "귤/감귤":["조생귤","극조생","한라봉","천혜향","레드향","황금향"],
-        "딸기":["설향","매향","금실","킹스베리","비타베리"],
-        "포도":["샤인머스캣","거봉","캠벨얼리","델라웨어"],
-        "복숭아":["백도","황도","천도","신선도","납작복숭아"],
-        "자두":["후무사","대석","피자두","추희"],
+        "사과":["부사","홍로","아오리","시나노골드","감홍","시나노스위트","양광","홍옥"],
+        "배":["신고","원황","화산","추황","20세기","신화"],
+        "감":["단감","대봉시","반시","둥시","곶감용","연시"],
+        "귤/감귤":["조생귤","극조생","노지귤","한라봉","천혜향","레드향","황금향","카라향","천근향"],
+        "딸기":["설향","매향","금실","킹스베리","비타베리","죽향","아리향"],
+        "포도":["샤인머스캣","거봉","캠벨얼리","델라웨어","흑보석","머루포도"],
+        "복숭아":["백도","황도","천도","신선도","납작복숭아","대극천"],
+        "자두":["후무사","대석","피자두","추희","포모사"],
         "참외":["성주참외","금싸라기","꿀참외"],
-        "수박":["애플수박","씨없는수박","흑수박"],
-        "토마토":["완숙토마토","찰토마토","대저토마토","대추방울","스테비아토마토"],
-        "키위":["참다래","골드키위","그린키위"],
+        "멜론":["머스크멜론","백자멜론","파파야멜론"],
+        "수박":["일반수박","애플수박","씨없는수박","흑수박","복수박"],
+        "토마토":["완숙토마토","찰토마토","대저토마토","대추방울","컬러방울","스테비아토마토"],
+        "키위":["참다래","골드키위","그린키위","레드키위"],
         "체리":["국산","수입(미국)","수입(칠레)"],
-        "망고":["애플망고","카라바오망고","남독마이"],
-        "바나나":["일반","스위티오","감숙왕","유기농"],
+        "매실":["청매실","황매실"],
+        "앵두/살구":["앵두","살구"],
+        "무화과":["생무화과","건무화과"],
+        "망고":["애플망고","카라바오망고","남독마이","옐로우망고"],
+        "바나나":["일반","스위티오","감숙왕","유기농","몽키바나나"],
         "파인애플":["골드","허니골드","미니"],
         "아보카도":["국산","수입(멕시코)","수입(페루)"],
-        "자몽":["국산","수입(미국)","수입(이스라엘)"],
-        "레몬":["국산","수입(미국)","수입(칠레)"],
-        "블루베리":["국산(생물)","수입(생물)","수입(냉동)"],
-        "석류":["국산","수입(미국)","수입(이란)"]
+        "오렌지/자몽":["네이블오렌지","블러드오렌지","자몽"],
+        "레몬/라임":["레몬","라임"],
+        "베리류":["블루베리","라즈베리","블랙베리","크랜베리"],
+        "석류":["국산","수입(미국)","수입(이란)"],
+        "대추/밤":["생대추","건대추","생밤","깐밤"]
       },
       veg: {
-        "배추":["포기배추","쌈배추","절임배추"],
-        "알배기":["국산","수입"],
-        "양배추":["일반","적양배추","방울양배추"],
-        "무":["일반무","동치미무","순무"],
-        "알타리무":["국산"],
-        "열무":["국산"],
-        "양파":["일반","자색","깐양파","햇양파"],
-        "대파":["흙대파","깐대파"],
-        "쪽파":["흙쪽파","깐쪽파"],
-        "마늘":["통마늘","깐마늘","다진마늘","햇마늘"],
+        "배추":["포기배추","쌈배추","절임배추","알배기"],
+        "양배추":["일반양배추","적양배추","방울양배추","사보이"],
+        "무/알타리":["일반무","동치미무","알타리무","순무","열무"],
+        "양파":["일반양파","자색양파","깐양파","햇양파","샬롯"],
+        "대파/쪽파":["흙대파","깐대파","흙쪽파","깐쪽파","실파"],
+        "마늘":["통마늘","깐마늘","다진마늘","햇마늘","마늘종"],
         "생강":["흙생강","깐생강"],
-        "고추":["청양고추","오이고추","홍고추","꽈리고추"],
-        "파프리카":["빨강","노랑","주황","미니"],
-        "오이":["다다기","취청","가시오이"],
-        "호박":["애호박","단호박","늙은호박"],
-        "상추":["포기상추","적상추","청상추"],
+        "고추":["청양고추","오이고추","홍고추","꽈리고추","아삭이고추","풋고추"],
+        "파프리카/피망":["빨강","노랑","주황","미니파프리카","청피망","홍피망"],
+        "오이":["다다기오이","취청오이","가시오이","백오이"],
+        "호박":["애호박","단호박","늙은호박","주키니","조선호박"],
+        "가지":["일반가지","미니가지"],
+        "상추/쌈채":["포기상추","적상추","청상추","꽃상추","로메인","쌈추"],
         "깻잎":["찹깻잎","봉지깻잎"],
-        "시금치":["일반","섬초","포항초"],
-        "당근":["흙당근","세척당근","수입당근"],
-        "버섯":["팽이","새송이","느타리","표고","양송이"],
-        "감자":["수미","두백","알감자"],
-        "고구마":["호박","밤","꿀","자색"]
+        "시금치/나물":["일반시금치","섬초","포항초","얼갈이","근대","아욱"],
+        "부추/미나리":["부추","돌미나리","일반미나리"],
+        "당근":["흙당근","세척당근","수입당근","미니당근"],
+        "우엉/연근":["우엉","연근"],
+        "버섯":["팽이","새송이","느타리","표고","양송이","목이","만가닥"],
+        "감자":["수미감자","두백감자","알감자","자주감자"],
+        "고구마":["호박고구마","밤고구마","꿀고구마","자색고구마"],
+        "옥수수":["찰옥수수","초당옥수수","대학찰"],
+        "콩나물/숙주":["콩나물","숙주"],
+        "브로콜리/콜리":["브로콜리","콜리플라워"]
       },
       fish: {
-        "고등어":["자반","생물","수입"],
-        "갈치":["제주","먹갈치","수입"],
-        "조기/굴비":["참조기","영광굴비","부세굴비"],
-        "오징어":["생물","냉동","총통"],
-        "명태":["생태","동태","코다리","황태"],
-        "가자미":["국산","수입"],
-        "삼치":["생물","냉동"],
-        "꽁치":["생물","냉동"],
-        "대구":["생태","냉동"],
-        "병어":["국산"],
-        "바지락":["생물","냉동"],
-        "가리비":["홍가리비","수입가리비"],
-        "전복":["활전복","냉동전복"],
-        "홍합":["생물","알홍합"],
+        "고등어":["자반","생물","노르웨이"],
+        "갈치":["제주은갈치","먹갈치","수입갈치"],
+        "조기/굴비":["참조기","영광굴비","부세굴비","보리굴비"],
+        "오징어":["생물오징어","냉동오징어","총알오징어","갑오징어","한치"],
+        "명태":["생태","동태","코다리","황태","노가리"],
+        "가자미/광어":["가자미","광어(활)","광어(선어)"],
+        "삼치/병어":["삼치","병어","덕대"],
+        "꽁치/청어":["꽁치","청어","과메기"],
+        "대구/아귀":["생대구","냉동대구","아귀"],
+        "장어":["민물장어","바다장어(아나고)","먹장어(꼼장어)"],
+        "연어/참치":["생연어","훈제연어","참치(생)","참치(냉동)"],
+        "조개":["바지락","모시조개","백합","재첩","키조개"],
+        "가리비/전복":["홍가리비","수입가리비","활전복","냉동전복"],
+        "굴/홍합":["생굴","석화","알굴","홍합","알홍합"],
         "꼬막":["참꼬막","새꼬막","피꼬막"],
-        "굴":["생굴","석화","알굴"],
-        "새우":["흰다리","대하","보리새우"],
-        "꽃게":["꽃게","홍게","대게"]
+        "멍게/해삼":["멍게","해삼","개불"],
+        "문어/낙지":["돌문어","피문어","낙지","쭈꾸미","갑오징어"],
+        "새우":["흰다리새우","대하","보리새우","꽃새우","냉동새우"],
+        "게":["꽃게","홍게","대게","박달대게"],
+        "젓갈류":["새우젓","멸치젓","명란젓","오징어젓","낙지젓"]
       },
       dried: {
-        "김":["재래김","파래김","곱창김","돌김","조미김","김밥김"],
-        "멸치":["세멸(지리)","자멸(가이리)","중멸(볶음)","대멸(국물)"],
-        "북어/황태":["북어포","황태채","황태덕장","먹태"],
-        "건오징어/쥐포":["건오징어","피데기","쥐포","진미채"],
-        "미역/다시마":["산모미역","자른미역","건다시마","쌈다시마","톳"],
-        "견과류":["잣","호두","아몬드","땅콩","캐슈넛"]
+        "김":["재래김","파래김","곱창김","돌김","조미김","김밥김","캔김"],
+        "멸치":["세멸(지리)","자멸(가이리)","중멸(볶음)","대멸(국물)","오멸"],
+        "북어/황태":["북어포","황태채","황태덕장","황태머리","먹태","코다리채"],
+        "건오징어/쥐포":["건오징어","피데기","쥐포","아귀채","진미채","오징어채"],
+        "미역/다시마":["산모미역","자른미역","건다시마","쌈다시마","톳","매생이"],
+        "건나물":["시래기","취나물","고사리","토란대","호박고지","가지말랭이"],
+        "견과류":["잣","호두","아몬드","땅콩","캐슈넛","피스타치오","마카다미아"],
+        "건과일":["건포도","건크랜베리","건망고","곶감","건바나나"],
+        "디포리/육수":["디포리","국물용멸치","건새우","표고기둥"]
       },
       goods: {
-        "장류":["된장","고추장","쌈장","간장"],
-        "기름/소금":["참기름","들기름","식용유","올리브유","천일염","꽃소금"],
-        "설탕/식초":["백설탕","흑설탕","사과식초","현미식초","쌀물엿"],
-        "면/곡류":["소면","칼국수면","당면","찹쌀","현미","흑미"],
-        "통조림":["꽁치","참치","황도"],
-        "조미료":["굴소스","다시다","미원","와사비"]
+        "장류":["재래식된장","개량된장","태양초고추장","사계절고추장","쌈장","청국장"],
+        "간장":["양조간장","진간장","국간장","맛간장"],
+        "기름":["참기름","들기름","식용유","카놀라유","올리브유","포도씨유"],
+        "소금/설탕":["천일염","꽃소금","맛소금","구운소금","백설탕","갈색설탕","흑설탕"],
+        "식초/물엿":["사과식초","현미식초","2배식초","쌀물엿","조청","올리고당"],
+        "면류":["소면","중면","칼국수면","당면","우동면","냉면"],
+        "잡곡":["찹쌀","현미","흑미","찰보리","서리태","메주콩","팥","수수","차조","귀리"],
+        "가공/통조림":["꽁치통조림","참치캔","황도통조림","옥수수캔","스팸"],
+        "조미료/소스":["굴소스","다시다","미원","연두","와사비","겨자","케찹","마요네즈"],
+        "김치/반찬":["포기김치","깍두기","총각김치","단무지","쌈무"]
       }
     }
   },
@@ -1165,14 +1227,14 @@ var INDUSTRY_PRESETS = {
     cats: [
       {key:'beef',label:'소고기'},{key:'pork',label:'돼지고기'},
       {key:'chicken',label:'닭/오리'},{key:'processed',label:'가공육'},
-      {key:'etc',label:'기타'}
+      {key:'etc',label:'부산물/기타'}
     ],
     data: {
-      beef:{"등심":["꽃등심","살치살","채끝"],"안심":["안심","안심스테이크"],"갈비":["LA갈비","찜갈비","왕갈비","꽃갈비살"],"양지":["양지","차돌박이","업진살"],"사태":["아롱사태","뭉치사태"],"불고기":["불고기","국거리","다짐육"]},
-      pork:{"삼겹살":["생삼겹","오겹","냉동삼겹"],"목살":["목살","목전지"],"앞다리":["앞다리살","앞사태"],"뒷다리":["뒷다리살","후지"],"갈비":["돼지갈비","등갈비","엘본"],"항정살":["항정살"],"가브리살":["가브리살"],"족발/머리":["족발","돼지머리","껍데기"]},
-      chicken:{"생닭":["닭1호","닭2호","영계","토종닭"],"부분육":["닭다리","닭날개","닭가슴살","닭안심","닭똥집"],"오리":["생오리","훈제오리","오리주물럭"]},
-      processed:{"햄/소시지":["후랑크","비엔나","로스햄"],"베이컨":["베이컨","등심베이컨"],"양념육":["양념갈비","불고기","제육"]},
-      etc:{"내장":["간","천엽","곱창","막창","대창"],"뼈/부속":["사골","우족","도가니","꼬리"]}
+      beef:{"등심":["꽃등심","살치살","채끝","립아이","토시살"],"안심":["안심","안심스테이크"],"갈비":["LA갈비","찜갈비","왕갈비","꽃갈비살","본갈비"],"양지":["양지","차돌박이","업진살","치마살","양지머리"],"사태/우둔":["아롱사태","뭉치사태","우둔","홍두깨살"],"불고기/다짐":["불고기감","국거리","다짐육","육회용"],"특수부위":["제비추리","안창살","부채살","살치살"]},
+      pork:{"삼겹살":["생삼겹","오겹","냉동삼겹","껍데기"],"목살":["목살","목전지"],"앞다리":["앞다리살","앞사태"],"뒷다리":["뒷다리살","후지"],"갈비":["돼지갈비","등갈비","엘본","마구이"],"특수부위":["항정살","가브리살","갈매기살","등심덧살","꼬들살"],"족발/머리":["생족","족발","돼지머리","사골","잡뼈"],"다짐/양념":["다짐육","제육용","불고기용"]},
+      chicken:{"생닭":["닭1호","닭2호","영계","토종닭","백숙용"],"부분육":["닭다리","닭북채","닭날개","봉","닭가슴살","닭안심","닭발","닭똥집"],"오리":["생오리","훈제오리","오리주물럭","오리불고기"],"가공":["닭강정용","치킨너겟","순살"]},
+      processed:{"햄/소시지":["후랑크","비엔나","로스햄","편육"],"베이컨":["베이컨","등심베이컨","삼겹베이컨"],"양념육":["양념갈비","불고기","제육","춘천닭갈비"],"수제":["수제햄버거패티","떡갈비","완자"]},
+      etc:{"내장":["간","천엽","곱창","막창","대창","양","허파"],"뼈/부속":["사골","우족","도가니","꼬리","등뼈","잡뼈"],"계란":["계란","특란","대란","메추리알","유정란"]}
     }
   },
 
@@ -1185,11 +1247,11 @@ var INDUSTRY_PRESETS = {
       {key:'bakery',label:'빵·과자'}
     ],
     data: {
-      rc_steam:{"백설기":["단호박","흑임자","쑥","콩"],"시루떡":["팥시루","콩시루","호박고지"],"송편":["소나무송편","모둠송편"],"꿀떡":["콩가루꿀떡","깨꿀떡"],"인절미":["콩가루","흑임자","쑥"]},
-      rc_slice:{"가래떡":["흰가래떡","현미가래떡","떡국떡"],"절편":["쑥절편","수리취절편"],"바람떡":["팥","깨"],"무지개떡":["무지개떡"],"찹쌀떡":["팥앙금","모찌"]},
-      rc_pastry:{"약과":["개성약과","모약과"],"유과":["쌀유과","깨유과"],"한과세트":["명절한과","선물세트"],"강정":["쌀강정","견과강정"]},
-      banchan:{"김치":["배추김치","깍두기","총각김치","오이소박이","파김치"],"나물":["시금치","콩나물","무생채","도라지","고사리"],"조림":["장조림","멸치볶음","콩자반","감자조림"],"전/부침":["동태전","호박전","부추전","김치전"]},
-      bakery:{"식빵":["우유식빵","통밀식빵","밤식빵"],"과자빵":["단팥빵","소보로","크림빵"],"조리빵":["피자빵","야채빵","소시지빵"],"케이크":["생크림","초코","치즈"],"쿠키":["버터","초코칩","마카롱"]}
+      rc_steam:{"백설기":["백설기","단호박","흑임자","쑥","콩"],"시루떡":["팥시루","콩시루","호박고지","거피팥"],"송편":["솔잎송편","모둠송편","호박송편"],"꿀떡/경단":["콩가루꿀떡","깨꿀떡","경단"],"인절미":["콩가루","흑임자","쑥","호박"],"영양떡":["영양찰떡","약식","모듬찰떡"]},
+      rc_slice:{"가래떡":["흰가래떡","현미가래떡","떡국떡","조랭이떡"],"절편":["흰절편","쑥절편","수리취절편"],"바람떡/개피떡":["팥바람떡","깨바람떡"],"무지개떡":["무지개떡","꽃떡"],"찹쌀떡/모찌":["팥앙금","생크림모찌","딸기모찌"],"가피떡/주악":["주악","부꾸미"]},
+      rc_pastry:{"약과":["개성약과","모약과","미니약과"],"유과/산자":["쌀유과","깨유과","산자"],"한과세트":["명절한과","선물세트"],"강정":["쌀강정","견과강정","들깨강정"],"다식/정과":["다식","도라지정과","생강정과"]},
+      banchan:{"김치":["배추김치","깍두기","총각김치","오이소박이","파김치","열무김치","갓김치"],"나물":["시금치","콩나물","무생채","도라지","고사리","취나물","숙주","시래기"],"조림":["장조림","멸치볶음","콩자반","감자조림","연근조림","우엉조림","메추리알조림"],"전/부침":["동태전","호박전","부추전","김치전","육전","깻잎전"],"젓갈/밑반찬":["오징어젓","명란","진미채무침","어묵볶음","마늘종볶음"]},
+      bakery:{"식빵":["우유식빵","통밀식빵","밤식빵","옥수수식빵"],"과자빵":["단팥빵","소보로","크림빵","앙버터"],"조리빵":["피자빵","야채빵","소시지빵","고로케"],"케이크":["생크림","초코","치즈","고구마","당근"],"쿠키/구움과자":["버터쿠키","초코칩","마카롱","휘낭시에","스콘","마들렌"],"도넛/파이":["찹쌀도넛","꽈배기","애플파이","에그타르트"]}
     }
   },
 
@@ -1202,11 +1264,11 @@ var INDUSTRY_PRESETS = {
       {key:'side',label:'사이드/주류'}
     ],
     data: {
-      coffee:{"에스프레소":["싱글","도피오"],"아메리카노":["ICE","HOT"],"라떼":["카페라떼","바닐라","카라멜","헤이즐넛"],"에이드":["자몽","레몬","청포도","복숭아"]},
-      tea:{"티":["얼그레이","캐모마일","페퍼민트","루이보스"],"스무디":["딸기","망고","블루베리","바나나"],"프라페":["초코","녹차","쿠키앤크림"]},
-      dessert:{"케이크":["치즈","초코","당근","티라미수"],"쿠키/스콘":["쿠키","스콘","마들렌"],"와플/토스트":["와플","토스트","크로플"]},
-      meal:{"면":["파스타","우동","라멘"],"밥":["덮밥","리조또","컵밥"],"분식":["떡볶이","김밥","라면","순대"]},
-      side:{"튀김":["감자튀김","치킨너겟","치즈스틱"],"주류":["생맥주","병맥주","소주","와인"]}
+      coffee:{"에스프레소":["싱글","도피오","리스트레토"],"아메리카노":["ICE","HOT","연하게"],"라떼":["카페라떼","바닐라","카라멜","헤이즐넛","돌체"],"특화커피":["플랫화이트","콜드브루","아인슈페너","카푸치노"],"에이드/주스":["자몽","레몬","청포도","복숭아","수박","생오렌지주스"]},
+      tea:{"티":["얼그레이","캐모마일","페퍼민트","루이보스","자몽허니블랙"],"라떼음료":["녹차라떼","초코라떼","고구마라떼","밀크티"],"스무디":["딸기","망고","블루베리","바나나","플레인요거트"],"프라페":["초코","녹차","쿠키앤크림","카라멜"]},
+      dessert:{"케이크":["조각케이크","치즈","초코","당근","티라미수","생크림"],"쿠키/스콘":["쿠키","스콘","휘낭시에","마들렌"],"와플/토스트":["와플","크로플","토스트","허니브레드"],"빙수":["팥빙수","인절미빙수","과일빙수"]},
+      meal:{"면":["파스타","우동","라멘","잔치국수","비빔국수"],"밥":["덮밥","리조또","컵밥","볶음밥","오므라이스"],"분식":["떡볶이","김밥","라면","순대","튀김","쫄면","만두"],"브런치":["샌드위치","샐러드","에그베네딕트","수프"]},
+      side:{"튀김/핑거":["감자튀김","치킨너겟","치즈스틱","윙"],"주류":["생맥주","병맥주","소주","하이볼","와인","사케"],"안주":["나초","소시지","감바스","골뱅이무침"]}
     }
   },
 
@@ -1215,13 +1277,13 @@ var INDUSTRY_PRESETS = {
     desc: '꽃집·생활잡화·소품 판매',
     cats: [
       {key:'flower',label:'생화'},{key:'bouquet',label:'꽃다발·바구니'},
-      {key:'plant',label:'화분·식물'},{key:'goods',label:'소품·잡화'}
+      {key:'plant',label:'화분·식물'},{key:'goods',label:'소품·자재'}
     ],
     data: {
-      flower:{"장미":["빨강","분홍","노랑","오렌지","화이트"],"튤립":["빨강","노랑","핑크","화이트"],"수국":["블루","핑크","화이트"],"해바라기":["대","중","소"],"안개꽃":["화이트","핑크"]},
-      bouquet:{"꽃다발":["소","중","대"],"꽃바구니":["소","중","대"],"리스":["생화","드라이"]},
-      plant:{"관엽":["몬스테라","여인초","고무나무","올리브나무"],"다육":["다육","선인장"],"공기정화":["스투키","산세베리아","아레카야자"]},
-      goods:{"포장지":["크라프트","모조지","트레싱"],"리본":["새틴","무지","레이스"],"화병":["유리","도자기"]}
+      flower:{"장미":["빨강","분홍","노랑","오렌지","화이트","그린"],"튤립":["빨강","노랑","핑크","화이트","퍼플"],"수국":["블루","핑크","화이트","그린"],"국화/소국":["백국","황국","폼폰","스프레이국"],"백합/리시안":["백합","리시안셔스","칼라"],"계절꽃":["해바라기","프리지아","작약","라넌큘러스","델피늄","안개꽃"],"소재/그린":["유칼립투스","루스커스","소철","몬스테라잎"]},
+      bouquet:{"꽃다발":["소","중","대","프로포즈"],"꽃바구니":["소","중","대","축하화환"],"꽃상자":["플라워박스","미니박스"],"리스/화관":["생화리스","드라이리스","화관"],"근조/축하":["근조화환","축하화환","동양란","서양란"]},
+      plant:{"관엽":["몬스테라","여인초","고무나무","올리브나무","스킨답서스"],"다육/선인장":["다육","선인장","아가베"],"공기정화":["스투키","산세베리아","아레카야자","테이블야자"],"화훼분":["호접란","심비디움","안스리움","칼랑코에"],"허브":["로즈마리","바질","애플민트","라벤더"]},
+      goods:{"화분/용기":["토분","플라스틱분","도자기분","유리화병"],"포장자재":["크라프트지","모조지","트레싱지","부직포"],"리본/장식":["새틴리본","무지리본","레이스","픽/조화"],"원예자재":["배양토","마사토","비료","원예가위","지지대"]}
     }
   },
 
@@ -1238,7 +1300,7 @@ var INDUSTRY_PRESETS = {
 (function () {
   'use strict';
 
-  var APP_VERSION = '1.5.0';
+  var APP_VERSION = '1.6.0';
   var STORAGE_KEY = 'ucp_v1';
   var LEGACY_KEY = 'fv_inventory_v4';
 
@@ -1257,7 +1319,8 @@ var INDUSTRY_PRESETS = {
       fxRates: { USD: 1340, CNY: 185, JPY: 9, EUR: 1450, VND: 0.055, THB: 38 },
       fxUpdated: null
     },
-    calcHistory: []
+    calcHistory: [],
+    shopping: []
   };
   var currentTab = 'calc';
   var currentPurchaseView = 'input';
@@ -1405,6 +1468,7 @@ var INDUSTRY_PRESETS = {
      'closingCostRate','closingMarginRate','closingFixedDaily',
      'periodTabs','periodMonth','periodQuarter','periodYear','periodYearOnly','periodPurchase','periodIncome','periodProfit','periodOutputs','periodDailyList',
      'settingsCatRow','settingsList','settingsNewName','settingsAddNameBtn','addCategoryBtn','deleteCategoryBtn',
+     'todoInput','todoAddBtn','todoList','todoActions','todoClearDone','todoClearAll','todoBadge',
      'fcRent','fcFuel','fcUtility','fcLabor','fcPackaging','fcEtc','fcDays','fcMonthlyTotal','fcDailyTotal','fcHeadSum','fcLaborHint',
      'staffList','addStaffBtn','laborAuto','staffTotal','staffTotalHead',
      'confirmOverlay','confirmMsg','confirmCancelBtn','confirmOkBtn',
@@ -1428,9 +1492,11 @@ var INDUSTRY_PRESETS = {
     Array.prototype.forEach.call(els.tabbar.querySelectorAll('.tab-btn'), function(b){
       b.classList.toggle('active', b.getAttribute('data-tab')===tab);
     });
-    ['calc','tools','purchase','closing','settings'].forEach(function(t){
+    ['calc','tools','purchase','closing','settings','items','todo'].forEach(function(t){
       document.getElementById('page-'+t).classList.toggle('active', t===tab);
     });
+    if(tab==='items'){ renderSettingsCatRow(); renderSettingsList(); }
+    if(tab==='todo'){ renderTodo(); }
     window.scrollTo({top:0});
   }
   function bindTabs(){ els.tabbar.addEventListener('click', function(e){ var t=e.target.closest('.tab-btn'); if(t) setTab(t.getAttribute('data-tab')); }); }
@@ -2024,8 +2090,9 @@ var INDUSTRY_PRESETS = {
     var chips=(p.varieties||[]).map(function(v){
       return '<span class="chip">'+escapeHtml(v)+'<button class="variety-del" data-name="'+escapeHtml(p.name)+'" data-variety="'+escapeHtml(v)+'">×</button></span>';
     }).join('');
+    var checked = isInShopping(p.name) ? ' checked' : '';
     return '<div class="settings-product-row" data-name="'+escapeHtml(p.name)+'">'
-      +'<div class="settings-product-head"><b>'+escapeHtml(p.name)+'</b><span class="move-btns">'
+      +'<div class="settings-product-head"><span class="prod-name-wrap"><input type="checkbox" class="prod-check" data-name="'+escapeHtml(p.name)+'"'+checked+' aria-label="장보기 담기"><b>'+escapeHtml(p.name)+'</b></span><span class="move-btns">'
       +'<button class="icon-btn name-up" data-name="'+escapeHtml(p.name)+'" aria-label="위로"'+(isFirst?' disabled':'')+'>▲</button>'
       +'<button class="icon-btn name-down" data-name="'+escapeHtml(p.name)+'" aria-label="아래로"'+(isLast?' disabled':'')+'>▼</button>'
       +'<button class="icon-btn danger name-del" data-name="'+escapeHtml(p.name)+'" aria-label="삭제">✕</button>'
@@ -2060,6 +2127,13 @@ var INDUSTRY_PRESETS = {
       var t=e.target.closest('.cat-btn'); if(!t) return;
       currentSettingsCategory = t.getAttribute('data-cat');
       renderSettingsCatRow(); renderSettingsList();
+    });
+    els.settingsList.addEventListener('change', function(e){
+      if(!e.target.classList.contains('prod-check')) return;
+      var name=e.target.getAttribute('data-name');
+      if(e.target.checked){ addShopping(name); showToast('"'+name+'" 장보기에 담았어요.'); }
+      else { removePendingByName(name); }
+      updateTodoBadge();
     });
     els.settingsList.addEventListener('click', function(e){
       var list=state.masterData[currentSettingsCategory]||[];
@@ -2212,6 +2286,7 @@ var INDUSTRY_PRESETS = {
             state = Object.assign(state, payload);
             if(!state.fixedCosts.days) state.fixedCosts.days=30;
             if(!state.staff) state.staff=[];
+            if(!state.shopping) state.shopping=[];
             if(state.fixedCosts.laborAuto==null) state.fixedCosts.laborAuto=false;
             save();
             renderAll();
@@ -2282,6 +2357,7 @@ var INDUSTRY_PRESETS = {
     renderPeriodStats();
     renderSettingsCatRow();
     renderSettingsList();
+    renderTodo();
     if(els.vatRate) renderToolsAll();
   }
 
@@ -2291,9 +2367,83 @@ var INDUSTRY_PRESETS = {
     }, true);
   }
 
+  // ===================== 장보기(To-Do) =====================
+  function uidT(){ return 't_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,6); }
+  function isInShopping(name){ return (state.shopping||[]).some(function(s){ return s.text===name && !s.done; }); }
+  function addShopping(text){
+    text=(text||'').trim(); if(!text) return false;
+    if(!state.shopping) state.shopping=[];
+    if(state.shopping.some(function(s){ return s.text===text && !s.done; })) return false;
+    state.shopping.unshift({ id:uidT(), text:text, done:false });
+    save(); return true;
+  }
+  function removePendingByName(name){
+    if(!state.shopping) return;
+    state.shopping = state.shopping.filter(function(s){ return !(s.text===name && !s.done); });
+    save();
+  }
+  function todoPendingCount(){ return (state.shopping||[]).filter(function(s){return !s.done;}).length; }
+  function updateTodoBadge(){
+    if(!els.todoBadge) return;
+    var n=todoPendingCount();
+    if(n>0){ els.todoBadge.textContent=n; els.todoBadge.style.display=''; }
+    else els.todoBadge.style.display='none';
+  }
+  function renderTodo(){
+    var list = state.shopping || [];
+    var pending = list.filter(function(s){return !s.done;});
+    var done = list.filter(function(s){return s.done;});
+    var ordered = pending.concat(done);
+    els.todoList.innerHTML = ordered.length
+      ? '<div class="todo-count">남은 품목 '+pending.length+'개 · 완료 '+done.length+'개</div>' + ordered.map(function(s){
+          return '<div class="todo-item'+(s.done?' done':'')+'" data-id="'+s.id+'">'
+            +'<label><input type="checkbox" class="todo-chk"'+(s.done?' checked':'')+'><span class="todo-text">'+escapeHtml(s.text)+'</span></label>'
+            +'<button class="icon-btn danger todo-del" aria-label="삭제">✕</button></div>';
+        }).join('')
+      : '<div class="todo-empty">장보기 목록이 비어 있어요.<br>위에 적거나 품목 관리에서 담아보세요.</div>';
+    els.todoActions.style.display = list.length ? '' : 'none';
+    updateTodoBadge();
+  }
+  function bindTodo(){
+    function addFromInput(){
+      if(addShopping(els.todoInput.value)){ els.todoInput.value=''; renderTodo(); refreshItemChecks(); }
+      else { showToast('이미 있거나 빈 항목이에요.'); }
+    }
+    els.todoAddBtn.addEventListener('click', addFromInput);
+    els.todoInput.addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); addFromInput(); } });
+    els.todoList.addEventListener('change', function(e){
+      if(!e.target.classList.contains('todo-chk')) return;
+      var row=e.target.closest('.todo-item'); var id=row.getAttribute('data-id');
+      var s=(state.shopping||[]).find(function(x){return x.id===id;}); if(!s) return;
+      s.done=e.target.checked; save(); renderTodo(); refreshItemChecks();
+    });
+    els.todoList.addEventListener('click', function(e){
+      var del=e.target.closest('.todo-del'); if(!del) return;
+      var id=del.closest('.todo-item').getAttribute('data-id');
+      state.shopping=(state.shopping||[]).filter(function(x){return x.id!==id;});
+      save(); renderTodo(); refreshItemChecks();
+    });
+    els.todoClearDone.addEventListener('click', function(){
+      state.shopping=(state.shopping||[]).filter(function(s){return !s.done;});
+      save(); renderTodo(); showToast('완료 항목을 비웠어요.');
+    });
+    els.todoClearAll.addEventListener('click', function(){
+      if(!(state.shopping||[]).length){ showToast('목록이 비어 있어요.'); return; }
+      showConfirm('장보기 목록을 모두 비울까요?', function(){ state.shopping=[]; save(); renderTodo(); refreshItemChecks(); showToast('목록을 비웠어요.'); }, '비우기');
+    });
+  }
+  // 품목 관리 화면이 현재 보일 때 체크 상태만 갱신
+  function refreshItemChecks(){
+    if(!document.getElementById('page-items').classList.contains('active')) return;
+    Array.prototype.forEach.call(els.settingsList.querySelectorAll('.prod-check'), function(cb){
+      cb.checked = isInShopping(cb.getAttribute('data-name'));
+    });
+  }
+
   // ---- 사이드 드로어 ----
   function openDrawer(){
     els.drawerStore.textContent = state.storeName || '우리가게';
+    updateTodoBadge();
     Array.prototype.forEach.call(els.drawer.querySelectorAll('.drawer-item[data-nav]'), function(b){
       b.classList.toggle('cur', b.getAttribute('data-nav')===currentTab);
     });
@@ -2664,13 +2814,14 @@ var INDUSTRY_PRESETS = {
     els.appVersion.textContent = 'v'+APP_VERSION;
     var hasData = load();
     if(!state.staff) state.staff=[];
+    if(!state.shopping) state.shopping=[];
     if(state.fixedCosts.laborAuto==null) state.fixedCosts.laborAuto=false;
     bindGlobal();
     bindConfirm(); bindPrompt();
     bindTabs(); bindCalc();
     bindPurchaseForm(); bindPurchaseList();
     bindClosing(); bindPeriod();
-    bindFixedCosts(); bindStaff(); bindSettings();
+    bindFixedCosts(); bindStaff(); bindSettings(); bindTodo();
     bindExport(); bindBackup();
     bindOnboard(); bindDrawer();
     initTools();
