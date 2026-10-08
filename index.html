@@ -529,22 +529,57 @@
   .todo-empty { text-align: center; color: var(--ink-faint); padding: 30px 0; font-size: 16px; }
   .todo-count { font-size: 15px; color: var(--ink-faint); font-weight: 700; margin: 2px 2px 10px; }
 
+  /* ===== 상단 헤더 고정(탭바 제거) ===== */
+  .app-bar { position: sticky; top: 0; z-index: 40; background: var(--paper); padding: calc(10px + env(safe-area-inset-top)) 14px 10px; margin: 0 -14px 6px; border-bottom: 1px solid var(--line); }
+  @media (min-width: 820px){ .app-bar { padding-left: 24px; padding-right: 24px; margin-left: -24px; margin-right: -24px; } }
+  .tabbar { display: none !important; }
+
+  /* ===== 통합 변환 계산기 ===== */
+  .ucalc-card { background: #0f1a13; border-color: #0f1a13; padding: 12px 14px 16px; }
+  .ucalc-card .calc-top { display: flex; align-items: center; justify-content: space-between; }
+  .ucalc-card .calc-mode-name { color: #8fa894; font-size: 15px; font-weight: 800; }
+  .ucalc-card .calc-hist-btn { background: #26332a; }
+
+  .conv-wrap { display: flex; align-items: stretch; gap: 10px; margin: 10px 0 8px; }
+  .conv-swap { flex: none; width: 48px; border: none; border-radius: 14px; background: #1c2a20; color: #7ed19c; font-size: 22px; font-weight: 800; cursor: pointer; }
+  .conv-swap:active { filter: brightness(1.3); }
+  .conv-swap:disabled { opacity: .3; }
+  .conv-mid { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .conv-row-line { display: flex; align-items: center; gap: 10px; min-height: 64px; }
+  .conv-texts { flex: 1; min-width: 0; text-align: right; }
+  .conv-expr { font-size: 15px; color: #6f8574; font-weight: 700; min-height: 18px; overflow: hidden; white-space: nowrap; }
+  .conv-val { font-size: clamp(30px, 10vw, 46px); font-weight: 300; color: #fff; letter-spacing: .5px; overflow: hidden; white-space: nowrap; }
+  .conv-val.sub { color: #9db3a2; font-weight: 300; }
+  .conv-divider { height: 1px; background: #243329; margin: 2px 0; }
+  .conv-uchip { flex: none; max-width: 42vw; border: 2px solid #2f8a56; background: #15271c; color: #7ed19c; font-size: 15px; font-weight: 800; border-radius: 12px; padding: 8px 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .conv-uchip.sub { border-color: #46503f; color: #9db3a2; }
+  .conv-uchip:active { filter: brightness(1.2); }
+
+  /* 브랜드 키패드(애플 룩과 구분: 초록/금색) */
+  .calcpad.ucalc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 460px; margin: 6px auto 0; }
+  .calcpad.ucalc .key {
+    aspect-ratio: 1 / 1; border-radius: 18px; border: none; cursor: pointer;
+    font-size: clamp(24px, 8vw, 32px); font-weight: 700; color: #eaf2ea; background: #28352b;
+    box-shadow: none; transition: filter .05s;
+    font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", system-ui, sans-serif;
+  }
+  .calcpad.ucalc .key:active { filter: brightness(1.4); transform: none; }
+  .calcpad.ucalc .key.fn { background: #3c4a3d; color: #d7e4d7; }
+  .calcpad.ucalc .key.op { background: linear-gradient(#2f8a56,#20714a); color: #fff; }
+  .calcpad.ucalc .key.op.sel { background: #fff; color: #20714a; }
+  .calcpad.ucalc .key.eq { background: linear-gradient(#f0bd63,#e0a93f); color: #432e06; }
+  .calcpad.ucalc .key.zero { aspect-ratio: auto; grid-column: span 2; border-radius: 999px; text-align: left; padding-left: 30px; }
+
 </style>
 </head>
 <body>
-<div class="tabbar" id="tabbar">
-  <button class="tab-btn active" data-tab="calc">단가</button>
-  <button class="tab-btn" data-tab="tools">계산기</button>
-  <button class="tab-btn" data-tab="purchase">매입</button>
-  <button class="tab-btn" data-tab="closing">마감</button>
+<div class="app-bar" id="appBar">
+  <button class="menu-btn" id="menuBtn" type="button" aria-label="메뉴">☰</button>
+  <h1 class="brand-line"><span id="storeNameTitle">우리가게</span><span class="brand-suffix">단가계산기 Pro</span></h1>
+  <button class="industry-pill" id="industryPill" type="button">업종</button>
 </div>
 
 <div class="container">
-  <div class="app-bar">
-    <button class="menu-btn" id="menuBtn" type="button" aria-label="메뉴">☰</button>
-    <h1 class="brand-line"><span id="storeNameTitle">우리가게</span><span class="brand-suffix">단가계산기 Pro</span></h1>
-    <button class="industry-pill" id="industryPill" type="button">업종</button>
-  </div>
 
   <!-- ===== 계산기 ===== -->
   <section class="tab-page active" id="page-calc">
@@ -634,130 +669,57 @@
     </div>
   </section>
 
-  <!-- ===== 도구함 ===== -->
+  <!-- ===== 계산기(변환 통합) ===== -->
   <section class="tab-page" id="page-tools">
-    <div class="cat-row" id="toolsNav">
-      <button class="cat-btn active" data-tool="basic">기본</button>
-      <button class="cat-btn" data-tool="vat">부가세</button>
-      <button class="cat-btn" data-tool="discount">할인</button>
-      <button class="cat-btn" data-tool="unit">단위</button>
-      <button class="cat-btn" data-tool="fx">환율</button>
-    </div>
-
-    <!-- 기본 계산기 (아이폰 스타일) -->
-    <div class="tool-panel active" id="tool-basic">
-      <div class="card calc-card ios-card">
-        <div class="calc-top"><button class="calc-hist-btn" id="basicHistBtn" type="button" aria-label="계산 기록">🕘</button></div>
-        <div class="calc-expr" id="basicExpr"></div>
-        <div class="calc-display" id="basicDisplay">0</div>
-        <div class="calcpad ios" id="basicPad">
-          <button class="key fn" data-k="ac">AC</button>
-          <button class="key fn" data-k="neg">+/−</button>
-          <button class="key fn" data-k="pct">%</button>
-          <button class="key op" data-k="div">÷</button>
-          <button class="key" data-k="7">7</button>
-          <button class="key" data-k="8">8</button>
-          <button class="key" data-k="9">9</button>
-          <button class="key op" data-k="mul">×</button>
-          <button class="key" data-k="4">4</button>
-          <button class="key" data-k="5">5</button>
-          <button class="key" data-k="6">6</button>
-          <button class="key op" data-k="sub">−</button>
-          <button class="key" data-k="1">1</button>
-          <button class="key" data-k="2">2</button>
-          <button class="key" data-k="3">3</button>
-          <button class="key op" data-k="add">+</button>
-          <button class="key zero" data-k="0">0</button>
-          <button class="key" data-k="dot">.</button>
-          <button class="key eq" data-k="eq">=</button>
-        </div>
+    <div class="card calc-card ucalc-card">
+      <div class="calc-top">
+        <button class="calc-hist-btn" id="basicHistBtn" type="button" aria-label="계산 기록">🕘</button>
+        <span class="calc-mode-name" id="calcModeName">기본 계산기</span>
       </div>
-      <div class="calc-actions">
-        <button class="btn ghost" id="basicCopy">결과 복사</button>
-        <button class="btn primary" id="basicToCost">단가 원가로 보내기</button>
-      </div>
-      <p class="hint" style="text-align:center;">숫자 표시줄을 좌우로 쓸어넘기면 한 자리씩 지워져요.</p>
-    </div>
-
-    <!-- 부가세 -->
-    <div class="tool-panel" id="tool-vat">
-      <div class="card">
-        <div class="section-title">부가세 계산기</div>
-        <div class="period-tabs" id="vatMode">
-          <button class="period-tab-btn active" data-m="supply">공급가 기준</button>
-          <button class="period-tab-btn" data-m="total">합계 기준</button>
-        </div>
-        <div class="field-grid-2">
-          <div class="field-row"><label id="vatAmountLabel">공급가액(원)</label><input type="text" inputmode="numeric" id="vatAmount" autocomplete="off"></div>
-          <div class="field-row"><label>부가세율(%)</label><input type="number" min="0" step="0.1" inputmode="decimal" id="vatRate" value="10"></div>
-        </div>
-        <div class="tool-result">
-          <div class="rline"><span>공급가액</span><b id="vatSupply">0원</b></div>
-          <div class="rline"><span>부가세</span><b id="vatTax">0원</b></div>
-          <div class="rline hi"><span>합계금액</span><b id="vatTotal">0원</b></div>
-        </div>
-        <p class="hint">공급가 기준: 입력액에 세금을 더합니다. 합계 기준: 입력액에서 세금을 역산합니다.</p>
-      </div>
-    </div>
-
-    <!-- 할인 -->
-    <div class="tool-panel" id="tool-discount">
-      <div class="card">
-        <div class="section-title">할인 계산기</div>
-        <div class="field-grid-2">
-          <div class="field-row"><label>원래 가격(원)</label><input type="text" inputmode="numeric" id="dcPrice" autocomplete="off"></div>
-          <div class="field-row"><label>할인율(%)</label><input type="number" min="0" max="100" step="0.1" inputmode="decimal" id="dcRate"></div>
-          <div class="field-row"><label>추가 세금(%)</label><input type="number" min="0" step="0.1" inputmode="decimal" id="dcTax" value="0"></div>
-        </div>
-        <div class="tool-result">
-          <div class="rline"><span>할인 금액</span><b id="dcOff">0원</b></div>
-          <div class="rline"><span>할인된 가격</span><b id="dcAfter">0원</b></div>
-          <div class="rline hi"><span>최종 가격(세금 포함)</span><b id="dcFinal">0원</b></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 단위 변환 (아이폰 방식: 단위 버튼→선택창, 양방향) -->
-    <div class="tool-panel" id="tool-unit">
-      <div class="card">
-        <div class="section-title" id="unitCatTitle">단위 변환기 · 무게</div>
-        <div class="conv-row">
-          <input class="conv-input" id="unitTopVal" type="number" step="any" inputmode="decimal" value="1">
-          <button class="conv-unit" data-side="top" id="unitTopBtn"><span id="unitTopLabel">kg</span> <i>▾</i></button>
-        </div>
-        <div class="conv-eq">=</div>
-        <div class="conv-row">
-          <input class="conv-input" id="unitBotVal" type="number" step="any" inputmode="decimal">
-          <button class="conv-unit" data-side="bottom" id="unitBotBtn"><span id="unitBotLabel">g</span> <i>▾</i></button>
-        </div>
-        <p class="hint" id="unitRef"></p>
-      </div>
-    </div>
-
-    <!-- 환율 (자동 업데이트) -->
-    <div class="tool-panel" id="tool-fx">
-      <div class="card">
-        <div class="section-title-row">
-          <div class="section-title" style="margin:0;">환율 계산기</div>
-          <button class="btn small" id="fxRefresh" type="button" style="min-height:40px;padding:8px 14px;">↻ 최신환율</button>
-        </div>
-        <div class="field-grid-2">
-          <div class="field-row"><label>통화</label><select id="fxCur"></select></div>
-          <div class="field-row"><label>방향</label>
-            <select id="fxDir">
-              <option value="toKRW">외화 → 원화</option>
-              <option value="toFX">원화 → 외화</option>
-            </select>
+      <div class="conv-wrap">
+        <button class="conv-swap" id="convSwap" type="button" aria-label="위아래 교체">⇅</button>
+        <div class="conv-mid">
+          <div class="conv-row-line">
+            <div class="conv-texts">
+              <div class="conv-expr" id="calcExpr"></div>
+              <div class="conv-val" id="calcTop">0</div>
+            </div>
+            <button class="conv-uchip" id="chipTop" type="button" data-line="top">기본 ▾</button>
           </div>
-          <div class="field-row"><label id="fxAmountLabel">금액</label><input type="text" inputmode="decimal" id="fxAmount" autocomplete="off"></div>
-          <div class="field-row"><label id="fxRateLabel">기준 환율(원)</label><input type="number" step="any" inputmode="decimal" id="fxRate"></div>
+          <div class="conv-divider"></div>
+          <div class="conv-row-line">
+            <div class="conv-texts"><div class="conv-val sub" id="calcBot">0</div></div>
+            <button class="conv-uchip sub" id="chipBot" type="button" data-line="bot" style="display:none;">합계 ▾</button>
+          </div>
         </div>
-        <div class="tool-result">
-          <div class="rline hi"><span id="fxResultLabel">환산 결과</span><b id="fxResult">0</b></div>
-        </div>
-        <p class="fx-note" id="fxNote"></p>
+      </div>
+      <div class="calcpad ucalc" id="basicPad">
+        <button class="key fn" data-k="ac">AC</button>
+        <button class="key fn" data-k="neg">+/−</button>
+        <button class="key fn" data-k="pct">%</button>
+        <button class="key op" data-k="div">÷</button>
+        <button class="key" data-k="7">7</button>
+        <button class="key" data-k="8">8</button>
+        <button class="key" data-k="9">9</button>
+        <button class="key op" data-k="mul">×</button>
+        <button class="key" data-k="4">4</button>
+        <button class="key" data-k="5">5</button>
+        <button class="key" data-k="6">6</button>
+        <button class="key op" data-k="sub">−</button>
+        <button class="key" data-k="1">1</button>
+        <button class="key" data-k="2">2</button>
+        <button class="key" data-k="3">3</button>
+        <button class="key op" data-k="add">+</button>
+        <button class="key zero" data-k="0">0</button>
+        <button class="key" data-k="dot">.</button>
+        <button class="key eq" data-k="eq">=</button>
       </div>
     </div>
+    <div class="calc-actions">
+      <button class="btn ghost" id="basicCopy" type="button">결과 복사</button>
+      <button class="btn primary" id="basicToCost" type="button">단가 원가로 보내기</button>
+    </div>
+    <p class="hint" id="calcModeHint" style="text-align:center;"></p>
   </section>
 
   <!-- 사이드 메뉴(드로어) -->
@@ -1300,7 +1262,7 @@ var INDUSTRY_PRESETS = {
 (function () {
   'use strict';
 
-  var APP_VERSION = '1.6.0';
+  var APP_VERSION = '1.7.0';
   var STORAGE_KEY = 'ucp_v1';
   var LEGACY_KEY = 'fv_inventory_v4';
 
@@ -1476,8 +1438,9 @@ var INDUSTRY_PRESETS = {
      'onboardOverlay','onboardTitle','onboardSub','onboardStoreName','industryGrid','onboardCancelBtn','onboardOkBtn','onboardNameRow',
      'backupBtn','restoreBtn','restoreFile','appVersion',
      'menuBtn','drawerOverlay','drawer','drawerClose','drawerStore','drawerVer',
-     'toolsNav','basicExpr','basicDisplay','basicPad','basicCopy','basicToCost',
-     'basicHistBtn','histPicker','histList','histClose','histClear',
+     'appBar','calcExpr','calcTop','calcBot','chipTop','chipBot','convSwap','calcModeName','calcModeHint',
+     'basicPad','basicCopy','basicToCost',
+     'basicHistBtn','histPicker','histList','histClose','histClear','unitPicker','unitPickerClose','pickerCatRow','pickerList',
      'vatMode','vatAmount','vatAmountLabel','vatRate','vatSupply','vatTax','vatTotal',
      'dcPrice','dcRate','dcTax','dcOff','dcAfter','dcFinal',
      'unitCatTitle','unitTopVal','unitTopBtn','unitTopLabel','unitBotVal','unitBotBtn','unitBotLabel','unitRef',
@@ -1489,17 +1452,18 @@ var INDUSTRY_PRESETS = {
   // ---------- tabs ----------
   function setTab(tab){
     currentTab=tab;
-    Array.prototype.forEach.call(els.tabbar.querySelectorAll('.tab-btn'), function(b){
+    if(els.tabbar){ Array.prototype.forEach.call(els.tabbar.querySelectorAll('.tab-btn'), function(b){
       b.classList.toggle('active', b.getAttribute('data-tab')===tab);
-    });
+    }); }
     ['calc','tools','purchase','closing','settings','items','todo'].forEach(function(t){
       document.getElementById('page-'+t).classList.toggle('active', t===tab);
     });
     if(tab==='items'){ renderSettingsCatRow(); renderSettingsList(); }
     if(tab==='todo'){ renderTodo(); }
+    if(tab==='tools'){ renderConv(); if(cmode==='fx' && !fxFetched) fetchFxRates(false); }
     window.scrollTo({top:0});
   }
-  function bindTabs(){ els.tabbar.addEventListener('click', function(e){ var t=e.target.closest('.tab-btn'); if(t) setTab(t.getAttribute('data-tab')); }); }
+  function bindTabs(){ if(els.tabbar) els.tabbar.addEventListener('click', function(e){ var t=e.target.closest('.tab-btn'); if(t) setTab(t.getAttribute('data-tab')); }); }
 
   // ---------- calculator ----------
   function calcWeightKg(){ var w=state.calc.weight||0; var u=state.calc.weightUnit; if(u==='g')return w/1000; if(u==='EA')return 0; return w; }
@@ -2358,7 +2322,7 @@ var INDUSTRY_PRESETS = {
     renderSettingsCatRow();
     renderSettingsList();
     renderTodo();
-    if(els.vatRate) renderToolsAll();
+    if(els.calcTop) renderToolsAll();
   }
 
   function bindGlobal(){
@@ -2465,111 +2429,227 @@ var INDUSTRY_PRESETS = {
     });
   }
 
-  // ===================== 도구함 =====================
+  // ===================== 계산기(통합 변환) =====================
   function groupInt(s){ return String(s).replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
   function numToStr(n){
     if(!isFinite(n)) return '오류';
-    var r = Math.round(n*1e10)/1e10;
-    var s = String(r);
-    if(s.indexOf('e')!==-1) s = r.toFixed(10);
-    if(s.indexOf('.')!==-1) s = s.replace(/0+$/,'').replace(/\.$/,'');
+    var r=Math.round(n*1e10)/1e10, s=String(r);
+    if(s.indexOf('e')!==-1) s=r.toFixed(10);
+    if(s.indexOf('.')!==-1) s=s.replace(/0+$/,'').replace(/\.$/,'');
     return s;
   }
   function bcFmt(numStr){
-    numStr = String(numStr);
-    if(numStr==='오류') return '오류';
-    var neg = numStr.charAt(0)==='-';
-    var s = neg ? numStr.slice(1) : numStr;
-    if(s==='') s='0';
-    var parts = s.split('.');
-    var out = groupInt(parts[0]||'0');
-    if(parts.length>1) out += '.' + parts[1];
+    numStr=String(numStr); if(numStr==='오류') return '오류';
+    var neg=numStr.charAt(0)==='-', s=neg?numStr.slice(1):numStr; if(s==='') s='0';
+    var parts=s.split('.'), out=groupInt(parts[0]||'0');
+    if(parts.length>1) out+='.'+parts[1];
     return (neg?'-':'')+out;
   }
-  function fxNum(n){ // 외화 등 소수 결과 표시
-    if(!isFinite(n)) return '0';
-    var r = Math.round(n*100)/100;
-    return bcFmt(numToStr(r));
+  function plainNum(n){ return numToStr(Math.round((n||0)*1e6)/1e6); }
+
+  var UNIT_CATS=[
+    {key:'weight',label:'무게',units:[
+      {k:'kg',l:'킬로그램(kg)',f:1000},{k:'g',l:'그램(g)',f:1},
+      {k:'geun',l:'근(600g)',f:600},{k:'gwan',l:'관(3.75kg)',f:3750},
+      {k:'don',l:'돈(3.75g)',f:3.75},{k:'nyang',l:'냥(37.5g)',f:37.5},
+      {k:'lb',l:'파운드(lb)',f:453.592},{k:'oz',l:'온스(oz)',f:28.3495}
+    ]},
+    {key:'length',label:'길이',units:[
+      {k:'m',l:'미터(m)',f:100},{k:'cm',l:'센티미터(cm)',f:1},
+      {k:'ja',l:'자(30.3cm)',f:30.3},{k:'chi',l:'치(3.03cm)',f:3.03},
+      {k:'in',l:'인치',f:2.54},{k:'ft',l:'피트',f:30.48}
+    ]},
+    {key:'volume',label:'부피',units:[
+      {k:'l',l:'리터(L)',f:1000},{k:'ml',l:'밀리리터(mL)',f:1},
+      {k:'hop',l:'홉(180mL)',f:180},{k:'doe',l:'되(1.8L)',f:1800},{k:'mal',l:'말(18L)',f:18000}
+    ]}
+  ];
+  var FX_CURS=[
+    {k:'USD',l:'미국 달러 (USD)'},{k:'CNY',l:'중국 위안 (CNY)'},
+    {k:'JPY',l:'일본 엔 (JPY)'},{k:'EUR',l:'유럽 유로 (EUR)'},
+    {k:'VND',l:'베트남 동 (VND)'},{k:'THB',l:'태국 바트 (THB)'},
+    {k:'KRW',l:'대한민국 원 (KRW)'}
+  ];
+
+  // ---- 입력 엔진 ----
+  var bc={cur:'0',prev:null,op:null,justEq:false,startNew:false,expr:''};
+  var OPSYM={add:'+',sub:'−',mul:'×',div:'÷'};
+  function bcCompute(a,op,b){ if(op==='add')return a+b; if(op==='sub')return a-b; if(op==='mul')return a*b; if(op==='div')return b===0?NaN:a/b; return b; }
+  function curNum(){ var n=parseFloat(bc.cur); return isFinite(n)?n:0; }
+
+  // ---- 모드 상태 ----
+  var cmode='basic', unitCat='weight', uFrom='kg', uTo='g', fxFrom='USD', fxTo='KRW', dcRate=10, vatTop='supply';
+  var pickLine='top';
+  var FX_API='https://open.er-api.com/v6/latest/USD';
+  var fxFetched=false;
+
+  function catOf(){ return UNIT_CATS.find(function(c){return c.key===unitCat;})||UNIT_CATS[0]; }
+  function unitList(){ return catOf().units; }
+  function unitObj(k){ return unitList().find(function(x){return x.k===k;})||unitList()[0]; }
+  function shortUnit(u){ return u.l.split('(')[0]; }
+  function convUnit(v,fromK,toK){ return v*unitObj(fromK).f/unitObj(toK).f; }
+  function fxRate(cur){ if(cur==='KRW')return 1; return (state.tools.fxRates&&state.tools.fxRates[cur])||0; }
+
+  function deriveBottom(){
+    var x=curNum();
+    if(cmode==='vat'){ return vatTop==='supply' ? x*1.1 : x/1.1; }
+    if(cmode==='discount'){ return x*(1-dcRate/100); }
+    if(cmode==='unit'){ return convUnit(x,uFrom,uTo); }
+    if(cmode==='fx'){ var rt=fxRate(fxTo); return rt===0?0:x*fxRate(fxFrom)/rt; }
+    return x;
+  }
+  function topChipLabel(){
+    if(cmode==='vat') return (vatTop==='supply'?'공급가':'합계')+' ▾';
+    if(cmode==='discount') return '정상가 ▾';
+    if(cmode==='unit') return shortUnit(unitObj(uFrom))+' ▾';
+    if(cmode==='fx') return fxFrom+' ▾';
+    return '기본 ▾';
+  }
+  function botChipLabel(){
+    if(cmode==='vat') return (vatTop==='supply'?'합계':'공급가')+' ▾';
+    if(cmode==='discount') return '할인 '+dcRate+'% ▾';
+    if(cmode==='unit') return shortUnit(unitObj(uTo))+' ▾';
+    if(cmode==='fx') return fxTo+' ▾';
+    return '';
+  }
+  function saveCalcPrefs(){
+    if(!state.tools) state.tools={};
+    state.tools.calc={ mode:cmode, unitCat:unitCat, uFrom:uFrom, uTo:uTo, fxFrom:fxFrom, fxTo:fxTo, dcRate:dcRate, vatTop:vatTop };
+    save();
+  }
+  var MODE_NAMES={basic:'기본 계산기',vat:'부가세',discount:'할인 계산',unit:'단위 변환',fx:'환율'};
+  var MODE_HINTS={
+    basic:'일반 계산기예요. +−×÷ 로 계산하세요.',
+    vat:'부가세율 10% 기준이에요. ⇅ 로 공급가↔합계를 바꿔요.',
+    discount:'정상가를 입력하고 우측에서 할인율을 고르세요.',
+    unit:'위 칸에 입력하면 아래로 바로 변환돼요. ⇅ 로 단위 교체.',
+    fx:'위 통화를 입력하면 환율로 바꿔줘요. 환율은 자동으로 불러와요.'
+  };
+  function renderConv(){
+    els.calcModeName.textContent = cmode==='unit' ? ('단위 변환 · '+catOf().label) : MODE_NAMES[cmode];
+    els.calcModeHint.textContent = MODE_HINTS[cmode];
+    els.chipTop.textContent = topChipLabel();
+    if(cmode==='basic'){ els.chipBot.style.display='none'; }
+    else { els.chipBot.style.display=''; els.chipBot.textContent=botChipLabel(); }
+    els.convSwap.disabled = !(cmode==='vat'||cmode==='unit'||cmode==='fx');
+    els.convSwap.style.visibility = (cmode==='basic'||cmode==='discount') ? 'hidden' : 'visible';
+    Array.prototype.forEach.call(els.basicPad.querySelectorAll('.key.op, .key.eq'), function(k){ k.style.opacity = cmode==='basic'?'':'0.35'; });
+
+    if(cmode==='basic'){
+      els.calcExpr.textContent = bc.expr;
+      els.calcTop.textContent = (bc.cur==='오류')?'오류':bcFmt(bc.cur);
+      var rb;
+      if(bc.op && bc.prev!==null && !bc.startNew) rb=numToStr(bcCompute(bc.prev,bc.op,curNum()));
+      else if(bc.op && bc.prev!==null && bc.startNew) rb=numToStr(bc.prev);
+      else rb=bc.cur;
+      els.calcBot.textContent = (bc.op||bc.justEq) && rb!=='오류' ? bcFmt(rb) : '';
+    } else {
+      els.calcExpr.textContent='';
+      els.calcTop.textContent = bcFmt(bc.cur);
+      var res=deriveBottom();
+      if(cmode==='vat'||cmode==='discount') els.calcBot.textContent = bcFmt(numToStr(Math.round(res)));
+      else if(cmode==='fx') els.calcBot.textContent = bcFmt(plainNum(Math.round(res*100)/100));
+      else els.calcBot.textContent = bcFmt(plainNum(res));
+    }
+    Array.prototype.forEach.call(els.basicPad.querySelectorAll('.key.op'), function(k){ k.classList.toggle('sel', cmode==='basic' && !!bc.op && bc.startNew && k.getAttribute('data-k')===bc.op); });
+    var acBtn=els.basicPad.querySelector('[data-k="ac"]'); if(acBtn) acBtn.textContent=(bc.cur!=='0'&&bc.cur!=='오류'&&!bc.justEq&&!bc.startNew)?'C':'AC';
   }
 
-  // ---- 기본 계산기 ----
-  var bc = { cur:'0', prev:null, op:null, justEq:false, startNew:false, expr:'' };
-  var OPSYM = { add:'+', sub:'−', mul:'×', div:'÷' };
-  function bcCompute(a,op,b){
-    if(op==='add') return a+b; if(op==='sub') return a-b;
-    if(op==='mul') return a*b; if(op==='div') return b===0?NaN:a/b; return b;
-  }
-  function renderBasic(){
-    els.basicExpr.textContent = bc.expr;
-    els.basicDisplay.textContent = (bc.cur==='오류'||bc.cur==='NaN') ? '오류' : bcFmt(bc.cur);
-    Array.prototype.forEach.call(els.basicPad.querySelectorAll('.key.op'), function(k){
-      k.classList.toggle('sel', !!bc.op && bc.startNew && k.getAttribute('data-k')===bc.op);
-    });
-    var acBtn = els.basicPad.querySelector('[data-k="ac"]');
-    if(acBtn) acBtn.textContent = (bc.cur!=='0' && bc.cur!=='오류' && !bc.justEq && !bc.startNew) ? 'C' : 'AC';
-  }
-  function bcAC(){
-    if(bc.cur!=='0' && bc.cur!=='오류' && !bc.justEq && !bc.startNew){ bc.cur='0'; renderBasic(); } // 현재 입력만 지움
-    else bcClear(); // 전체 초기화
-  }
   function bcInput(d){
     if(bc.cur==='오류'){ bcClear(); }
     if(bc.justEq){ bc.cur='0'; bc.justEq=false; bc.expr=''; bc.prev=null; bc.op=null; }
-    if(bc.startNew){ bc.cur = (d==='.')?'0':''; bc.startNew=false; }
+    if(bc.startNew){ bc.cur=(d==='.')?'0':''; bc.startNew=false; }
     if(d==='.'){ if(bc.cur==='') bc.cur='0'; if(bc.cur.indexOf('.')===-1) bc.cur+='.'; }
     else { if(bc.cur==='0'||bc.cur==='') bc.cur=d; else bc.cur+=d; }
-    renderBasic();
+    renderConv();
   }
-  function bcClear(){ bc={cur:'0',prev:null,op:null,justEq:false,startNew:false,expr:''}; renderBasic(); }
+  function bcClear(){ bc={cur:'0',prev:null,op:null,justEq:false,startNew:false,expr:''}; renderConv(); }
   function bcBack(){
     if(bc.justEq||bc.startNew) return;
     if(bc.cur.length<=1 || (bc.cur.length===2 && bc.cur.charAt(0)==='-')) bc.cur='0';
     else bc.cur=bc.cur.slice(0,-1);
-    renderBasic();
+    renderConv();
   }
-  function bcNeg(){ if(bc.cur==='0'||bc.cur==='오류')return; bc.cur = bc.cur.charAt(0)==='-'?bc.cur.slice(1):'-'+bc.cur; renderBasic(); }
-  function bcPct(){ if(bc.cur==='오류')return; bc.cur=numToStr((parseFloat(bc.cur)||0)/100); bc.justEq=false; bc.startNew=false; renderBasic(); }
+  function bcNeg(){ if(bc.cur==='0'||bc.cur==='오류')return; bc.cur=bc.cur.charAt(0)==='-'?bc.cur.slice(1):'-'+bc.cur; renderConv(); }
+  function bcPct(){ if(bc.cur==='오류')return; bc.cur=numToStr((parseFloat(bc.cur)||0)/100); bc.justEq=false; bc.startNew=false; renderConv(); }
+  function bcAC(){ if(bc.cur!=='0'&&bc.cur!=='오류'&&!bc.justEq&&!bc.startNew){ bc.cur='0'; renderConv(); } else bcClear(); }
   function bcOp(op){
+    if(cmode!=='basic') return;
     if(bc.cur==='오류')return;
-    if(bc.op && !bc.startNew && bc.prev!==null){
-      var r=bcCompute(bc.prev, bc.op, parseFloat(bc.cur));
-      bc.prev=r; bc.cur=numToStr(r);
-    } else {
-      bc.prev=parseFloat(bc.cur);
-    }
-    bc.op=op; bc.justEq=false; bc.startNew=true;
-    bc.expr = bcFmt(numToStr(bc.prev))+' '+OPSYM[op];
-    renderBasic();
+    if(bc.op && !bc.startNew && bc.prev!==null){ var r=bcCompute(bc.prev,bc.op,parseFloat(bc.cur)); bc.prev=r; bc.cur=numToStr(r); }
+    else bc.prev=parseFloat(bc.cur);
+    bc.op=op; bc.justEq=false; bc.startNew=true; bc.expr=bcFmt(numToStr(bc.prev))+' '+OPSYM[op];
+    renderConv();
   }
   function bcEquals(){
-    if(bc.op===null||bc.prev===null){ bc.justEq=true; renderBasic(); return; }
-    var b=parseFloat(bc.cur);
-    var prevVal=bc.prev, opUsed=bc.op;
-    var r=bcCompute(prevVal, opUsed, b);
-    var exprText = bcFmt(numToStr(prevVal))+' '+OPSYM[opUsed]+' '+bcFmt(numToStr(b));
-    bc.expr = exprText+' =';
-    bc.cur = numToStr(r);
-    bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false;
+    if(cmode!=='basic') return;
+    if(bc.op===null||bc.prev===null){ bc.justEq=true; renderConv(); return; }
+    var b=parseFloat(bc.cur), prevVal=bc.prev, opUsed=bc.op;
+    var r=bcCompute(prevVal,opUsed,b);
+    var exprText=bcFmt(numToStr(prevVal))+' '+OPSYM[opUsed]+' '+bcFmt(numToStr(b));
+    bc.expr=exprText+' ='; bc.cur=numToStr(r); bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false;
     if(isFinite(r)) addHistory(exprText, numToStr(r));
-    renderBasic();
+    renderConv();
   }
+
+  // ---- 계산 기록 ----
   function addHistory(expr, result){
     if(!state.calcHistory) state.calcHistory=[];
-    state.calcHistory.unshift({ e: expr, r: result });
+    state.calcHistory.unshift({ e:expr, r:result });
     if(state.calcHistory.length>50) state.calcHistory.length=50;
     save();
   }
   function renderHistList(){
-    var h = state.calcHistory || [];
+    var h=state.calcHistory||[];
     els.histList.innerHTML = h.length
       ? h.map(function(it,i){ return '<div class="hist-item" data-i="'+i+'"><span class="he">'+escapeHtml(it.e)+' =</span><span class="hr">'+escapeHtml(bcFmt(it.r))+'</span></div>'; }).join('')
       : '<div class="hist-empty">아직 계산 기록이 없어요.</div>';
   }
   function openHist(){ renderHistList(); els.histPicker.classList.add('open'); }
   function closeHist(){ els.histPicker.classList.remove('open'); }
+
+  // ---- 환율 자동 ----
+  function fetchFxRates(manual){
+    if(typeof navigator!=='undefined' && navigator.onLine===false){ if(manual) showToast('오프라인이에요. 저장된 환율을 사용합니다.'); return; }
+    fetch(FX_API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+      if(!d || d.result!=='success' || !d.rates || !d.rates.KRW) throw new Error('bad');
+      var krw=d.rates.KRW;
+      if(!state.tools.fxRates) state.tools.fxRates={};
+      FX_CURS.forEach(function(c){ if(c.k==='KRW')return; var rr=d.rates[c.k]; if(rr) state.tools.fxRates[c.k]=Math.round((krw/rr)*10000)/10000; });
+      state.tools.fxUpdated=todayStr(); fxFetched=true; save(); renderConv();
+      if(manual) showToast('최신 환율을 불러왔어요.');
+    }).catch(function(){ if(manual) showToast('환율을 불러오지 못했어요. 저장된 환율을 사용합니다.'); });
+  }
+
+  // ---- 모드/단위 선택 시트 ----
+  var MODE_TABS=[{k:'basic',l:'기본'},{k:'vat',l:'부가세'},{k:'discount',l:'할인'},{k:'uweight',l:'무게'},{k:'ulength',l:'길이'},{k:'uvolume',l:'부피'},{k:'fx',l:'환율'}];
+  function currentModeTabKey(){ return cmode==='unit' ? ('u'+unitCat) : cmode; }
+  function renderPickerTabs(){
+    els.pickerCatRow.innerHTML = MODE_TABS.map(function(t){ return '<button class="cat-btn'+(t.k===currentModeTabKey()?' active':'')+'" data-mt="'+t.k+'">'+t.l+'</button>'; }).join('');
+  }
+  function renderPickerBody(){
+    var html='';
+    if(cmode==='basic'){ html='<div class="todo-empty">일반 계산기예요.<br>위 탭에서 변환 모드를 고를 수 있어요.</div>'; }
+    else if(cmode==='vat'){ html='<div class="todo-empty">부가세는 10% 고정이에요.<br>⇅ 로 공급가↔합계를 바꿔요.</div>'; }
+    else if(cmode==='discount'){
+      var rates=[5,10,15,20,25,30,40,50];
+      html=rates.map(function(r){ return '<div class="sheet-item'+(r===dcRate?' sel':'')+'" data-rate="'+r+'"><span>'+r+'% 할인</span></div>'; }).join('');
+    } else if(cmode==='unit'){
+      var sel=pickLine==='top'?uFrom:uTo;
+      html=unitList().map(function(u){ return '<div class="sheet-item'+(u.k===sel?' sel':'')+'" data-uk="'+u.k+'"><span>'+u.l+'</span></div>'; }).join('');
+    } else if(cmode==='fx'){
+      var self=pickLine==='top'?fxFrom:fxTo;
+      html='<div class="sheet-item" data-fxrefresh="1"><span>↻ 최신 환율 불러오기</span></div>'
+        + FX_CURS.map(function(c){ return '<div class="sheet-item'+(c.k===self?' sel':'')+'" data-ck="'+c.k+'"><span>'+c.l+'</span></div>'; }).join('');
+    }
+    els.pickerList.innerHTML=html;
+  }
+  function openConvPicker(line){ pickLine=line; renderPickerTabs(); renderPickerBody(); els.unitPicker.classList.add('open'); }
+  function closeConvPicker(){ els.unitPicker.classList.remove('open'); }
+
   function bindBasic(){
     els.basicPad.addEventListener('click', function(e){
-      var k=e.target.closest('.key'); if(!k) return;
+      var k=e.target.closest('.key'); if(!k)return;
       var key=k.getAttribute('data-k');
       if(/^[0-9]$/.test(key)||key==='dot') bcInput(key==='dot'?'.':key);
       else if(key==='ac') bcAC();
@@ -2578,13 +2658,9 @@ var INDUSTRY_PRESETS = {
       else if(key==='eq') bcEquals();
       else bcOp(key);
     });
-    // 디스플레이 좌우 스와이프 → 한 자리 삭제 (아이폰과 동일)
     var sx=null;
-    els.basicDisplay.addEventListener('pointerdown', function(e){ sx=e.clientX; });
-    els.basicDisplay.addEventListener('pointerup', function(e){
-      if(sx!=null && Math.abs(e.clientX-sx)>28){ bcBack(); } sx=null;
-    });
-    // 계산 기록
+    els.calcTop.addEventListener('pointerdown', function(e){ sx=e.clientX; });
+    els.calcTop.addEventListener('pointerup', function(e){ if(sx!=null && Math.abs(e.clientX-sx)>28) bcBack(); sx=null; });
     els.basicHistBtn.addEventListener('click', openHist);
     els.histClose.addEventListener('click', closeHist);
     els.histPicker.addEventListener('click', function(e){ if(e.target===els.histPicker) closeHist(); });
@@ -2593,220 +2669,65 @@ var INDUSTRY_PRESETS = {
       showConfirm('계산 기록을 모두 지울까요?', function(){ state.calcHistory=[]; save(); renderHistList(); showToast('기록을 지웠어요.'); }, '삭제');
     });
     els.histList.addEventListener('click', function(e){
-      var it=e.target.closest('.hist-item'); if(!it) return;
-      var i=parseInt(it.getAttribute('data-i'),10);
-      var rec=(state.calcHistory||[])[i]; if(!rec) return;
+      var it=e.target.closest('.hist-item'); if(!it)return;
+      var rec=(state.calcHistory||[])[parseInt(it.getAttribute('data-i'),10)]; if(!rec)return;
+      cmode='basic'; saveCalcPrefs();
       bc.cur=rec.r; bc.prev=null; bc.op=null; bc.justEq=true; bc.startNew=false; bc.expr='';
-      renderBasic(); closeHist();
-      showToast('결과를 불러왔어요.');
+      renderConv(); closeHist(); showToast('결과를 불러왔어요.');
     });
     els.basicCopy.addEventListener('click', function(){
-      var t = els.basicDisplay.textContent;
-      if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){showToast('복사했어요: '+t);}).catch(function(){showToast('복사 실패');});
+      var t = (cmode==='basic') ? els.calcTop.textContent : els.calcBot.textContent;
+      if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(function(){showToast('복사: '+t);}).catch(function(){showToast('복사 실패');});
       else showToast('복사: '+t);
     });
     els.basicToCost.addEventListener('click', function(){
-      var v = parseFloat(bc.cur)||0;
+      var v=Math.round(curNum());
       if(v<=0){ showToast('먼저 금액을 계산하세요.'); return; }
-      state.calc.cost = Math.round(v); save();
-      renderCalc(); setTab('calc');
-      showToast('구입원가로 보냈어요.');
+      state.calc.cost=v; save(); renderCalc(); setTab('calc'); showToast('구입원가로 보냈어요.');
     });
   }
-
-  // ---- 부가세 ----
-  var vatMode='supply';
-  function renderVat(){
-    var amt=parseWon(els.vatAmount.value);
-    var rate=parseFloat(els.vatRate.value)||0;
-    var supply,tax,total;
-    if(vatMode==='supply'){ supply=amt; tax=amt*rate/100; total=supply+tax; }
-    else { total=amt; supply=amt/(1+rate/100); tax=total-supply; }
-    els.vatSupply.textContent=formatWon(supply);
-    els.vatTax.textContent=formatWon(tax);
-    els.vatTotal.textContent=formatWon(total);
-  }
-  function bindVat(){
-    els.vatMode.addEventListener('click', function(e){
-      var t=e.target.closest('.period-tab-btn'); if(!t)return;
-      vatMode=t.getAttribute('data-m');
-      Array.prototype.forEach.call(els.vatMode.querySelectorAll('.period-tab-btn'),function(b){b.classList.toggle('active',b===t);});
-      els.vatAmountLabel.textContent = vatMode==='supply'?'공급가액(원)':'합계금액(원)';
-      renderVat();
+  function bindConv(){
+    els.convSwap.addEventListener('click', function(){
+      if(cmode==='vat') vatTop = vatTop==='supply'?'total':'supply';
+      else if(cmode==='unit'){ var t=uFrom; uFrom=uTo; uTo=t; }
+      else if(cmode==='fx'){ var t2=fxFrom; fxFrom=fxTo; fxTo=t2; }
+      saveCalcPrefs(); renderConv();
     });
-    els.vatAmount.addEventListener('input', function(){ formatMoneyInput(els.vatAmount); renderVat(); });
-    els.vatRate.addEventListener('input', function(){ state.tools.vatRate=parseFloat(els.vatRate.value)||0; save(); renderVat(); });
-  }
-
-  // ---- 할인 ----
-  function renderDc(){
-    var price=parseWon(els.dcPrice.value);
-    var rate=Math.min(Math.max(parseFloat(els.dcRate.value)||0,0),100);
-    var tax=parseFloat(els.dcTax.value)||0;
-    var off=price*rate/100, after=price-off, fin=after*(1+tax/100);
-    els.dcOff.textContent=formatWon(off);
-    els.dcAfter.textContent=formatWon(after);
-    els.dcFinal.textContent=formatWon(fin);
-  }
-  function bindDc(){
-    els.dcPrice.addEventListener('input', function(){ formatMoneyInput(els.dcPrice); renderDc(); });
-    els.dcRate.addEventListener('input', renderDc);
-    els.dcTax.addEventListener('input', renderDc);
-  }
-
-  // ---- 단위 변환 ----
-  var UNIT_CATS=[
-    {key:'weight',label:'무게',units:[
-      {k:'kg',l:'킬로그램(kg)',f:1000},{k:'g',l:'그램(g)',f:1},
-      {k:'geun',l:'근(600g)',f:600},{k:'gwan',l:'관(3.75kg)',f:3750},
-      {k:'don',l:'돈(3.75g)',f:3.75},{k:'nyang',l:'냥(37.5g)',f:37.5},
-      {k:'lb',l:'파운드(lb)',f:453.592},{k:'oz',l:'온스(oz)',f:28.3495}
-    ]},
-    {key:'area',label:'넓이',units:[
-      {k:'m2',l:'제곱미터(㎡)',f:1},{k:'py',l:'평',f:3.305785},
-      {k:'danbo',l:'단보(300평)',f:991.736},{k:'ha',l:'헥타르(ha)',f:10000},{k:'ac',l:'에이커',f:4046.86}
-    ]},
-    {key:'volume',label:'부피',units:[
-      {k:'l',l:'리터(L)',f:1000},{k:'ml',l:'밀리리터(mL)',f:1},
-      {k:'hop',l:'홉(180mL)',f:180},{k:'doe',l:'되(1.8L)',f:1800},{k:'mal',l:'말(18L)',f:18000}
-    ]},
-    {key:'length',label:'길이',units:[
-      {k:'m',l:'미터(m)',f:100},{k:'cm',l:'센티미터(cm)',f:1},
-      {k:'ja',l:'자(30.3cm)',f:30.3},{k:'chi',l:'치(3.03cm)',f:3.03},
-      {k:'in',l:'인치',f:2.54},{k:'ft',l:'피트',f:30.48}
-    ]}
-  ];
-  var unitCat='weight', uFrom='kg', uTo='g', uVal=1, uSide='top', pickSide='top';
-  function catOf(){ return UNIT_CATS.find(function(c){return c.key===unitCat;})||UNIT_CATS[0]; }
-  function unitList(){ return catOf().units; }
-  function unitObj(k){ return unitList().find(function(x){return x.k===k;})||unitList()[0]; }
-  function convert(v,fromK,toK){ return v*unitObj(fromK).f/unitObj(toK).f; }
-  function shortUnit(u){ return u.l.split('(')[0]; }
-  function plainNum(n){ return numToStr(Math.round((n||0)*1e6)/1e6); }
-  function renderUnit(){
-    var top=unitObj(uFrom), bot=unitObj(uTo);
-    els.unitTopLabel.textContent = shortUnit(top);
-    els.unitBotLabel.textContent = shortUnit(bot);
-    els.unitCatTitle.textContent = '단위 변환기 · '+catOf().label;
-    if(uSide==='top'){
-      els.unitTopVal.value = plainNum(uVal);
-      els.unitBotVal.value = plainNum(convert(uVal, uFrom, uTo));
-    } else {
-      els.unitBotVal.value = plainNum(uVal);
-      els.unitTopVal.value = plainNum(convert(uVal, uTo, uFrom));
-    }
-    els.unitRef.textContent = '1 '+top.l+' = '+bcFmt(plainNum(convert(1,uFrom,uTo)))+' '+bot.l;
-  }
-  function renderPickerCats(){
-    els.pickerCatRow.innerHTML = UNIT_CATS.map(function(c){
-      return '<button class="cat-btn'+(c.key===unitCat?' active':'')+'" data-pc="'+c.key+'">'+c.label+'</button>';
-    }).join('');
-  }
-  function renderPickerList(){
-    var selKey = pickSide==='top'?uFrom:uTo;
-    els.pickerList.innerHTML = unitList().map(function(u){
-      return '<div class="sheet-item'+(u.k===selKey?' sel':'')+'" data-uk="'+u.k+'"><span>'+u.l+'</span></div>';
-    }).join('');
-  }
-  function openUnitPicker(side){ pickSide=side; renderPickerCats(); renderPickerList(); els.unitPicker.classList.add('open'); }
-  function closeUnitPicker(){ els.unitPicker.classList.remove('open'); }
-  function bindUnit(){
-    els.unitTopVal.addEventListener('input', function(){ uSide='top'; uVal=parseFloat(els.unitTopVal.value)||0; var bot=unitObj(uTo); els.unitBotVal.value=plainNum(convert(uVal,uFrom,uTo)); els.unitRef.textContent='1 '+unitObj(uFrom).l+' = '+bcFmt(plainNum(convert(1,uFrom,uTo)))+' '+bot.l; });
-    els.unitBotVal.addEventListener('input', function(){ uSide='bottom'; uVal=parseFloat(els.unitBotVal.value)||0; els.unitTopVal.value=plainNum(convert(uVal,uTo,uFrom)); });
-    els.unitTopBtn.addEventListener('click', function(){ openUnitPicker('top'); });
-    els.unitBotBtn.addEventListener('click', function(){ openUnitPicker('bottom'); });
-    els.unitPickerClose.addEventListener('click', closeUnitPicker);
-    els.unitPicker.addEventListener('click', function(e){ if(e.target===els.unitPicker) closeUnitPicker(); });
+    els.chipTop.addEventListener('click', function(){ openConvPicker('top'); });
+    els.chipBot.addEventListener('click', function(){ openConvPicker('bot'); });
+    els.unitPickerClose.addEventListener('click', closeConvPicker);
+    els.unitPicker.addEventListener('click', function(e){ if(e.target===els.unitPicker) closeConvPicker(); });
     els.pickerCatRow.addEventListener('click', function(e){
       var t=e.target.closest('.cat-btn'); if(!t)return;
-      var nc=t.getAttribute('data-pc');
-      if(nc!==unitCat){ unitCat=nc; uFrom=unitList()[0].k; uTo=(unitList()[1]||unitList()[0]).k; uSide='top'; uVal=1; }
-      renderPickerCats(); renderPickerList();
+      var mt=t.getAttribute('data-mt');
+      if(mt==='basic') cmode='basic';
+      else if(mt==='vat'){ cmode='vat'; }
+      else if(mt==='discount') cmode='discount';
+      else if(mt==='fx'){ cmode='fx'; if(fxFrom==='KRW'&&fxTo==='KRW'){fxFrom='USD';fxTo='KRW';} if(!fxFetched) fetchFxRates(false); }
+      else if(mt.charAt(0)==='u'){ cmode='unit'; unitCat=mt.slice(1); uFrom=unitList()[0].k; uTo=(unitList()[1]||unitList()[0]).k; }
+      bcClear(); saveCalcPrefs(); renderPickerTabs(); renderPickerBody(); renderConv();
     });
     els.pickerList.addEventListener('click', function(e){
-      var t=e.target.closest('.sheet-item'); if(!t)return;
-      var k=t.getAttribute('data-uk');
-      if(pickSide==='top') uFrom=k; else uTo=k;
-      renderUnit(); closeUnitPicker();
+      var it=e.target.closest('.sheet-item'); if(!it)return;
+      if(it.getAttribute('data-fxrefresh')){ fetchFxRates(true); return; }
+      if(cmode==='discount'){ dcRate=parseFloat(it.getAttribute('data-rate'))||10; }
+      else if(cmode==='unit'){ var k=it.getAttribute('data-uk'); if(pickLine==='top')uFrom=k; else uTo=k; }
+      else if(cmode==='fx'){ var ck=it.getAttribute('data-ck'); if(pickLine==='top')fxFrom=ck; else fxTo=ck; }
+      else return;
+      saveCalcPrefs(); renderConv(); closeConvPicker();
     });
   }
 
-  // ---- 환율 ----
-  var FX_CURS=[
-    {k:'USD',l:'미국 달러 (USD)'},{k:'CNY',l:'중국 위안 (CNY)'},
-    {k:'JPY',l:'일본 엔 (JPY)'},{k:'EUR',l:'유럽 유로 (EUR)'},
-    {k:'VND',l:'베트남 동 (VND)'},{k:'THB',l:'태국 바트 (THB)'}
-  ];
-  function populateFxCur(){
-    els.fxCur.innerHTML = FX_CURS.map(function(c){return '<option value="'+c.k+'">'+c.l+'</option>';}).join('');
-  }
-  function renderFxRateField(){
-    var cur=els.fxCur.value;
-    var rate=(state.tools.fxRates&&state.tools.fxRates[cur])||0;
-    els.fxRate.value=rate;
-    els.fxRateLabel.textContent='1 '+cur+' = ___ 원';
-  }
-  function renderFx(){
-    var cur=els.fxCur.value;
-    var dir=els.fxDir.value;
-    var rate=parseFloat(els.fxRate.value)||0;
-    var amt=parseWon(els.fxAmount.value);
-    var res, label, unit;
-    if(dir==='toKRW'){ res=amt*rate; label=cur+' → 원화'; els.fxAmountLabel.textContent=cur+' 금액'; els.fxResult.textContent=formatWon(res); }
-    else { res=rate>0?amt/rate:0; label='원화 → '+cur; els.fxAmountLabel.textContent='원화 금액(원)'; els.fxResult.textContent=fxNum(res)+' '+cur; }
-    els.fxResultLabel.textContent=label;
-    var upd = state.tools.fxUpdated ? (' · 최근 '+state.tools.fxUpdated) : '';
-    els.fxNote.textContent = '환율 탭을 열면 자동으로 최신값을 불러오고, 직접 수정도 돼요'+upd+' · 출처 open.er-api.com';
-  }
-  var FX_API='https://open.er-api.com/v6/latest/USD';
-  var fxFetched=false;
-  function fetchFxRates(manual){
-    if(typeof navigator!=='undefined' && navigator.onLine===false){ if(manual) showToast('오프라인이에요. 저장된 환율을 사용합니다.'); return; }
-    if(els.fxRefresh) els.fxRefresh.textContent='불러오는 중…';
-    fetch(FX_API, {cache:'no-store'}).then(function(r){ return r.json(); }).then(function(d){
-      if(!d || d.result!=='success' || !d.rates || !d.rates.KRW) throw new Error('bad');
-      var krw=d.rates.KRW;
-      if(!state.tools.fxRates) state.tools.fxRates={};
-      FX_CURS.forEach(function(c){ var rr=d.rates[c.k]; if(rr) state.tools.fxRates[c.k]=Math.round((krw/rr)*10000)/10000; });
-      state.tools.fxUpdated=todayStr(); fxFetched=true; save();
-      renderFxRateField(); renderFx();
-      if(manual) showToast('최신 환율을 불러왔어요.');
-    }).catch(function(){
-      if(manual) showToast('환율을 불러오지 못했어요. 저장된 환율을 사용합니다.');
-    }).then(function(){ if(els.fxRefresh) els.fxRefresh.textContent='↻ 최신환율'; });
-  }
-  function bindFx(){
-    els.fxCur.addEventListener('change', function(){ renderFxRateField(); renderFx(); });
-    els.fxDir.addEventListener('change', renderFx);
-    els.fxAmount.addEventListener('input', function(){ renderFx(); });
-    els.fxRate.addEventListener('input', function(){
-      var cur=els.fxCur.value; var v=parseFloat(els.fxRate.value)||0;
-      if(!state.tools.fxRates) state.tools.fxRates={};
-      state.tools.fxRates[cur]=v;
-      state.tools.fxUpdated = todayStr();
-      save(); renderFx();
-    });
-    els.fxRefresh.addEventListener('click', function(){ fetchFxRates(true); });
-  }
-
-  function setToolPanel(t){
-    Array.prototype.forEach.call(els.toolsNav.querySelectorAll('.cat-btn'),function(b){b.classList.toggle('active',b.getAttribute('data-tool')===t);});
-    ['basic','vat','discount','unit','fx'].forEach(function(x){ document.getElementById('tool-'+x).classList.toggle('active',x===t); });
-    if(t==='fx' && !fxFetched) fetchFxRates(false);
-  }
-  function renderToolsAll(){
-    els.vatRate.value = (state.tools&&state.tools.vatRate)!=null?state.tools.vatRate:10;
-    renderVat(); renderDc(); renderUnit(); renderFxRateField(); renderFx();
-  }
+  function renderToolsAll(){ renderConv(); }
   function initTools(){
     if(!state.tools) state.tools={};
     if(!state.tools.fxRates) state.tools.fxRates={USD:1340,CNY:185,JPY:9,EUR:1450,VND:0.055,THB:38};
-    if(state.tools.vatRate==null) state.tools.vatRate=10;
     if(!state.calcHistory) state.calcHistory=[];
-    els.toolsNav.addEventListener('click', function(e){ var t=e.target.closest('.cat-btn'); if(t) setToolPanel(t.getAttribute('data-tool')); });
-    bindBasic(); bindVat(); bindDc(); bindUnit(); bindFx();
-    populateFxCur(); renderFxRateField(); renderUnit();
-    bcClear(); renderToolsAll();
+    var cp=state.tools.calc||{};
+    cmode=cp.mode||'basic'; unitCat=cp.unitCat||'weight'; uFrom=cp.uFrom||'kg'; uTo=cp.uTo||'g';
+    fxFrom=cp.fxFrom||'USD'; fxTo=cp.fxTo||'KRW'; dcRate=cp.dcRate||10; vatTop=cp.vatTop||'supply';
+    bindBasic(); bindConv();
+    bcClear(); renderConv();
   }
 
   function init(){
